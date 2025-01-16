@@ -15,7 +15,7 @@ export default {
         info: "#17a2b8",
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
       },
     },
   },

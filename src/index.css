@@ -29,3 +29,11 @@
     @apply bg-secondary text-white hover:bg-gray-600;
   }
 }
+
+/* Import Google Font (for example) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Apply to everything */
+* {
+  font-family: 'Poppins', sans-serif;
+}

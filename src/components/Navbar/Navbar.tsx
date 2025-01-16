@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/CDP_White-01.png';
 
@@ -24,6 +24,40 @@ const moreDropdownItems: DropdownItem[] = [
 export function Navbar() {
   const [isSupplyOpen, setIsSupplyOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
+
+  // Add timeout ref to handle delayed closing
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = (setter: (value: boolean) => void) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setter(true);
+  };
+
+  const handleMouseLeave = (setter: (value: boolean) => void) => {
+    timeoutRef.current = setTimeout(() => {
+      setter(false);
+    }, 300); // 300ms delay before closing
+  };
+
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  const supplyDropdownItems = [
+    { label: 'Chewing Items', count: 25, path: '/supply/chewing-items' },
+    { label: 'Essentials', count: 8, path: '/supply/essentials' },
+    { label: 'Holiday Toys', count: 21, path: '/supply/holiday-toys' },
+    { label: 'Collars, Leashes & Harnesses', count: 19, path: '/supply/collars-leashes' },
+    { label: 'Puzzles, Bowls & Accessories', count: 8, path: '/supply/accessories' },
+    { label: 'Toys', count: 34, path: '/supply/toys' },
+  ];
 
   return (
     <nav className="bg-[#003B6D] text-white">
@@ -54,19 +88,21 @@ export function Navbar() {
 
             {/* Supply Dropdown */}
             <div className="relative group">
-              <button
-                className="flex items-center hover:text-blue-200 transition-colors"
-                onMouseEnter={() => setIsSupplyOpen(true)}
-                onMouseLeave={() => setIsSupplyOpen(false)}
+              <div
+                className="flex items-center hover:text-blue-200 transition-colors cursor-pointer"
+                onMouseEnter={() => handleMouseEnter(setIsSupplyOpen)}
+                onMouseLeave={() => handleMouseLeave(setIsSupplyOpen)}
               >
-                SUPPLY
-                <span className="ml-1">🐾</span>
-              </button>
+                <Link to="/supply" className="mr-1">
+                  SUPPLY
+                </Link>
+                <span>🐾</span>
+              </div>
               {isSupplyOpen && (
                 <div
-                  className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 z-50"
-                  onMouseEnter={() => setIsSupplyOpen(true)}
-                  onMouseLeave={() => setIsSupplyOpen(false)}
+                  className="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 z-50"
+                  onMouseEnter={() => handleMouseEnter(setIsSupplyOpen)}
+                  onMouseLeave={() => handleMouseLeave(setIsSupplyOpen)}
                 >
                   {supplyDropdownItems.map((item) => (
                     <Link
@@ -74,7 +110,10 @@ export function Navbar() {
                       to={item.path}
                       className="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-[#003B6D]"
                     >
-                      {item.label}
+                      <div className="flex justify-between items-center">
+                        <span>{item.label}</span>
+                        <span className="text-sm text-gray-500">{item.count} items</span>
+                      </div>
                     </Link>
                   ))}
                 </div>
@@ -85,8 +124,8 @@ export function Navbar() {
             <div className="relative group">
               <button
                 className="flex items-center hover:text-blue-200 transition-colors"
-                onMouseEnter={() => setIsMoreOpen(true)}
-                onMouseLeave={() => setIsMoreOpen(false)}
+                onMouseEnter={() => handleMouseEnter(setIsMoreOpen)}
+                onMouseLeave={() => handleMouseLeave(setIsMoreOpen)}
               >
                 MORE
                 <span className="ml-1">🐾</span>
@@ -94,8 +133,8 @@ export function Navbar() {
               {isMoreOpen && (
                 <div
                   className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50"
-                  onMouseEnter={() => setIsMoreOpen(true)}
-                  onMouseLeave={() => setIsMoreOpen(false)}
+                  onMouseEnter={() => handleMouseEnter(setIsMoreOpen)}
+                  onMouseLeave={() => handleMouseLeave(setIsMoreOpen)}
                 >
                   {moreDropdownItems.map((item) => (
                     <Link
