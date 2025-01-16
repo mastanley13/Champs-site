@@ -40,19 +40,82 @@ http://localhost:5173
 - React Query
 - Material-UI
 
-## 📁 Project Structure
+## 📁 Project Structure and Directory Guidelines
+
 ```
 src/
-├── assets/         # Images, fonts, and other static files
-├── components/     # Reusable components
-│   ├── Layout/     # Layout components
-│   └── Navbar/     # Navigation components
+├── assets/         # Static assets (images, fonts, icons)
+├── components/     # Reusable UI components
 ├── pages/          # Page components
-├── styles/         # Global styles
+├── styles/         # Global styles and themes
 ├── hooks/          # Custom React hooks
 ├── utils/          # Utility functions
-└── services/       # API services
+└── services/       # API and external services
 ```
+
+### Directory Usage Guidelines
+
+#### 📄 Pages Directory (`src/pages/`)
+- Contains ONLY page-level components
+- Each page should be in its own file (e.g., `Home.tsx`, `About.tsx`)
+- Pages should focus on layout and data fetching
+- Currently includes:
+  - Home
+  - Daycare
+  - Boarding
+  - Grooming
+  - Training
+  - Supply
+  - Contact
+  - About
+
+#### 🧩 Components Directory (`src/components/`)
+- ALL reusable components go here, regardless of which page uses them
+- Organize by feature or type (e.g., `Layout/`, `Forms/`, `UI/`)
+- Each component should have its own directory with related files
+- Example structure:
+  ```
+  components/
+  ├── Layout/
+  │   ├── Layout.tsx
+  │   └── Footer.tsx
+  ├── Navbar/
+  │   └── Navbar.tsx
+  └── UI/
+      ├── Button.tsx
+      └── Card.tsx
+  ```
+
+#### 🖼️ Assets Directory (`src/assets/`)
+- Store ALL static files:
+  - Images (`.png`, `.jpg`, `.svg`)
+  - Fonts
+  - Icons
+  - Other media files
+- Use subdirectories for organization (e.g., `images/`, `fonts/`)
+
+#### 🎨 Styles Directory (`src/styles/`)
+- Global styles and theme configurations
+- Tailwind CSS customizations
+- Shared style utilities
+- No component-specific styles (those should be with their components)
+
+#### 🪝 Hooks Directory (`src/hooks/`)
+- Custom React hooks ONLY
+- Each hook should be in its own file
+- Examples: `useAuth.ts`, `useForm.ts`, `useApi.ts`
+
+#### 🛠️ Utils Directory (`src/utils/`)
+- Helper functions and utilities
+- Constants and configuration
+- Type definitions
+- Pure functions only (no React components)
+
+#### 🌐 Services Directory (`src/services/`)
+- API calls and external service integrations
+- Service layer abstractions
+- API types and interfaces
+- Example: `api.ts`, `auth.service.ts`
 
 ## 🔧 Available Scripts
 
