@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { Navbar } from '../Navbar/Navbar';
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,41 +9,7 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="bg-white shadow-sm">
-        <nav className="container mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <Link to="/" className="text-xl font-bold text-primary">
-              Champs
-            </Link>
-            <div className="space-x-6">
-              <Link to="/" className="text-gray-600 hover:text-primary">
-                Home
-              </Link>
-              <Link to="/daycare" className="text-gray-600 hover:text-primary">
-                Daycare
-              </Link>
-              <Link to="/boarding" className="text-gray-600 hover:text-primary">
-                Boarding
-              </Link>
-              <Link to="/grooming" className="text-gray-600 hover:text-primary">
-                Grooming
-              </Link>
-              <Link to="/training" className="text-gray-600 hover:text-primary">
-                Training
-              </Link>
-              <Link to="/supply" className="text-gray-600 hover:text-primary">
-                Supply
-              </Link>
-              <Link to="/contact" className="text-gray-600 hover:text-primary">
-                Contact
-              </Link>
-              <Link to="/about" className="text-gray-600 hover:text-primary">
-                About Us
-              </Link>
-            </div>
-          </div>
-        </nav>
-      </header>
+      <Navbar />
 
       <main className="flex-grow container mx-auto px-4 py-8">
         {children}
