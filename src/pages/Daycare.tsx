@@ -58,7 +58,22 @@ export function DaycarePage() {
   return (
     <PageLayout 
       title="Dog Daycare"
-      subtitle="A safe and fun environment for your furry friend"
+      subtitle={
+        <>
+          A safe and fun environment for your furry friend
+          <div className="mt-8">
+            <Link 
+              to="/daycare/book"
+              className="bg-white text-blue-900 px-8 py-3 rounded-full text-lg font-semibold 
+                       hover:bg-blue-50 transition-all duration-300 shadow-lg 
+                       hover:shadow-xl inline-flex items-center"
+            >
+              Schedule Evaluation
+              <span className="ml-2">→</span>
+            </Link>
+          </div>
+        </>
+      }
     >
       {/* Features Grid */}
       <section className="py-16 bg-white">

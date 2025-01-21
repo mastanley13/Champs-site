@@ -6,7 +6,7 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-export function Layout({ children }: LayoutProps) {
+export const Layout = ({ children }: LayoutProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
@@ -139,4 +139,4 @@ export function Layout({ children }: LayoutProps) {
       </footer>
     </div>
   );
-} 
+}; 

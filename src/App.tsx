@@ -1,13 +1,13 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
-import { HomePage } from './pages/Home/index';
+import { HomePage } from './pages/Home';
 import { AboutPage } from './pages/About';
 import { GroomingPage } from './pages/Grooming';
 import { TrainingPage } from './pages/Training';
 import { DaycarePage } from './pages/Daycare';
 import { BoardingPage } from './pages/Boarding';
 import { ContactPage } from './pages/Contact';
-import SupplyPage from './pages/Supply/index';
+import { SupplyPage } from './pages/Supply/index';
 import { ExternalRedirect } from './components/ExternalRedirect';
 
 // Constants for external URLs
@@ -25,6 +25,7 @@ export default function App() {
 
   return (
     <Layout>
+      <h1>Hello World</h1>
       <Routes>
         {/* Main Routes */}
         <Route path="/" element={<HomePage />} />
