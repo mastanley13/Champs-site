@@ -4,7 +4,7 @@ import { WaveTransition } from './WaveTransition';
 interface PageLayoutProps {
   children: ReactNode;
   title: string;
-  subtitle?: string;
+  subtitle: ReactNode;
 }
 
 export function PageLayout({ children, title, subtitle }: PageLayoutProps) {

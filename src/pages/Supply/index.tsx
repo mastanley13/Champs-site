@@ -1,15 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { PageLayout } from '../../components/PageLayout';
-
-const placeholderImages = {
-  'Chewing Items': '/images/placeholders/chewing.jpg',
-  'Essentials': '/images/placeholders/essentials.jpg',
-  'Holiday Toys': '/images/placeholders/holiday.jpg',
-  'Collars, Leashes & Harnesses': '/images/placeholders/collars.jpg',
-  'Puzzles, Bowls & Accessories': '/images/placeholders/puzzles.jpg',
-  'Training Toys': '/images/placeholders/toys.jpg'
-};
 
 export function SupplyPage() {
   const categories = [
@@ -18,7 +8,7 @@ export function SupplyPage() {
       count: 25,
       path: '/shop/chewing-items',
       description: 'Durable chew toys and natural treats',
-      imageUrl: 'https://championdogproducts.com/cdn/shop/collections/chewing.jpg',
+      imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6790001f5d20c8992a74b33d.webp',
       fallbackImage: '/images/placeholders/chewing.jpg',
       featured: ['Bully Sticks', 'Kong Toys', 'Natural Chews']
     },
@@ -27,7 +17,7 @@ export function SupplyPage() {
       count: 8,
       path: '/shop/essentials',
       description: 'Must-have training tools and equipment',
-      imageUrl: 'https://championdogproducts.com/cdn/shop/collections/essentials.jpg',
+      imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6790001b798d3afbbfa654e5.webp',
       fallbackImage: '/images/placeholders/essentials.jpg',
       featured: ['Training Clickers', 'Treat Pouches', 'Training Leads']
     },
@@ -36,7 +26,7 @@ export function SupplyPage() {
       count: 21,
       path: '/shop/holiday-toys',
       description: 'Seasonal and festive toys for special occasions',
-      imageUrl: 'https://championdogproducts.com/cdn/shop/collections/holiday.jpg',
+      imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/679000175d20c850c974b338.webp',
       fallbackImage: '/images/placeholders/holiday.jpg',
       featured: ['Christmas Toys', 'Halloween Toys', 'Birthday Sets']
     },
@@ -45,7 +35,7 @@ export function SupplyPage() {
       count: 19,
       path: '/shop/collars-leashes-harnesses',
       description: 'Professional-grade walking and training equipment',
-      imageUrl: 'https://championdogproducts.com/cdn/shop/collections/collars.jpg',
+      imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/679000158020bf076c45d623.webp',
       fallbackImage: '/images/placeholders/collars.jpg',
       featured: ['Training Collars', 'No-Pull Harnesses', 'Leather Leashes']
     },
@@ -54,7 +44,7 @@ export function SupplyPage() {
       count: 8,
       path: '/shop/puzzles-bowls',
       description: 'Interactive toys and feeding solutions',
-      imageUrl: 'https://championdogproducts.com/cdn/shop/collections/puzzles.jpg',
+      imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67900013f8a81ce3d6ea7833.webp',
       fallbackImage: '/images/placeholders/puzzles.jpg',
       featured: ['Slow Feeders', 'Puzzle Toys', 'Interactive Games']
     },
@@ -63,7 +53,7 @@ export function SupplyPage() {
       count: 34,
       path: '/shop/toys',
       description: 'Engaging toys for positive reinforcement',
-      imageUrl: 'https://championdogproducts.com/cdn/shop/collections/toys.jpg',
+      imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67900011985d820341c918d4.webp',
       fallbackImage: '/images/placeholders/toys.jpg',
       featured: ['Reward Toys', 'Tug Toys', 'Training Dummies']
     }
@@ -96,7 +86,7 @@ export function SupplyPage() {
     <PageLayout 
       title="Champion Dog Products"
       subtitle={
-        <>
+        <div className="text-white">
           Professional-grade training tools and supplies to support your dog's development and happiness
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
             <Link 
@@ -118,7 +108,7 @@ export function SupplyPage() {
               <span className="ml-2">→</span>
             </Link>
           </div>
-        </>
+        </div>
       }
     >
       {/* Benefits Section */}
@@ -142,40 +132,51 @@ export function SupplyPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16 text-blue-900">Shop by Category</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-[1200px] mx-auto">
             {categories.map((category) => (
               <Link
                 key={category.title}
                 to={category.path}
-                className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                className="group bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 flex flex-col"
               >
-                <div className="aspect-w-16 aspect-h-9 bg-gray-100">
+                <div className="w-full h-[240px] relative">
                   <img 
                     src={category.imageUrl}
                     alt={`${category.title} category`}
-                    className="object-cover w-full h-48"
-                    onError={(e) => {
-                      e.currentTarget.src = category.fallbackImage || '/images/placeholders/default.jpg';
-                    }}
+                    className="w-full h-full object-cover hover:scale-102 transition-transform duration-300"
                     style={{
-                      backgroundColor: '#f3f4f6',
-                      backgroundImage: "url('/images/placeholders/loading.svg')",
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundSize: '48px'
+                      objectFit: 'cover',
+                      objectPosition: (() => {
+                        switch(category.title) {
+                          case 'Holiday Toys':
+                            return 'center 20%';
+                          case 'Puzzles, Bowls & Accessories':
+                            return 'center 25%';
+                          case 'Chewing Items':
+                            return 'center 35%';
+                          case 'Training Toys':
+                            return 'center 35%';
+                          case 'Collars, Leashes & Harnesses':
+                            return 'center 40%';
+                          case 'Essentials':
+                            return 'center 40%';
+                          default:
+                            return 'center';
+                        }
+                      })()
                     }}
                   />
                 </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold text-blue-900">{category.title}</h3>
-                    <span className="text-sm text-blue-600 font-semibold">{category.count} items</span>
+                <div className="p-5">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-base font-bold text-blue-900">{category.title}</h3>
+                    <span className="text-xs text-blue-600 font-medium">{category.count} items</span>
                   </div>
-                  <p className="text-gray-600 mb-4">{category.description}</p>
+                  <p className="text-gray-600 text-sm mb-3">{category.description}</p>
                   <div className="space-y-2">
                     {category.featured.map((item) => (
-                      <div key={item} className="text-sm text-gray-500 flex items-center">
-                        <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                      <div key={item} className="text-xs text-gray-500 flex items-center">
+                        <span className="w-1 h-1 bg-blue-500 rounded-full mr-2"></span>
                         {item}
                       </div>
                     ))}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const COLORS = {
@@ -16,6 +16,7 @@ const COLORS = {
 
 export function HomePage() {
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,120 +42,219 @@ export function HomePage() {
     document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex: number) => 
+        prevIndex === carouselImages.length - 3 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const services = [
     {
       title: "Dog Training",
-      description: "Transform your dog's behavior with our proven methods",
-      icon: "/images/services/training-icon.svg",
+      description: "Transform your dog's behavior with our professional training programs.",
       path: "/training",
-      features: ["Behavior Modification", "Puppy Training", "Advanced Commands"]
+      image: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67863246b6255b7e0e1e11de.jpeg"
     },
     {
       title: "Grooming",
-      description: "Premium grooming services tailored to your pet",
-      icon: "/images/services/grooming-icon.svg",
+      description: "Keep your pet looking and feeling their best with our grooming services.",
       path: "/grooming",
-      features: ["Breed-Specific Cuts", "Spa Treatments", "Health Checks"]
+      image: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862dba1842f2282be4c512.jpeg"
     },
     {
       title: "Daycare",
-      description: "Enriching daycare experience for social development",
-      icon: "/images/services/daycare-icon.svg",
+      description: "Give your dog a fun-filled day of play and socialization.",
       path: "/daycare",
-      features: ["Supervised Play", "Social Integration", "Daily Activities"]
+      image: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db91842f25e6ae4c50f.jpeg"
     },
     {
       title: "Boarding",
-      description: "Luxury boarding in a home-like environment",
-      icon: "/images/services/boarding-icon.svg",
+      description: "A home away from home for your pet when you're away.",
       path: "/boarding",
-      features: ["24/7 Care", "Comfortable Suites", "Daily Updates"]
+      image: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db9b6ea2b5fb322e433.jpeg"
+    }
+  ];
+
+  const carouselImages = [
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862dba1842f2282be4c512.jpeg",
+      alt: "Dog Training Image 1"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862dbab16f9bd03f86f6b6.jpeg",
+      alt: "Dog Training Image 2"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db95418dbe2e290e254.jpeg",
+      alt: "Dog Training Image 3"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862dbab6255b64a01e0cc2.jpeg",
+      alt: "Dog Training Image 4"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862dba5418dbe27c90e255.jpeg",
+      alt: "Dog Training Image 5"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db9b6ea2b5e0922e431.jpeg",
+      alt: "Dog Training Image 6"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db9b6ea2b663c22e432.jpeg",
+      alt: "Dog Training Image 7"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862dba5418db404d90e256.jpeg",
+      alt: "Dog Training Image 8"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67863246b6255b2efb1e11dd.jpeg",
+      alt: "Dog Training Image 9"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67863246b6255b7e0e1e11de.jpeg",
+      alt: "Dog Training Image 10"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67863246b16f9b430386fa2e.jpeg",
+      alt: "Dog Training Image 11"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/678fb227d0f2ba1d4e43e2f9.png",
+      alt: "Dog Training Image 12"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/678fb227d0f2ba139143e2fc.png",
+      alt: "Dog Training Image 13"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/678fb2270709929b90523cb9.png",
+      alt: "Dog Training Image 14"
     }
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-[#3B4B96]">
-        <div ref={parallaxRef} className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-radial from-[#3B4B96] via-[#3B4B96] to-[#2A3875]"></div>
-          <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-5"></div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67901f515d20c8187874d07b.webp" 
+            alt="Modern Dog House"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#3B4B96]/80 via-[#3B4B96]/60 to-transparent"></div>
         </div>
 
-        <div className="relative z-10 container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-7xl md:text-8xl font-bold mb-8 text-white leading-none animate-float">
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-6 md:px-12">
+          <div className="max-w-4xl">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-white leading-tight">
               Champion Dogs,
               <br />
               <span className="text-[#8E9BDB] block mt-2">Happy Homes</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 max-w-2xl leading-relaxed">
               Experience the transformation as we turn your beloved pet into a 
               well-behaved family champion.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 to="/training"
-                className="group relative bg-white text-[#3B4B96] px-10 py-4 rounded-full 
-                         font-semibold overflow-hidden"
+                className="inline-block bg-white text-[#3B4B96] px-8 py-4 rounded-full 
+                         font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
+                         shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                <span className="relative z-10">Begin Your Journey</span>
-                {/* Shine effect */}
-                <div className="absolute inset-0 w-[200%] translate-x-[-100%] 
-                                group-hover:translate-x-[50%] transition-transform duration-1000
-                                bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                Begin Your Journey
               </Link>
-              <button className="group flex items-center text-white">
+              <button 
+                className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
+                           transition-all duration-300"
+              >
                 <span className="w-12 h-12 rounded-full border-2 border-white 
                                flex items-center justify-center mr-4
-                               animate-pulse bg-[#E63946]/20">
+                               group-hover:border-[#8E9BDB] group-hover:bg-white/10
+                               transition-all duration-300">
                   ▶
                 </span>
-                <span className="group-hover:text-[#E63946] transition-colors duration-300">
-                  Watch Our Story
-                </span>
+                Watch Our Story
               </button>
             </div>
           </div>
         </div>
+      </section>
 
-        <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
-          <svg 
-            className="w-full h-24" 
-            viewBox="0 0 1200 120" 
-            preserveAspectRatio="none"
-            style={{ transform: 'rotate(180deg)' }}
-          >
-            {/* Base white waves */}
-            <path 
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              className="fill-white animate-wave"
-            />
-            
-            <path 
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              className="fill-white/20 animate-wave-slow"
-            />
+      {/* Image Carousel Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="relative overflow-hidden">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentImageIndex * (100 / 3)}%)` }}
+              >
+                {carouselImages.map((image, index) => (
+                  <div 
+                    key={index}
+                    className="w-1/3 flex-shrink-0 px-4"
+                  >
+                    <div className="aspect-[4/3] relative rounded-xl overflow-hidden">
+                      <img 
+                        src={image.src}
+                        alt={image.alt}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-            {/* Gradient-width red stroke */}
-            <path 
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3"
-              fill="none"
-              stroke="url(#redStrokeGradient)"
-              strokeWidth="5"
-              className="animate-wave"
-              vectorEffect="non-scaling-stroke"
-            />
+              {/* Navigation Arrows */}
+              <button 
+                onClick={() => setCurrentImageIndex(prev => 
+                  prev === 0 ? carouselImages.length - 3 : prev - 1
+                )}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 
+                          bg-white/90 hover:bg-white w-10 h-10 rounded-full shadow-lg
+                          flex items-center justify-center transition-all duration-300"
+                aria-label="Previous images"
+              >
+                <span className="text-blue-900">‹</span>
+              </button>
+              <button 
+                onClick={() => setCurrentImageIndex(prev => 
+                  prev === carouselImages.length - 3 ? 0 : prev + 1
+                )}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 
+                          bg-white/90 hover:bg-white w-10 h-10 rounded-full shadow-lg
+                          flex items-center justify-center transition-all duration-300"
+                aria-label="Next images"
+              >
+                <span className="text-blue-900">›</span>
+              </button>
+            </div>
 
-            {/* Define gradient for stroke width */}
-            <defs>
-              <linearGradient id="redStrokeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#E63946" stopOpacity="0" />
-                <stop offset="50%" stopColor="#E63946" stopOpacity="1" />
-                <stop offset="100%" stopColor="#E63946" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-          </svg>
+            {/* Carousel Navigation Dots */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {Array.from({ length: Math.ceil(carouselImages.length / 3) }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index * 3)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 
+                    ${Math.floor(currentImageIndex / 3) === index 
+                      ? 'bg-blue-900 w-4' 
+                      : 'bg-gray-300'}`}
+                  aria-label={`Go to image set ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -177,40 +277,33 @@ export function HomePage() {
               <Link
                 key={service.title}
                 to={service.path}
-                className="group bg-white rounded-2xl p-8 
-                         transform transition-all duration-300 ease-in-out
-                         hover:scale-105 hover:shadow-xl
-                         border border-gray-100 relative overflow-hidden"
+                className="group bg-white rounded-2xl overflow-hidden hover:shadow-xl 
+                           transition-all duration-300 flex flex-col h-[420px]"
               >
-                {/* Red line that slides in from top */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-[#E63946] 
-                                transform -translate-y-full group-hover:translate-y-0 
-                                transition-transform duration-500"></div>
+                {/* Image Container - Top Half */}
+                <div className="w-full h-48 relative">
+                  <img 
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 
-                <div className="relative z-10">
-                  <div className="mb-6 relative">
-                    <div className="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center 
-                                 group-hover:bg-blue-100 transition-colors duration-300">
-                      <img src={service.icon} alt={service.title} className="w-8 h-8" />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 text-blue-900">{service.title}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                  <ul className="space-y-3 mb-8">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center text-gray-500">
-                        <svg className="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-800 transition-colors">
+                {/* Content Container - Bottom Half */}
+                <div className="flex-1 bg-gray-50 p-6 flex flex-col">
+                  <h3 className="text-xl font-bold mb-3 text-blue-900">{service.title}</h3>
+                  <p className="text-gray-600 text-sm flex-1">{service.description}</p>
+                  <div className="flex items-center text-blue-600 font-semibold 
+                                group-hover:text-blue-800 transition-colors mt-4">
                     Explore Service
                     <span className="ml-2 transform group-hover:translate-x-2 transition-transform">→</span>
                   </div>
                 </div>
+
+                {/* Hover Effect Line */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-[#E63946] 
+                              transform -translate-y-full group-hover:translate-y-0 
+                              transition-transform duration-500"></div>
               </Link>
             ))}
           </div>

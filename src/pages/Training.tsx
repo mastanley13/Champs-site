@@ -1,5 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { PageLayout } from '../components/PageLayout';
 
 export function TrainingPage() {
@@ -49,12 +49,66 @@ export function TrainingPage() {
     }
   ];
 
+  // Add state for carousel
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/677bcb616419fd2fc598a1b1.png",
+      alt: "Champion Puppy Training Programs Overview"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/677bcb618f9556f36399044e.png",
+      alt: "One-on-One Puppy Training"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/677bcb61fa02bd49e0fbf9f1.png",
+      alt: "Champ's Dog House Services: Daycare, Boarding, Grooming, and Mobile Grooming"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/677bcb61b0a11f1f05c7a643.png",
+      alt: "Terms and Conditions"
+    },
+    {
+      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/677bcb618f955610a699044d.png", 
+      alt: "Back to School Special - Buy One Get One Half Off All Bones"
+    }
+  ];
+
+  // Auto-rotate images
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex: number) => 
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // Handle manual navigation
+  const goToImage = (index: number) => {
+    setCurrentImageIndex(index);
+  };
+
+  const goToPrevious = () => {
+    setCurrentImageIndex((prevIndex: number) => 
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentImageIndex((prevIndex: number) => 
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   return (
     <PageLayout 
-      title="Dog Training"
+      title="Dog Training That Works!"
       subtitle={
         <>
-          Over 20 years of experience helping families create well-behaved, happy puppies
+          Professional Dog Training Services in Burlington County. Over 20 years of experience 
+          helping families create well-behaved, happy puppies.
           <div className="mt-8">
             <Link 
               to="/training/consultation"
@@ -69,6 +123,22 @@ export function TrainingPage() {
         </>
       }
     >
+      {/* Video Background */}
+      <div className="relative mb-16">
+        <video 
+          className="w-full max-w-4xl mx-auto rounded-lg shadow-lg"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source 
+            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/677bc9abd4ebc4dd42ce1e58.mp4" 
+            type="video/mp4" 
+          />
+        </video>
+      </div>
+
       {/* Training Topics Grid */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -127,6 +197,85 @@ export function TrainingPage() {
                 </Link>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Image Carousel Section */}
+      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-blue-900">Our Training in Action</h2>
+          <div className="max-w-5xl mx-auto">
+            <div className="relative">
+              <div className="bg-white rounded-2xl shadow-xl p-6 overflow-hidden">
+                <div 
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+                >
+                  {images.map((image, index) => (
+                    <div 
+                      key={index}
+                      className="w-full flex-shrink-0 px-4"
+                    >
+                      <div className="aspect-[16/9] relative bg-gray-100 rounded-lg">
+                        <img 
+                          src={image.src}
+                          alt={image.alt}
+                          className="absolute inset-0 w-full h-full object-contain rounded-lg"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Navigation Arrows */}
+              <button 
+                onClick={goToPrevious}
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 
+                          bg-white/90 hover:bg-white w-12 h-12 rounded-full shadow-lg
+                          flex items-center justify-center transition-all duration-300
+                          border border-gray-200 hover:scale-110"
+                aria-label="Previous image"
+              >
+                <span className="text-blue-900 text-2xl">‹</span>
+              </button>
+              <button 
+                onClick={goToNext}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 
+                          bg-white/90 hover:bg-white w-12 h-12 rounded-full shadow-lg
+                          flex items-center justify-center transition-all duration-300
+                          border border-gray-200 hover:scale-110"
+                aria-label="Next image"
+              >
+                <span className="text-blue-900 text-2xl">›</span>
+              </button>
+            </div>
+
+            {/* Carousel Navigation */}
+            <div className="mt-8">
+              <div className="flex justify-center space-x-3 mb-4">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToImage(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 
+                      ${currentImageIndex === index 
+                        ? 'bg-blue-900 scale-110' 
+                        : 'bg-gray-300 hover:bg-gray-400'}`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <div className="text-center">
+                <p className="text-gray-600 mb-2">
+                  {currentImageIndex + 1} of {images.length}
+                </p>
+                <p className="text-blue-900 font-semibold">
+                  Voted Best of Burlington County 2024
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
