@@ -142,19 +142,23 @@ export function HomePage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img 
-            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67901f515d20c8187874d07b.webp" 
-            alt="Modern Dog House"
-            className="w-full h-full object-cover"
+        {/* Blue Background */}
+        <div className="absolute inset-0 bg-[#003B6D] w-full md:w-1/2"></div>
+        
+        {/* Image Container */}
+        <div className="absolute inset-0 ml-auto w-full md:w-1/2">
+          <img
+            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67901f515d20c8187874d07b.webp"
+            alt="Champion Dog Products Background"
+            className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#3B4B96]/80 via-[#3B4B96]/60 to-transparent"></div>
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#003B6D] via-[#003B6D]/30 to-transparent"></div>
         </div>
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-6 md:px-12">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl md:ml-[-100px]">
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-white leading-tight">
               Champion Dogs,
               <br />
@@ -167,7 +171,7 @@ export function HomePage() {
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 to="/training"
-                className="inline-block bg-white text-[#3B4B96] px-8 py-4 rounded-full 
+                className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >

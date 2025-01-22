@@ -1,19 +1,28 @@
 import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/CDP_White-01.png';
 
 interface DropdownItem {
   label: string;
   path: string;
+  count?: number;
 }
 
+const navigationItems = [
+  { label: 'HOME', path: '/' },
+  { label: 'DAYCARE', path: '/daycare' },
+  { label: 'BOARDING', path: '/boarding' },
+  { label: 'GROOMING', path: '/grooming' },
+  { label: 'TRAINING', path: '/training' },
+];
+
 const supplyDropdownItems: DropdownItem[] = [
-  { label: 'Chewing Items', path: '/supply/chewing-items' },
-  { label: 'Puzzles & Bowls', path: '/supply/puzzles-bowls' },
-  { label: 'Collars, Leashes, & Harness', path: '/supply/collars-leashes' },
-  { label: 'Cots, Crates, & Bedding', path: '/supply/bedding' },
-  { label: 'Toys', path: '/supply/toys' },
-  { label: 'Accessories', path: '/supply/accessories' },
+  { label: 'Chewing Items', path: '/supply/chewing-items', count: 25 },
+  { label: 'Essentials', path: '/supply/essentials', count: 8 },
+  { label: 'Holiday Toys', path: '/supply/holiday-toys', count: 21 },
+  { label: 'Collars, Leashes & Harnesses', path: '/supply/collars-leashes', count: 19 },
+  { label: 'Puzzles, Bowls & Accessories', path: '/supply/accessories', count: 8 },
+  { label: 'Toys', path: '/supply/toys', count: 34 },
 ];
 
 const moreDropdownItems: DropdownItem[] = [
@@ -24,43 +33,80 @@ const moreDropdownItems: DropdownItem[] = [
 export function Navbar() {
   const [isSupplyOpen, setIsSupplyOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
-
-  // Add timeout ref to handle delayed closing
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
+  const location = useLocation();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const mobileButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setActiveMobileDropdown(null);
+  }, [location]);
+
+  // Handle click outside to close dropdowns and mobile menu
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (!isMobileMenuOpen) return;
+      
+      const target = event.target as HTMLElement;
+      const mobileMenu = mobileMenuRef.current;
+      const mobileButton = mobileButtonRef.current;
+
+      if (!mobileMenu || !mobileButton) return;
+
+      if (!mobileMenu.contains(target) && !mobileButton.contains(target)) {
+        setIsMobileMenuOpen(false);
+        setActiveMobileDropdown(null);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMobileMenuOpen]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
 
   const handleMouseEnter = (setter: (value: boolean) => void) => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setter(true);
   };
 
   const handleMouseLeave = (setter: (value: boolean) => void) => {
-    timeoutRef.current = setTimeout(() => {
-      setter(false);
-    }, 300); // 300ms delay before closing
+    timeoutRef.current = setTimeout(() => setter(false), 300);
   };
 
-  // Clean up timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, []);
+  const toggleMobileDropdown = (dropdown: string) => {
+    setActiveMobileDropdown(activeMobileDropdown === dropdown ? null : dropdown);
+  };
 
-  const supplyDropdownItems = [
-    { label: 'Chewing Items', count: 25, path: '/supply/chewing-items' },
-    { label: 'Essentials', count: 8, path: '/supply/essentials' },
-    { label: 'Holiday Toys', count: 21, path: '/supply/holiday-toys' },
-    { label: 'Collars, Leashes & Harnesses', count: 19, path: '/supply/collars-leashes' },
-    { label: 'Puzzles, Bowls & Accessories', count: 8, path: '/supply/accessories' },
-    { label: 'Toys', count: 34, path: '/supply/toys' },
-  ];
+  const isActivePath = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <nav className="bg-[#003B6D] text-white relative">
+      {/* Overlay for mobile menu */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -68,39 +114,32 @@ export function Navbar() {
             <img src={logo} alt="Champion Dog Products" className="h-16" />
           </Link>
 
-          {/* Navigation Links */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="hover:text-blue-200 transition-colors">
-              HOME
-            </Link>
-            <Link to="/daycare" className="hover:text-blue-200 transition-colors">
-              DAYCARE
-            </Link>
-            <Link to="/boarding" className="hover:text-blue-200 transition-colors">
-              BOARDING
-            </Link>
-            <Link to="/grooming" className="hover:text-blue-200 transition-colors">
-              GROOMING
-            </Link>
-            <Link to="/training" className="hover:text-blue-200 transition-colors">
-              TRAINING
-            </Link>
+            {navigationItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`hover:text-blue-200 transition-colors ${
+                  isActivePath(item.path) ? 'text-blue-200 font-semibold' : ''
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
 
             {/* Supply Dropdown */}
             <div className="relative group">
               <div
-                className="flex items-center hover:text-blue-200 transition-colors cursor-pointer"
+                className={`flex items-center hover:text-blue-200 transition-colors cursor-pointer ${
+                  isActivePath('/supply') ? 'text-blue-200 font-semibold' : ''
+                }`}
                 onMouseEnter={() => handleMouseEnter(setIsSupplyOpen)}
                 onMouseLeave={() => handleMouseLeave(setIsSupplyOpen)}
               >
-                <Link to="/supply" className="mr-1">
-                  SUPPLY
-                </Link>
-                <svg 
-                  className="w-5 h-5 fill-[#E63946]" 
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8.35,3C9.53,2.83 10.78,4.12 11.14,5.9C11.5,7.67 10.85,9.25 9.67,9.43C8.5,9.61 7.24,8.32 6.87,6.54C6.51,4.77 7.17,3.19 8.35,3M15.5,3C16.69,3.19 17.35,4.77 17,6.54C16.62,8.32 15.37,9.61 14.19,9.43C13,9.25 12.35,7.67 12.72,5.9C13.08,4.12 14.33,2.83 15.5,3M3,7.6C4.14,7.11 5.69,8 6.5,9.55C7.26,11.13 7,12.79 5.87,13.28C4.74,13.77 3.2,12.89 2.41,11.32C1.62,9.75 1.9,8.08 3,7.6M21,7.6C22.1,8.08 22.38,9.75 21.59,11.32C20.8,12.89 19.26,13.77 18.13,13.28C17,12.79 16.74,11.13 17.5,9.55C18.31,8 19.86,7.11 21,7.6M19.33,18.38C19.37,19.32 18.65,20.36 17.79,20.75C16,21.57 13.88,19.87 11.89,19.87C9.9,19.87 7.76,21.64 6,20.75C5,20.26 4.31,18.96 4.44,17.88C4.62,16.39 6.41,15.59 7.47,14.5C8.88,13.09 9.88,10.44 11.89,10.44C13.89,10.44 14.95,13.05 16.3,14.5C17.41,15.72 19.26,16.75 19.33,18.38Z"/>
+                <Link to="/supply" className="mr-1">SUPPLY</Link>
+                <svg className="w-5 h-5 fill-[#E63946]" viewBox="0 0 512 512">
+                  <path d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5v1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3v-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z" />
                 </svg>
               </div>
               {isSupplyOpen && (
@@ -113,11 +152,13 @@ export function Navbar() {
                     <Link
                       key={item.path}
                       to={item.path}
-                      className="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-[#003B6D]"
+                      className={`block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-[#003B6D] ${
+                        isActivePath(item.path) ? 'bg-blue-50 text-[#003B6D]' : ''
+                      }`}
                     >
                       <div className="flex justify-between items-center">
                         <span>{item.label}</span>
-                        <span className="text-sm text-gray-500">{item.count} items</span>
+                        {item.count && <span className="text-sm text-gray-500">{item.count} items</span>}
                       </div>
                     </Link>
                   ))}
@@ -128,16 +169,15 @@ export function Navbar() {
             {/* More Dropdown */}
             <div className="relative group">
               <button
-                className="flex items-center hover:text-blue-200 transition-colors"
+                className={`flex items-center hover:text-blue-200 transition-colors ${
+                  isActivePath('/contact') || isActivePath('/about') ? 'text-blue-200 font-semibold' : ''
+                }`}
                 onMouseEnter={() => handleMouseEnter(setIsMoreOpen)}
                 onMouseLeave={() => handleMouseLeave(setIsMoreOpen)}
               >
                 MORE
-                <svg 
-                  className="w-5 h-5 ml-1 fill-[#E63946]" 
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8.35,3C9.53,2.83 10.78,4.12 11.14,5.9C11.5,7.67 10.85,9.25 9.67,9.43C8.5,9.61 7.24,8.32 6.87,6.54C6.51,4.77 7.17,3.19 8.35,3M15.5,3C16.69,3.19 17.35,4.77 17,6.54C16.62,8.32 15.37,9.61 14.19,9.43C13,9.25 12.35,7.67 12.72,5.9C13.08,4.12 14.33,2.83 15.5,3M3,7.6C4.14,7.11 5.69,8 6.5,9.55C7.26,11.13 7,12.79 5.87,13.28C4.74,13.77 3.2,12.89 2.41,11.32C1.62,9.75 1.9,8.08 3,7.6M21,7.6C22.1,8.08 22.38,9.75 21.59,11.32C20.8,12.89 19.26,13.77 18.13,13.28C17,12.79 16.74,11.13 17.5,9.55C18.31,8 19.86,7.11 21,7.6M19.33,18.38C19.37,19.32 18.65,20.36 17.79,20.75C16,21.57 13.88,19.87 11.89,19.87C9.9,19.87 7.76,21.64 6,20.75C5,20.26 4.31,18.96 4.44,17.88C4.62,16.39 6.41,15.59 7.47,14.5C8.88,13.09 9.88,10.44 11.89,10.44C13.89,10.44 14.95,13.05 16.3,14.5C17.41,15.72 19.26,16.75 19.33,18.38Z"/>
+                <svg className="w-5 h-5 ml-1 fill-[#E63946]" viewBox="0 0 512 512">
+                  <path d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5v1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3v-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z" />
                 </svg>
               </button>
               {isMoreOpen && (
@@ -150,7 +190,9 @@ export function Navbar() {
                     <Link
                       key={item.path}
                       to={item.path}
-                      className="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-[#003B6D]"
+                      className={`block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-[#003B6D] ${
+                        isActivePath(item.path) ? 'bg-blue-50 text-[#003B6D]' : ''
+                      }`}
                     >
                       {item.label}
                     </Link>
@@ -160,8 +202,13 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Menu Button - We'll implement mobile menu later */}
-          <button className="md:hidden p-2">
+          {/* Mobile Menu Button */}
+          <button
+            ref={mobileButtonRef}
+            className="md:hidden p-2 rounded-lg hover:bg-[#004d8a] transition-colors z-50"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
             <svg
               className="h-6 w-6"
               fill="none"
@@ -171,17 +218,127 @@ export function Navbar() {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path d="M4 6h16M4 12h16M4 18h16"></path>
+              {isMobileMenuOpen ? (
+                <path d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              )}
             </svg>
           </button>
         </div>
       </div>
-      
-      {/* Centered gradient line with wider solid section */}
+
+      {/* Mobile Menu */}
+      <div
+        ref={mobileMenuRef}
+        className={`fixed inset-y-0 right-0 w-64 bg-[#003B6D] transform transition-transform duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        } md:hidden shadow-xl z-50 overflow-y-auto`}
+      >
+        <div className="p-4 space-y-4">
+          {navigationItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`block py-2 hover:text-blue-200 transition-colors ${
+                isActivePath(item.path) ? 'text-blue-200 font-semibold' : ''
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+
+          {/* Mobile Supply Dropdown */}
+          <div>
+            <button
+              className={`w-full flex items-center justify-between py-2 hover:text-blue-200 transition-colors ${
+                isActivePath('/supply') ? 'text-blue-200 font-semibold' : ''
+              }`}
+              onClick={() => toggleMobileDropdown('supply')}
+            >
+              <span>SUPPLY</span>
+              <svg
+                className={`w-5 h-5 transform transition-transform duration-300 ${
+                  activeMobileDropdown === 'supply' ? 'rotate-180' : ''
+                }`}
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M7 10l5 5 5-5z" />
+              </svg>
+            </button>
+            <div
+              className={`pl-4 space-y-2 overflow-hidden transition-all duration-300 ${
+                activeMobileDropdown === 'supply' ? 'max-h-96 mt-2' : 'max-h-0'
+              }`}
+            >
+              {supplyDropdownItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`block py-2 text-sm hover:text-blue-200 transition-colors ${
+                    isActivePath(item.path) ? 'text-blue-200 font-semibold' : ''
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <div className="flex justify-between items-center">
+                    <span>{item.label}</span>
+                    {item.count && (
+                      <span className="text-sm text-blue-200">{item.count}</span>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile More Dropdown */}
+          <div>
+            <button
+              className={`w-full flex items-center justify-between py-2 hover:text-blue-200 transition-colors ${
+                isActivePath('/contact') || isActivePath('/about')
+                  ? 'text-blue-200 font-semibold'
+                  : ''
+              }`}
+              onClick={() => toggleMobileDropdown('more')}
+            >
+              <span>MORE</span>
+              <svg
+                className={`w-5 h-5 transform transition-transform duration-300 ${
+                  activeMobileDropdown === 'more' ? 'rotate-180' : ''
+                }`}
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M7 10l5 5 5-5z" />
+              </svg>
+            </button>
+            <div
+              className={`pl-4 space-y-2 overflow-hidden transition-all duration-300 ${
+                activeMobileDropdown === 'more' ? 'max-h-96 mt-2' : 'max-h-0'
+              }`}
+            >
+              {moreDropdownItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`block py-2 text-sm hover:text-blue-200 transition-colors ${
+                    isActivePath(item.path) ? 'text-blue-200 font-semibold' : ''
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Gradient Line */}
       <div className="absolute bottom-0 left-[100px] right-[100px] h-[4px] bg-gradient-to-r 
-           from-transparent
-           via-[#E63946]
-           to-transparent"></div>
+           from-transparent via-[#E63946] to-transparent"></div>
     </nav>
   );
 } 
