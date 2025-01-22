@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { PageLayout } from '../../components/PageLayout';
 
 export function SupplyPage() {
   const categories = [
@@ -83,34 +82,61 @@ export function SupplyPage() {
   ];
 
   return (
-    <PageLayout 
-      title="Champion Dog Products"
-      subtitle={
-        <div className="text-white">
-          Professional-grade training tools and supplies to support your dog's development and happiness
-          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-            <Link 
-              to="/shop/new-arrivals" 
-              className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold 
-                       hover:bg-blue-50 transition-all duration-300 shadow-lg 
-                       hover:shadow-xl inline-flex items-center justify-center"
-            >
-              Shop New Arrivals
-              <span className="ml-2">→</span>
-            </Link>
-            <Link 
-              to="/shop/best-sellers" 
-              className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold 
-                       hover:bg-white hover:text-blue-900 transition-all duration-300 
-                       inline-flex items-center justify-center"
-            >
-              View Best Sellers
-              <span className="ml-2">→</span>
-            </Link>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Blue Background */}
+        <div className="absolute inset-0 bg-[#003B6D] w-full md:w-1/2"></div>
+        
+        {/* Image Container */}
+        <div className="absolute inset-0 ml-auto w-full md:w-1/2">
+          <img
+            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6790001f5d20c8992a74b33d.webp"
+            alt="Champion Dog Products"
+            className="h-full w-full object-cover"
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#003B6D] via-[#003B6D]/30 to-transparent"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-6 md:px-12">
+          <div className="max-w-4xl md:ml-[-100px]">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-white leading-tight">
+              Champion Dog
+              <br />
+              <span className="text-[#8E9BDB] block mt-2">Products</span>
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 max-w-2xl leading-relaxed">
+              Quality products designed for training success and your dog's enrichment
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Link
+                to="/supply/new"
+                className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
+                         font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
+                         shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                Shop New Arrivals
+              </Link>
+              <Link 
+                to="/supply/best-sellers"
+                className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
+                           transition-all duration-300"
+              >
+                <span className="w-12 h-12 rounded-full border-2 border-white 
+                               flex items-center justify-center mr-4
+                               group-hover:border-[#8E9BDB] group-hover:bg-white/10
+                               transition-all duration-300">
+                  ⭐
+                </span>
+                Best Sellers
+              </Link>
+            </div>
           </div>
         </div>
-      }
-    >
+      </section>
+
       {/* Benefits Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -227,6 +253,6 @@ export function SupplyPage() {
           </form>
         </div>
       </section>
-    </PageLayout>
+    </div>
   );
 }

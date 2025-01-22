@@ -1,6 +1,4 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { PageLayout } from '../components/PageLayout';
 
 export function AboutPage() {
   const partnerships = [
@@ -16,18 +14,58 @@ export function AboutPage() {
   ];
 
   return (
-    <PageLayout 
-      title="About Us"
-      subtitle="Dedicated to providing the best care for your pets since 2010"
-    >
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-blue-900 text-white py-20">
-        <div className="absolute inset-0 bg-[url('/images/about-pattern.png')] opacity-10"></div>
-        <div className="container mx-auto px-4 text-center relative">
-          <h1 className="text-5xl font-bold mb-6">About Us</h1>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Keeping dogs out of the pound and in loving homes like yours
-          </p>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Blue Background */}
+        <div className="absolute inset-0 bg-[#003B6D] w-full md:w-1/2"></div>
+        
+        {/* Image Container */}
+        <div className="absolute inset-0 ml-auto w-full md:w-1/2">
+          <img
+            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67901f515d20c8187874d07b.webp"
+            alt="About Champion Dogs"
+            className="h-full w-full object-cover"
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#003B6D] via-[#003B6D]/30 to-transparent"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-6 md:px-12">
+          <div className="max-w-4xl md:ml-[-100px]">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-white leading-tight">
+              About Us
+              <br />
+              <span className="text-[#8E9BDB] block mt-2">Our Story</span>
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 max-w-2xl leading-relaxed">
+              Keeping dogs out of the pound and in loving homes like yours since 2010
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Link
+                to="/contact"
+                className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
+                         font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
+                         shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                Contact Us
+              </Link>
+              <Link 
+                to="/locations"
+                className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
+                           transition-all duration-300"
+              >
+                <span className="w-12 h-12 rounded-full border-2 border-white 
+                               flex items-center justify-center mr-4
+                               group-hover:border-[#8E9BDB] group-hover:bg-white/10
+                               transition-all duration-300">
+                  📍
+                </span>
+                Find a Location
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -172,6 +210,6 @@ export function AboutPage() {
           </div>
         </div>
       </section>
-    </PageLayout>
+    </div>
   );
 } 

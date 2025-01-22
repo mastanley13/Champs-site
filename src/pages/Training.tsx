@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { PageLayout } from '../components/PageLayout';
 
 export function TrainingPage() {
   const trainingTopics = [
@@ -103,41 +102,60 @@ export function TrainingPage() {
   };
 
   return (
-    <PageLayout 
-      title="Dog Training That Works!"
-      subtitle={
-        <>
-          Professional Dog Training Services in Burlington County. Over 20 years of experience 
-          helping families create well-behaved, happy puppies.
-          <div className="mt-8">
-            <Link 
-              to="/training/consultation"
-              className="bg-white text-blue-900 px-8 py-3 rounded-full text-lg font-semibold 
-                       hover:bg-blue-50 transition-all duration-300 shadow-lg 
-                       hover:shadow-xl inline-flex items-center"
-            >
-              Schedule Free Consultation
-              <span className="ml-2">→</span>
-            </Link>
-          </div>
-        </>
-      }
-    >
-      {/* Video Background */}
-      <div className="relative mb-16">
-        <video 
-          className="w-full max-w-4xl mx-auto rounded-lg shadow-lg"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source 
-            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/677bc9abd4ebc4dd42ce1e58.mp4" 
-            type="video/mp4" 
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Blue Background */}
+        <div className="absolute inset-0 bg-[#003B6D] w-full md:w-1/2"></div>
+        
+        {/* Image Container */}
+        <div className="absolute inset-0 ml-auto w-full md:w-1/2">
+          <img
+            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67863246b6255b7e0e1e11de.jpeg"
+            alt="Dog Training"
+            className="h-full w-full object-cover"
           />
-        </video>
-      </div>
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#003B6D] via-[#003B6D]/30 to-transparent"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-6 md:px-12">
+          <div className="max-w-4xl md:ml-[-100px]">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-white leading-tight">
+              Professional
+              <br />
+              <span className="text-[#8E9BDB] block mt-2">Dog Training</span>
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 max-w-2xl leading-relaxed">
+              Transform your dog's behavior with our proven training methods and expert guidance
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Link
+                to="/training/book"
+                className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
+                         font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
+                         shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                Start Training
+              </Link>
+              <Link 
+                to="/training/programs"
+                className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
+                           transition-all duration-300"
+              >
+                <span className="w-12 h-12 rounded-full border-2 border-white 
+                               flex items-center justify-center mr-4
+                               group-hover:border-[#8E9BDB] group-hover:bg-white/10
+                               transition-all duration-300">
+                  🎓
+                </span>
+                View Programs
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Training Topics Grid */}
       <section className="py-16 bg-white">
@@ -352,6 +370,6 @@ export function TrainingPage() {
           </form>
         </div>
       </section>
-    </PageLayout>
+    </div>
   );
 } 
