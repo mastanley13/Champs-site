@@ -17,12 +17,6 @@ const EXTERNAL_URLS = {
 } as const;
 
 export default function App() {
-  // Handler for external redirects
-  const handleExternalRedirect = (url: string) => {
-    window.location.href = url;
-    return null;
-  };
-
   return (
     <Layout>
       <Routes>
