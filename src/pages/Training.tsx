@@ -157,7 +157,7 @@ export function TrainingPage() {
         </div>
       </section>
 
-      {/* Training Topics Grid */}
+      {/* What We Cover */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16 text-blue-900">What We Cover</h2>
@@ -175,8 +175,34 @@ export function TrainingPage() {
         </div>
       </section>
 
-      {/* Training Programs */}
+      {/* Video Section */}
       <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-blue-900">Watch Our Training in Action</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl">
+              <img 
+                src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/678636af1842f2b92fe4cda1.png"
+                alt="Champion Dog Training Video"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <button 
+                  className="bg-blue-900/90 hover:bg-blue-900 text-white p-4 rounded-full transform transition-transform hover:scale-110"
+                  aria-label="Play video"
+                >
+                  <svg className="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Training Programs */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16 text-blue-900">Training Programs</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -222,76 +248,49 @@ export function TrainingPage() {
       {/* Image Carousel Section */}
       <section className="py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-blue-900">Our Training in Action</h2>
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="relative">
-              <div className="bg-white rounded-2xl shadow-xl p-6 overflow-hidden">
-                <div 
-                  className="flex transition-transform duration-500 ease-in-out"
-                  style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-                >
-                  {images.map((image, index) => (
-                    <div 
-                      key={index}
-                      className="w-full flex-shrink-0 px-4"
-                    >
-                      <div className="aspect-[16/9] relative bg-gray-100 rounded-lg">
-                        <img 
-                          src={image.src}
-                          alt={image.alt}
-                          className="absolute inset-0 w-full h-full object-contain rounded-lg"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              {/* Main Image */}
+              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src={images[currentImageIndex].src}
+                  alt={images[currentImageIndex].alt}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Navigation Arrows */}
-              <button 
+              <button
                 onClick={goToPrevious}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 
-                          bg-white/90 hover:bg-white w-12 h-12 rounded-full shadow-lg
-                          flex items-center justify-center transition-all duration-300
-                          border border-gray-200 hover:scale-110"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-blue-900 p-2 rounded-full shadow-lg transform transition-transform hover:scale-110"
                 aria-label="Previous image"
               >
-                <span className="text-blue-900 text-2xl">‹</span>
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
               </button>
-              <button 
+              <button
                 onClick={goToNext}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 
-                          bg-white/90 hover:bg-white w-12 h-12 rounded-full shadow-lg
-                          flex items-center justify-center transition-all duration-300
-                          border border-gray-200 hover:scale-110"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-blue-900 p-2 rounded-full shadow-lg transform transition-transform hover:scale-110"
                 aria-label="Next image"
               >
-                <span className="text-blue-900 text-2xl">›</span>
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
               </button>
-            </div>
 
-            {/* Carousel Navigation */}
-            <div className="mt-8">
-              <div className="flex justify-center space-x-3 mb-4">
+              {/* Dots Navigation */}
+              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
                 {images.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToImage(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 
-                      ${currentImageIndex === index 
-                        ? 'bg-blue-900 scale-110' 
-                        : 'bg-gray-300 hover:bg-gray-400'}`}
+                    className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                      index === currentImageIndex ? 'bg-blue-900' : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
                     aria-label={`Go to image ${index + 1}`}
                   />
                 ))}
-              </div>
-              <div className="text-center">
-                <p className="text-gray-600 mb-2">
-                  {currentImageIndex + 1} of {images.length}
-                </p>
-                <p className="text-blue-900 font-semibold">
-                  Voted Best of Burlington County 2024
-                </p>
               </div>
             </div>
           </div>

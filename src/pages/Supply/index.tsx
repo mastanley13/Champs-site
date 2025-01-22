@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import { ROUTES } from '../../config/routes';
 
 export function SupplyPage() {
   const categories = [
     {
       title: 'Chewing Items',
       count: 25,
-      path: '/shop/chewing-items',
+      path: ROUTES.SHOPIFY_STORE + '/chewing-items',
       description: 'Durable chew toys and natural treats',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6790001f5d20c8992a74b33d.webp',
       fallbackImage: '/images/placeholders/chewing.jpg',
@@ -14,7 +15,7 @@ export function SupplyPage() {
     {
       title: 'Essentials',
       count: 8,
-      path: '/shop/essentials',
+      path: ROUTES.SHOPIFY_STORE + '/essentials',
       description: 'Must-have training tools and equipment',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6790001b798d3afbbfa654e5.webp',
       fallbackImage: '/images/placeholders/essentials.jpg',
@@ -23,7 +24,7 @@ export function SupplyPage() {
     {
       title: 'Holiday Toys',
       count: 21,
-      path: '/shop/holiday-toys',
+      path: ROUTES.SHOPIFY_STORE + '/holiday-toys',
       description: 'Seasonal and festive toys for special occasions',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/679000175d20c850c974b338.webp',
       fallbackImage: '/images/placeholders/holiday.jpg',
@@ -32,7 +33,7 @@ export function SupplyPage() {
     {
       title: 'Collars, Leashes & Harnesses',
       count: 19,
-      path: '/shop/collars-leashes-harnesses',
+      path: ROUTES.SHOPIFY_STORE + '/collars-leashes-harnesses',
       description: 'Professional-grade walking and training equipment',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/679000158020bf076c45d623.webp',
       fallbackImage: '/images/placeholders/collars.jpg',
@@ -41,7 +42,7 @@ export function SupplyPage() {
     {
       title: 'Puzzles, Bowls & Accessories',
       count: 8,
-      path: '/shop/puzzles-bowls',
+      path: ROUTES.SHOPIFY_STORE + '/puzzles-bowls',
       description: 'Interactive toys and feeding solutions',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67900013f8a81ce3d6ea7833.webp',
       fallbackImage: '/images/placeholders/puzzles.jpg',
@@ -50,7 +51,7 @@ export function SupplyPage() {
     {
       title: 'Training Toys',
       count: 34,
-      path: '/shop/toys',
+      path: ROUTES.SHOPIFY_STORE + '/toys',
       description: 'Engaging toys for positive reinforcement',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67900011985d820341c918d4.webp',
       fallbackImage: '/images/placeholders/toys.jpg',

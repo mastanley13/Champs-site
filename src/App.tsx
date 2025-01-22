@@ -12,8 +12,8 @@ import { ExternalRedirect } from './components/ExternalRedirect';
 
 // Constants for external URLs
 const EXTERNAL_URLS = {
-  SHOPIFY: 'https://championdogproducts.com/collections',
-  CUSTOMER_PORTAL: 'https://your-customer-portal-url.com'
+  SHOPIFY: import.meta.env.VITE_SHOPIFY_STORE_URL || 'https://championdogproducts.com/collections',
+  CUSTOMER_PORTAL: import.meta.env.VITE_CUSTOMER_PORTAL_URL || 'https://your-customer-portal-url.com'
 } as const;
 
 export default function App() {
@@ -25,7 +25,6 @@ export default function App() {
 
   return (
     <Layout>
-      <h1>Hello World</h1>
       <Routes>
         {/* Main Routes */}
         <Route path="/" element={<HomePage />} />
@@ -36,6 +35,12 @@ export default function App() {
         <Route path="/boarding" element={<BoardingPage />} />
         <Route path="/supply" element={<SupplyPage />} />
         <Route path="/contact" element={<ContactPage />} />
+
+        {/* Customer Portal Route */}
+        <Route 
+          path="/customer-portal"
+          element={<ExternalRedirect to={EXTERNAL_URLS.CUSTOMER_PORTAL} />} 
+        />
 
         {/* Shop Redirects to Shopify */}
         <Route 
