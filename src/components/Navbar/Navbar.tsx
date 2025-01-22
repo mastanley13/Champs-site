@@ -223,23 +223,23 @@ export function Navbar() {
 
             {/* Customer Login Button */}
             <div className="ml-8">
-              <Link
-                to={ROUTES.CUSTOMER_PORTAL}
+              <a
+                href="https://champs-portal-0ccc144e4175.herokuapp.com/login"
                 className="bg-[#E63946] text-white px-6 py-2 rounded-full hover:bg-red-600 transition-colors font-semibold whitespace-nowrap"
               >
                 Customer Login
-              </Link>
+              </a>
             </div>
           </div>
 
           {/* Mobile Menu Button and Login */}
           <div className="lg:hidden flex items-center space-x-4">
-            <Link
-              to={ROUTES.CUSTOMER_PORTAL}
+            <a
+              href="https://champs-portal-0ccc144e4175.herokuapp.com/login"
               className="bg-[#E63946] text-white px-4 py-2 rounded-full hover:bg-red-600 transition-colors font-semibold"
             >
               Login
-            </Link>
+            </a>
             <button
               ref={mobileButtonRef}
               className="p-2 rounded-lg hover:bg-[#004d8a] transition-colors z-50"
