@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 export function ContactPage() {
   const locations = [
     {
-      name: "Main Facility",
-      address: "123 Champion Way, Burlington, NJ 08016",
-      phone: "(555) 123-4567",
-      email: "info@champspuppytraining.com",
+      name: "CHAMP'S",
+      subtitle: "Training, Grooming, & Supply",
+      address: "1155 Rt. 73, Mt. Laurel, NJ 08054",
+      phone: "888-856-0012",
+      email: "info@champsdoghouse.com",
       hours: {
-        weekday: "6:30 AM - 6:00 PM",
-        weekend: "8:00 AM - 5:00 PM"
+        weekday: "9:00 AM - 5:00 PM",
+        weekend: "9:00 AM - 5:00 PM",
+        note: "Monday - Saturday"
       }
     }
   ];
@@ -53,12 +55,12 @@ export function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <a
-                href="tel:+15551234567"
+                href="tel:+18888560012"
                 className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                Call Now
+                Text Now
               </a>
               <Link 
                 to="/locations"
@@ -85,7 +87,8 @@ export function ContactPage() {
             {/* Location Card */}
             {locations.map((location) => (
               <div key={location.name} className="bg-gray-50 rounded-2xl p-8">
-                <h2 className="text-3xl font-bold mb-6 text-blue-900">{location.name}</h2>
+                <h2 className="text-3xl font-bold mb-2 text-blue-900">{location.name}</h2>
+                <h3 className="text-xl mb-6 text-[#E63946]">{location.subtitle}</h3>
                 <div className="space-y-6">
                   <div>
                     <h3 className="font-semibold text-lg mb-2 text-blue-900">Address</h3>
@@ -94,7 +97,7 @@ export function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-lg mb-2 text-blue-900">Contact</h3>
                     <p className="text-gray-600">
-                      Phone: <a href={`tel:${location.phone}`} className="text-blue-600 hover:text-blue-800">{location.phone}</a>
+                      Text: <a href={`tel:${location.phone}`} className="text-blue-600 hover:text-blue-800">{location.phone}</a>
                       <br />
                       Email: <a href={`mailto:${location.email}`} className="text-blue-600 hover:text-blue-800">{location.email}</a>
                     </p>
@@ -102,14 +105,8 @@ export function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-lg mb-2 text-blue-900">Hours</h3>
                     <div className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-600">Monday - Friday</span>
-                        <span className="font-medium text-blue-900">{location.hours.weekday}</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-600">Saturday - Sunday</span>
-                        <span className="font-medium text-blue-900">{location.hours.weekend}</span>
-                      </div>
+                      <p className="text-gray-600">{location.hours.note}</p>
+                      <p className="font-medium text-blue-900">{location.hours.weekday}</p>
                     </div>
                   </div>
                 </div>
@@ -193,14 +190,14 @@ export function ContactPage() {
           <h2 className="text-3xl font-bold mb-12 text-blue-900">Visit Us</h2>
           <div className="max-w-4xl mx-auto bg-gray-200 rounded-2xl overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48925.95062809119!2d-74.93783282089843!3d39.95010010000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c14d04af2e2efd%3A0x915a0a370ac7fe78!2sMount%20Laurel%2C%20NJ!5e0!3m2!1sen!2sus!4v1706126160435!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.7475266755585!2d-74.9592543!3d39.9402222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c14d1e6c61c823%3A0x61fd2b0a117fb98f!2s1155%20NJ-73%2C%20Mt%20Laurel%2C%20NJ%2008054!5e0!3m2!1sen!2sus!4v1706126986!5m2!1sen!2sus"
               width="100%"
               height="450"
               style={{ border: 0 }}
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Mount Laurel Map"
+              title="Champ's Location"
               className="w-full"
             ></iframe>
           </div>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ROUTES } from '../config/routes';
 
 export function BoardingPage() {
   const boardingFeatures = [
@@ -75,14 +76,16 @@ export function BoardingPage() {
               and receive the care they deserve
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <Link
-                to="/boarding/book"
+              <a
+                href={ROUTES.CUSTOMER_PORTAL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Book Your Stay
-              </Link>
+              </a>
               <Link 
                 to="/boarding/faq"
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
@@ -250,13 +253,15 @@ export function BoardingPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Ready to Book Your Dog's Stay?</h2>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link 
-              to="/boarding/book"
+            <a
+              href={ROUTES.CUSTOMER_PORTAL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 inline-flex items-center justify-center"
             >
               Book Now
               <span className="ml-2">→</span>
-            </Link>
+            </a>
             <Link 
               to="/boarding/faq"
               className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300 inline-flex items-center justify-center"

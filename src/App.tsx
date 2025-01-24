@@ -9,6 +9,7 @@ import { BoardingPage } from './pages/Boarding';
 import { ContactPage } from './pages/Contact';
 import { SupplyPage } from './pages/Supply/index';
 import { ExternalRedirect } from './components/ExternalRedirect';
+import { ScrollToTop } from './components/ScrollToTop';
 
 // Constants for external URLs
 const EXTERNAL_URLS = {
@@ -19,6 +20,7 @@ const EXTERNAL_URLS = {
 export default function App() {
   return (
     <Layout>
+      <ScrollToTop />
       <Routes>
         {/* Main Routes */}
         <Route path="/" element={<HomePage />} />

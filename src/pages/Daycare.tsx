@@ -1,24 +1,35 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export function DaycarePage() {
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
+  const scrollToFaq = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const faqSection = document.getElementById('faq');
+    if (faqSection) {
+      faqSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const features = [
     {
-      icon: "🏃‍♂️",
+      icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/678fb2275c784c2e599cfcec.png",
       title: "Supervised Play",
       description: "Constant monitoring by trained staff in size-appropriate play groups"
     },
     {
-      icon: "🎯",
+      icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db9b6255b66641e0cbd.jpeg",
       title: "Structured Activities",
       description: "Engaging activities and games throughout the day"
     },
     {
-      icon: "🛏️",
+      icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db9b6ea2b663c22e432.jpeg",
       title: "Rest Periods",
       description: "Scheduled quiet time for recharging and relaxation"
     },
     {
-      icon: "📋",
+      icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67863246b6255b2efb1e11dd.jpeg",
       title: "Daily Report Cards",
       description: "Detailed updates on your dog's activities and behavior"
     }
@@ -83,16 +94,9 @@ export function DaycarePage() {
               A safe and fun environment for your furry friend to play, socialize, and thrive
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <Link
-                to="/daycare/book"
-                className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
-                         font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
-                         shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                Schedule Evaluation
-              </Link>
               <Link 
-                to="/daycare/faq"
+                to="#faq"
+                onClick={scrollToFaq}
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
                            transition-all duration-300"
               >
@@ -110,17 +114,27 @@ export function DaycarePage() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-blue-900">The Champ's Experience</h2>
-          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#003B6D]">The Champ's Experience</h2>
+            <div className="w-24 h-1 bg-[#E63946] mx-auto"></div>
+          </div>
+          <div className="grid md:grid-cols-4 gap-10 max-w-7xl mx-auto">
             {features.map((feature) => (
-              <div key={feature.title} className="text-center p-6">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">{feature.icon}</span>
+              <div 
+                key={feature.title} 
+                className="text-center group hover:transform hover:scale-105 transition-all duration-300"
+              >
+                <div className="w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <img
+                    src={feature.icon}
+                    alt={feature.title}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
-                <h3 className="font-bold text-xl mb-2 text-blue-900">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="font-bold text-2xl mb-3 text-[#003B6D]">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed px-4">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -227,25 +241,57 @@ export function DaycarePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-blue-900 text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Ready to Join the Pack?</h2>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link 
-              to="/daycare/book"
-              className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 inline-flex items-center justify-center"
-            >
-              Schedule Evaluation
-              <span className="ml-2">→</span>
-            </Link>
-            <Link 
-              to="/daycare/faq"
-              className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300 inline-flex items-center justify-center"
-            >
-              View FAQ
-              <span className="ml-2">→</span>
-            </Link>
+      {/* FAQ Section */}
+      <section id="faq" className="bg-[#F5F5F5] py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 text-blue-900">Frequently Asked Questions</h2>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {[
+              {
+                question: "What is the evaluation process?",
+                answer: "All dogs go through a first day evaluation process where we assess overall temperament, energy levels, and recall ability. Evaluations are done Monday - Thursday by appointment at 9:30am, 10:30am, and 11:30am."
+              },
+              {
+                question: "What vaccinations are required?",
+                answer: "All dogs must be fully vaccinated with Rabies, Bordatella (every six months), Canine Influenza, and DHHP before attending daycare."
+              },
+              {
+                question: "How are play groups organized?",
+                answer: "Our play yards are grouped by disposition and size, and are supervised by trained staff at all times. Dogs take scheduled rest breaks throughout the day."
+              },
+              {
+                question: "Is crate training required?",
+                answer: "While not required, crate training is helpful as it assists with the rest process during the day. All dogs take rest breaks throughout their stay."
+              },
+              {
+                question: "What if my dog has behavioral issues?",
+                answer: "Our facility is not ideal for dogs with aggression, elopement risk, behavior problems, or a bite history. However, we do offer comprehensive training programs for puppies and adolescent dogs that can help address these issues."
+              }
+            ].map((faq, index) => (
+              <div 
+                key={index} 
+                className="bg-white rounded-xl shadow-sm overflow-hidden"
+              >
+                <button
+                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50"
+                >
+                  <h3 className="font-bold text-xl text-blue-900">{faq.question}</h3>
+                  <span className={`transform transition-transform duration-200 ${
+                    expandedFaq === index ? 'rotate-180' : ''
+                  }`}>
+                    ▼
+                  </span>
+                </button>
+                <div 
+                  className={`px-6 py-4 text-gray-700 transition-all duration-200 ${
+                    expandedFaq === index ? 'block' : 'hidden'
+                  }`}
+                >
+                  <p>{faq.answer}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

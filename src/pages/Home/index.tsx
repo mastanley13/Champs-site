@@ -169,14 +169,6 @@ export function HomePage() {
               well-behaved family champion.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <Link
-                to="/training"
-                className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
-                         font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
-                         shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                Begin Your Journey
-              </Link>
               <button 
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
                            transition-all duration-300"
@@ -322,8 +314,7 @@ export function HomePage() {
               <h2 className="text-5xl font-bold mb-6 text-[#3B4B96]">Our Approach</h2>
               <div className="w-24 h-1 bg-[#E63946] mx-auto mb-8"></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                A proven methodology that delivers consistent results through our 
-                structured training process.
+                At Champ's, we believe in building lasting relationships with both our human customers and four-legged guests. Our talented and dedicated staff's love for dogs shines through in everything we do.
               </p>
             </div>
 
@@ -331,20 +322,20 @@ export function HomePage() {
               {[
                 {
                   step: "01",
-                  title: "Assessment",
-                  description: "Comprehensive evaluation of your dog's behavior and needs",
+                  title: "Passionate Care",
+                  description: "Our dedicated staff loves dogs and is just as excited to serve our human customers. We cultivate a culture where exceptional service is our standard.",
                   accent: COLORS.red.primary
                 },
                 {
                   step: "02",
-                  title: "Custom Plan",
-                  description: "Tailored training program designed for your specific goals",
+                  title: "Partnership Model",
+                  description: "You're not just a customer - you and your dog are a relationship. We partner with our customers, valuing your feedback to provide the best possible care.",
                   accent: COLORS.blue.primary
                 },
                 {
                   step: "03",
-                  title: "Implementation",
-                  description: "Expert guidance and support throughout the journey",
+                  title: "Long-term Commitment",
+                  description: "We're in this for the long run, taking our responsibility seriously. Your dog's care and service are our top priority, ensuring lasting results.",
                   accent: COLORS.red.primary
                 }
               ].map((phase) => (
@@ -382,8 +373,8 @@ export function HomePage() {
               Champion difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <a
-                href={import.meta.env.VITE_CUSTOMER_PORTAL_URL}
+              <Link
+                to="/supply"
                 className="group bg-white text-blue-900 px-10 py-5 rounded-xl 
                          font-semibold relative overflow-hidden
                          transition-all duration-300"
@@ -393,15 +384,6 @@ export function HomePage() {
                                 from-[#E63946] to-[#E63946]/80
                                 translate-x-[-100%] group-hover:translate-x-0 
                                 transition-transform duration-500"></div>
-              </a>
-              <Link
-                to="/about"
-                className="border-2 border-white text-white px-10 py-5 rounded-xl 
-                         font-semibold hover:bg-white/10 transition-all duration-300 
-                         inline-flex items-center justify-center"
-              >
-                Learn More
-                <span className="ml-2">→</span>
               </Link>
             </div>
           </div>
