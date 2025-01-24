@@ -51,19 +51,6 @@ export function AboutPage() {
               >
                 Contact Us
               </Link>
-              <Link 
-                to="/locations"
-                className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
-                           transition-all duration-300"
-              >
-                <span className="w-12 h-12 rounded-full border-2 border-white 
-                               flex items-center justify-center mr-4
-                               group-hover:border-[#8E9BDB] group-hover:bg-white/10
-                               transition-all duration-300">
-                  📍
-                </span>
-                Find a Location
-              </Link>
             </div>
           </div>
         </div>
@@ -183,29 +170,6 @@ export function AboutPage() {
                 Shop Now
                 <span className="ml-2">→</span>
               </span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-blue-900 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Ready to Get Started?</h2>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link 
-              to="/contact"
-              className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 inline-flex items-center justify-center"
-            >
-              Contact Us
-              <span className="ml-2">→</span>
-            </Link>
-            <Link 
-              to="/locations"
-              className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300 inline-flex items-center justify-center"
-            >
-              Find a Location
-              <span className="ml-2">→</span>
             </Link>
           </div>
         </div>

@@ -6,7 +6,7 @@ export function SupplyPage() {
     {
       title: 'Chewing Items',
       count: 25,
-      path: ROUTES.SHOPIFY_STORE + '/chewing-items',
+      path: ROUTES.SHOPIFY_STORE + '/collections/chewing-items',
       description: 'Durable chew toys and natural treats',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6790001f5d20c8992a74b33d.webp',
       fallbackImage: '/images/placeholders/chewing.jpg',
@@ -15,7 +15,7 @@ export function SupplyPage() {
     {
       title: 'Essentials',
       count: 8,
-      path: ROUTES.SHOPIFY_STORE + '/essentials',
+      path: ROUTES.SHOPIFY_STORE + '/collections/essentials',
       description: 'Must-have training tools and equipment',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6790001b798d3afbbfa654e5.webp',
       fallbackImage: '/images/placeholders/essentials.jpg',
@@ -24,7 +24,7 @@ export function SupplyPage() {
     {
       title: 'Holiday Toys',
       count: 21,
-      path: ROUTES.SHOPIFY_STORE + '/holiday-toys',
+      path: ROUTES.SHOPIFY_STORE + '/collections/holiday-toys',
       description: 'Seasonal and festive toys for special occasions',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/679000175d20c850c974b338.webp',
       fallbackImage: '/images/placeholders/holiday.jpg',
@@ -33,7 +33,7 @@ export function SupplyPage() {
     {
       title: 'Collars, Leashes & Harnesses',
       count: 19,
-      path: ROUTES.SHOPIFY_STORE + '/collars-leashes-harnesses',
+      path: ROUTES.SHOPIFY_STORE + '/collections/collars-leashes-harnesses',
       description: 'Professional-grade walking and training equipment',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/679000158020bf076c45d623.webp',
       fallbackImage: '/images/placeholders/collars.jpg',
@@ -42,7 +42,7 @@ export function SupplyPage() {
     {
       title: 'Puzzles, Bowls & Accessories',
       count: 8,
-      path: ROUTES.SHOPIFY_STORE + '/puzzles-bowls',
+      path: ROUTES.SHOPIFY_STORE + '/collections/puzzles-bowls-accessories',
       description: 'Interactive toys and feeding solutions',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67900013f8a81ce3d6ea7833.webp',
       fallbackImage: '/images/placeholders/puzzles.jpg',
@@ -51,7 +51,7 @@ export function SupplyPage() {
     {
       title: 'Training Toys',
       count: 34,
-      path: ROUTES.SHOPIFY_STORE + '/toys',
+      path: ROUTES.SHOPIFY_STORE + '/collections/toys',
       description: 'Engaging toys for positive reinforcement',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67900011985d820341c918d4.webp',
       fallbackImage: '/images/placeholders/toys.jpg',
@@ -229,29 +229,6 @@ export function SupplyPage() {
             Join Now - It's Free
             <span className="ml-2">→</span>
           </Link>
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-2xl text-center">
-          <h2 className="text-3xl font-bold mb-6 text-blue-900">Stay Updated</h2>
-          <p className="text-gray-600 mb-8">
-            Subscribe to get new product alerts, exclusive offers, and training tips.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-4">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 p-3 rounded-full border focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none"
-            />
-            <button
-              type="submit"
-              className="bg-blue-900 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-800 transition-colors"
-            >
-              Subscribe
-            </button>
-          </form>
         </div>
       </section>
     </div>

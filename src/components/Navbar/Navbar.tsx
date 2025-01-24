@@ -6,7 +6,6 @@ import logo from '../../assets/CDP_White-01.png';
 interface DropdownItem {
   label: string;
   path: string;
-  count?: number;
 }
 
 const navigationItems = [
@@ -15,15 +14,7 @@ const navigationItems = [
   { label: 'BOARDING', path: ROUTES.BOARDING },
   { label: 'GROOMING', path: ROUTES.GROOMING },
   { label: 'TRAINING', path: ROUTES.TRAINING },
-];
-
-const supplyDropdownItems: DropdownItem[] = [
-  { label: 'Chewing Items', path: ROUTES.SUPPLY.CHEWING, count: 25 },
-  { label: 'Essentials', path: ROUTES.SUPPLY.ESSENTIALS, count: 8 },
-  { label: 'Holiday Toys', path: ROUTES.SUPPLY.HOLIDAY, count: 21 },
-  { label: 'Collars, Leashes & Harnesses', path: ROUTES.SUPPLY.COLLARS, count: 19 },
-  { label: 'Puzzles, Bowls & Accessories', path: ROUTES.SUPPLY.ACCESSORIES, count: 8 },
-  { label: 'Toys', path: ROUTES.SUPPLY.TOYS, count: 34 },
+  { label: 'SUPPLY', path: ROUTES.SUPPLY.ROOT },
 ];
 
 const moreDropdownItems: DropdownItem[] = [
@@ -32,7 +23,6 @@ const moreDropdownItems: DropdownItem[] = [
 ];
 
 export function Navbar() {
-  const [isSupplyOpen, setIsSupplyOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
@@ -43,7 +33,6 @@ export function Navbar() {
 
   // Close dropdowns on route change
   useEffect(() => {
-    setIsSupplyOpen(false);
     setIsMoreOpen(false);
     setIsMobileMenuOpen(false);
     setActiveMobileDropdown(null);
@@ -58,7 +47,6 @@ export function Navbar() {
 
       // Close dropdowns if clicking outside
       if (!target.closest('.dropdown-container')) {
-        setIsSupplyOpen(false);
         setIsMoreOpen(false);
       }
 
@@ -91,19 +79,13 @@ export function Navbar() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-    // Close other dropdown when opening one
-    if (setter === setIsSupplyOpen) {
-      setIsMoreOpen(false);
-    } else if (setter === setIsMoreOpen) {
-      setIsSupplyOpen(false);
-    }
     setter(true);
   };
 
   const handleMouseLeave = (setter: (value: boolean) => void) => {
     timeoutRef.current = setTimeout(() => {
       setter(false);
-    }, 50); // Even faster response
+    }, 50);
   };
 
   const toggleMobileDropdown = (dropdown: string) => {
@@ -146,44 +128,6 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ))}
-
-              {/* Supply Dropdown */}
-              <div className="relative group dropdown-container">
-                <div
-                  className={`flex items-center hover:text-blue-200 transition-colors cursor-pointer ${
-                    isActivePath(ROUTES.SUPPLY.ROOT) ? 'text-blue-200 font-semibold' : ''
-                  }`}
-                  onMouseEnter={() => handleMouseEnter(setIsSupplyOpen)}
-                  onMouseLeave={() => handleMouseLeave(setIsSupplyOpen)}
-                >
-                  <Link to={ROUTES.SUPPLY.ROOT} className="mr-1">SUPPLY</Link>
-                  <svg className="w-5 h-5 fill-[#E63946]" viewBox="0 0 512 512">
-                    <path d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5v1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3v-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z" />
-                  </svg>
-                </div>
-                {isSupplyOpen && (
-                  <div
-                    className="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 z-50"
-                    onMouseEnter={() => handleMouseEnter(setIsSupplyOpen)}
-                    onMouseLeave={() => handleMouseLeave(setIsSupplyOpen)}
-                  >
-                    {supplyDropdownItems.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className={`block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-[#003B6D] ${
-                          isActivePath(item.path) ? 'bg-blue-50 text-[#003B6D]' : ''
-                        }`}
-                      >
-                        <div className="flex justify-between items-center">
-                          <span>{item.label}</span>
-                          {item.count && <span className="text-sm text-gray-500">{item.count} items</span>}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
 
               {/* More Dropdown */}
               <div className="relative group dropdown-container">
@@ -295,47 +239,6 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
-
-          {/* Supply Dropdown in Mobile Menu */}
-          <div>
-            <button
-              className={`flex items-center justify-between w-full py-2 text-lg hover:text-blue-200 transition-colors ${
-                isActivePath(ROUTES.SUPPLY.ROOT) ? 'text-blue-200 font-semibold' : ''
-              }`}
-              onClick={() => toggleMobileDropdown('supply')}
-            >
-              <span>SUPPLY</span>
-              <svg
-                className={`w-5 h-5 fill-[#E63946] transform transition-transform ${
-                  activeMobileDropdown === 'supply' ? 'rotate-180' : ''
-                }`}
-                viewBox="0 0 20 20"
-              >
-                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-              </svg>
-            </button>
-            <div
-              className={`mt-2 space-y-2 pl-4 overflow-hidden transition-all duration-300 ${
-                activeMobileDropdown === 'supply' ? 'max-h-[500px]' : 'max-h-0'
-              }`}
-            >
-              {supplyDropdownItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`block py-2 text-base hover:text-blue-200 transition-colors ${
-                    isActivePath(item.path) ? 'text-blue-200 font-semibold' : ''
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <div className="flex justify-between items-center">
-                    <span>{item.label}</span>
-                    {item.count && <span className="text-sm opacity-75">{item.count} items</span>}
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
 
           {/* More Dropdown in Mobile Menu */}
           <div>

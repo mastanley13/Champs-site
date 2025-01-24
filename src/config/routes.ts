@@ -9,12 +9,12 @@ export const ROUTES = {
   // Supply Routes
   SUPPLY: {
     ROOT: import.meta.env.VITE_ROUTE_SUPPLY || '/supply',
-    CHEWING: import.meta.env.VITE_ROUTE_SUPPLY_CHEWING || '/supply/chewing-items',
-    ESSENTIALS: import.meta.env.VITE_ROUTE_SUPPLY_ESSENTIALS || '/supply/essentials',
-    HOLIDAY: import.meta.env.VITE_ROUTE_SUPPLY_HOLIDAY || '/supply/holiday-toys',
-    COLLARS: import.meta.env.VITE_ROUTE_SUPPLY_COLLARS || '/supply/collars-leashes',
-    ACCESSORIES: import.meta.env.VITE_ROUTE_SUPPLY_ACCESSORIES || '/supply/accessories',
-    TOYS: import.meta.env.VITE_ROUTE_SUPPLY_TOYS || '/supply/toys',
+    CHEWING: import.meta.env.VITE_ROUTE_SUPPLY_CHEWING || '/chewing-items',
+    ESSENTIALS: import.meta.env.VITE_ROUTE_SUPPLY_ESSENTIALS || '/essentials',
+    HOLIDAY: import.meta.env.VITE_ROUTE_SUPPLY_HOLIDAY || '/holiday-toys',
+    COLLARS: import.meta.env.VITE_ROUTE_SUPPLY_COLLARS || '/collars-leashes-harnesses',
+    ACCESSORIES: import.meta.env.VITE_ROUTE_SUPPLY_ACCESSORIES || '/puzzles-bowls',
+    TOYS: import.meta.env.VITE_ROUTE_SUPPLY_TOYS || '/toys',
   },
 
   // More Routes
@@ -23,5 +23,5 @@ export const ROUTES = {
 
   // External Routes
   CUSTOMER_PORTAL: import.meta.env.VITE_CUSTOMER_PORTAL_URL || '/customer-portal',
-  SHOPIFY_STORE: import.meta.env.VITE_SHOPIFY_STORE_URL || '#',
+  SHOPIFY_STORE: import.meta.env.VITE_SHOPIFY_STORE_URL || 'https://championdogproducts.com',
 } as const; 

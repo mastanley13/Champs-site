@@ -4,22 +4,22 @@ import { ROUTES } from '../config/routes';
 export function BoardingPage() {
   const boardingFeatures = [
     {
-      icon: "🏠",
+      icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/678fb227d0f2ba3b5f43e2fa.png",
       title: "Comfortable Suites",
       description: "Climate-controlled rooms with comfortable bedding and plenty of space"
     },
     {
-      icon: "🎮",
+      icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db9b6255b66641e0cbd.jpeg",
       title: "Daily Activities",
       description: "Structured playtime and socialization with other dogs"
     },
     {
-      icon: "📱",
+      icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862dba5418db493390e257.jpeg",
       title: "Daily Updates",
       description: "Regular photos and updates about your dog's stay"
     },
     {
-      icon: "👥",
+      icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862dbab16f9bc62986f6b5.jpeg",
       title: "24/7 Supervision",
       description: "Round-the-clock care from our trained staff"
     }
@@ -105,17 +105,27 @@ export function BoardingPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-blue-900">The Boarding Experience</h2>
-          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 text-[#003B6D]">
+            The Boarding Experience
+          </h2>
+          <div className="grid md:grid-cols-4 gap-12 max-w-7xl mx-auto">
             {boardingFeatures.map((feature) => (
-              <div key={feature.title} className="text-center p-6">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">{feature.icon}</span>
+              <div key={feature.title} className="flex flex-col items-center">
+                <div className="w-full aspect-square mb-6 rounded-2xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105">
+                  {typeof feature.icon === 'string' && feature.icon.startsWith('http') ? (
+                    <img 
+                      src={feature.icon} 
+                      alt={feature.title} 
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                    />
+                  ) : (
+                    <span className="text-4xl flex items-center justify-center h-full">{feature.icon}</span>
+                  )}
                 </div>
-                <h3 className="font-bold text-xl mb-2 text-blue-900">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="font-bold text-xl mb-3 text-[#003B6D]">{feature.title}</h3>
+                <p className="text-gray-600 text-center leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -271,7 +281,7 @@ export function BoardingPage() {
             </Link>
           </div>
           <p className="mt-6 text-gray-300">
-            Questions? Call us at (555) 123-4567
+            Questions? Text us at 888-856-0012
           </p>
         </div>
       </section>

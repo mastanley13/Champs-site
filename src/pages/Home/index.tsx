@@ -169,7 +169,8 @@ export function HomePage() {
               well-behaved family champion.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <button 
+              <Link 
+                to="/about"
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
                            transition-all duration-300"
               >
@@ -179,8 +180,8 @@ export function HomePage() {
                                transition-all duration-300">
                   ▶
                 </span>
-                Watch Our Story
-              </button>
+                Meet Our Founder
+              </Link>
             </div>
           </div>
         </div>

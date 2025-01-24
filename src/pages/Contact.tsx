@@ -55,15 +55,7 @@ export function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <a
-                href="tel:+18888560012"
-                className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
-                         font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
-                         shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                Text Now
-              </a>
-              <Link 
-                to="/locations"
+                href="#map-section"
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
                            transition-all duration-300"
               >
@@ -74,7 +66,7 @@ export function ContactPage() {
                   📍
                 </span>
                 Find Location
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -185,7 +177,7 @@ export function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 bg-white">
+      <section id="map-section" className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-12 text-blue-900">Visit Us</h2>
           <div className="max-w-4xl mx-auto bg-gray-200 rounded-2xl overflow-hidden">

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ROUTES } from '../config/routes';
 
 export function GroomingPage() {
   const groomingServices = [
@@ -43,28 +44,36 @@ export function GroomingPage() {
     }
   ];
 
-  const benefits = [
+  const groomingFeatures = [
     {
-      icon: "👨‍🎓",
+      icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db9b6255b5c671e0cc0.jpeg",
       title: "Certified Groomers",
-      description: "Our professional groomers are certified and experienced in all breed standards"
+      description: "Our professional groomers are certified and experienced in all breeds"
     },
     {
-      icon: "🛁",
-      title: "Premium Products",
-      description: "We use high-quality, pet-safe grooming products for the best results"
+      icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862dba5418db493390e257.jpeg",
+      title: "Breed-Specific Cuts",
+      description: "Expert grooming tailored to your dog's breed standards"
     },
     {
-      icon: "❤️",
-      title: "Stress-Free Environment",
-      description: "Calm and comfortable atmosphere for a positive grooming experience"
+      icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db91842f22ae3e4c511.jpeg",
+      title: "Spa Treatments",
+      description: "Relaxing baths, nail care, and skin treatments for your pet"
     },
     {
-      icon: "⭐",
+      icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db9b6255b66641e0cbd.jpeg",
       title: "Custom Styling",
-      description: "Personalized grooming plans tailored to your dog's needs and your preferences"
+      description: "Personalized grooming styles to match your preferences"
     }
   ];
+
+  const scrollToServices = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -96,16 +105,19 @@ export function GroomingPage() {
               Expert grooming services to keep your dog looking, feeling, and smelling their absolute best
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <Link
-                to="/grooming/book"
+              <a
+                href={ROUTES.CUSTOMER_PORTAL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Book Appointment
-              </Link>
+              </a>
               <Link 
-                to="/grooming/services"
+                to="#services"
+                onClick={scrollToServices}
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
                            transition-all duration-300"
               >
@@ -122,18 +134,28 @@ export function GroomingPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 bg-white">
+      {/* Features Section */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-blue-900">The Champ's Difference</h2>
-          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {benefits.map((benefit) => (
-              <div key={benefit.title} className="text-center p-6">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">{benefit.icon}</span>
+          <h2 className="text-4xl font-bold text-center mb-16 text-[#003B6D]">
+            The Grooming Experience
+          </h2>
+          <div className="grid md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+            {groomingFeatures.map((feature) => (
+              <div key={feature.title} className="flex flex-col items-center">
+                <div className="w-full aspect-square mb-6 rounded-2xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105">
+                  {typeof feature.icon === 'string' && feature.icon.startsWith('http') ? (
+                    <img 
+                      src={feature.icon} 
+                      alt={feature.title} 
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                    />
+                  ) : (
+                    <span className="text-4xl flex items-center justify-center h-full">{feature.icon}</span>
+                  )}
                 </div>
-                <h3 className="font-bold text-xl mb-2 text-blue-900">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                <h3 className="font-bold text-xl mb-3 text-[#003B6D]">{feature.title}</h3>
+                <p className="text-gray-600 text-center leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -141,24 +163,24 @@ export function GroomingPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 bg-gray-50">
+      <section id="services" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-blue-900">Our Grooming Services</h2>
+          <h2 className="text-4xl font-bold text-center mb-16 text-[#003B6D]">Our Grooming Services</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {groomingServices.map((service) => (
               <div 
                 key={service.title}
                 className={`bg-white rounded-2xl shadow-lg p-8 ${
-                  service.popular ? 'border-2 border-blue-300 relative' : ''
+                  service.popular ? 'border-2 border-[#8E9BDB] relative' : ''
                 }`}
               >
                 {service.popular && (
-                  <div className="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
+                  <div className="absolute top-4 right-4 bg-[#003B6D] text-white px-3 py-1 rounded-full text-sm">
                     Most Popular
                   </div>
                 )}
-                <h3 className="text-2xl font-bold mb-2 text-blue-900">{service.title}</h3>
-                <p className="text-lg text-blue-900 font-semibold mb-6">{service.price}</p>
+                <h3 className="text-2xl font-bold mb-2 text-[#003B6D]">{service.title}</h3>
+                <p className="text-lg text-[#003B6D] font-semibold mb-6">{service.price}</p>
                 <ul className="space-y-3">
                   {service.services.map((item) => (
                     <li key={item} className="flex items-start">
@@ -167,15 +189,22 @@ export function GroomingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  to="/grooming/book"
-                  className="mt-8 inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold"
+                <a
+                  href={ROUTES.CUSTOMER_PORTAL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex items-center text-[#003B6D] hover:text-[#8E9BDB] font-semibold transition-all duration-300"
                 >
                   Book Now
                   <span className="ml-2">→</span>
-                </Link>
+                </a>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <p className="text-gray-600">
+              Questions? Text us at <span className="font-semibold">888-856-0012</span>
+            </p>
           </div>
         </div>
       </section>
@@ -214,27 +243,25 @@ export function GroomingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-900 text-white py-16">
+      <section className="py-24 bg-[#003B6D] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Ready to Book Your Dog's Spa Day?</h2>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link 
-              to="/grooming/book"
-              className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 inline-flex items-center justify-center"
-            >
-              Book Appointment
-              <span className="ml-2">→</span>
-            </Link>
-            <Link 
-              to="/grooming/services"
-              className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300 inline-flex items-center justify-center"
-            >
-              View All Services
-              <span className="ml-2">→</span>
-            </Link>
-          </div>
-          <p className="mt-6 text-gray-300">
-            Questions? Call us at (555) 123-4567
+          <h2 className="text-4xl font-bold mb-8">Ready to Book Your Dog's Spa Day?</h2>
+          <p className="text-xl mb-12 max-w-2xl mx-auto">
+            Give your furry friend the pampering they deserve. Our expert groomers are ready to make them look and feel their best.
+          </p>
+          <a
+            href={ROUTES.CUSTOMER_PORTAL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center bg-white text-[#003B6D] px-8 py-4 rounded-full 
+                     font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
+                     shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            Book Appointment
+            <span className="ml-2">→</span>
+          </a>
+          <p className="mt-8 text-lg">
+            Questions? Call us at <span className="font-semibold">(888) 856-0012</span>
           </p>
         </div>
       </section>
