@@ -285,11 +285,11 @@ export function HomePage() {
                            transition-all duration-300 flex flex-col h-[420px]"
               >
                 {/* Image Container - Top Half */}
-                <div className="w-full h-48 relative">
+                <div className="w-full h-48 relative overflow-hidden">
                   <img 
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-[center_35%]"
                   />
                 </div>
                 
@@ -382,8 +382,8 @@ export function HomePage() {
               Champion difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link
-                to="/contact"
+              <a
+                href={import.meta.env.VITE_CUSTOMER_PORTAL_URL}
                 className="group bg-white text-blue-900 px-10 py-5 rounded-xl 
                          font-semibold relative overflow-hidden
                          transition-all duration-300"
@@ -393,7 +393,7 @@ export function HomePage() {
                                 from-[#E63946] to-[#E63946]/80
                                 translate-x-[-100%] group-hover:translate-x-0 
                                 transition-transform duration-500"></div>
-              </Link>
+              </a>
               <Link
                 to="/about"
                 className="border-2 border-white text-white px-10 py-5 rounded-xl 

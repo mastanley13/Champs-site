@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Navbar } from '../Navbar/Navbar';
+import logo from '../../assets/CDP_White-01.png';
 
 interface LayoutProps {
   children: ReactNode;
@@ -39,7 +40,11 @@ export const Layout = ({ children }: LayoutProps) => {
         <div className="container mx-auto px-4 py-16 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="space-y-6">
-              <img src="/images/logo-white.svg" alt="Champs Logo" className="h-12" />
+              <img 
+                src={logo} 
+                alt="Champs Logo" 
+                className="h-12 object-contain" 
+              />
               <p className="text-gray-300 leading-relaxed">
                 Transforming dogs and enriching the lives of pet families through expert care and training.
               </p>
