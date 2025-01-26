@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../config/routes';
+
+const CUSTOMER_PORTAL_URL = "https://champs-portal-0ccc144e4175.herokuapp.com/login";
 
 export function GroomingPage() {
   const groomingServices = [
@@ -106,7 +107,7 @@ export function GroomingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <a
-                href={ROUTES.CUSTOMER_PORTAL}
+                href={CUSTOMER_PORTAL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
@@ -190,7 +191,7 @@ export function GroomingPage() {
                   ))}
                 </ul>
                 <a
-                  href={ROUTES.CUSTOMER_PORTAL}
+                  href={CUSTOMER_PORTAL_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-8 inline-flex items-center text-[#003B6D] hover:text-[#8E9BDB] font-semibold transition-all duration-300"
@@ -250,7 +251,7 @@ export function GroomingPage() {
             Give your furry friend the pampering they deserve. Our expert groomers are ready to make them look and feel their best.
           </p>
           <a
-            href={ROUTES.CUSTOMER_PORTAL}
+            href={CUSTOMER_PORTAL_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-white text-[#003B6D] px-8 py-4 rounded-full 

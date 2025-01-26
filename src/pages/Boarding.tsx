@@ -1,7 +1,34 @@
-import { Link } from 'react-router-dom';
-import { ROUTES } from '../config/routes';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
+const CUSTOMER_PORTAL_URL = "https://champs-portal-0ccc144e4175.herokuapp.com/login";
 
 export function BoardingPage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Add a small delay to ensure the page has loaded
+    setTimeout(() => {
+      if (window.location.hash === '#faq') {
+        const element = document.getElementById('faq');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }, 100);
+  }, []);
+
+  const handleFaqClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/daycare');
+    setTimeout(() => {
+      const faqSection = document.getElementById('faq');
+      if (faqSection) {
+        faqSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   const boardingFeatures = [
     {
       icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/678fb227d0f2ba3b5f43e2fa.png",
@@ -77,27 +104,21 @@ export function BoardingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <a
-                href={ROUTES.CUSTOMER_PORTAL}
+                href={CUSTOMER_PORTAL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
-                         font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
-                         shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 inline-flex items-center justify-center"
               >
-                Book Your Stay
+                Book Now
+                <span className="ml-2">→</span>
               </a>
               <Link 
-                to="/boarding/faq"
-                className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
-                           transition-all duration-300"
+                to="/daycare#faq"
+                onClick={handleFaqClick}
+                className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300 inline-flex items-center justify-center"
               >
-                <span className="w-12 h-12 rounded-full border-2 border-white 
-                               flex items-center justify-center mr-4
-                               group-hover:border-[#8E9BDB] group-hover:bg-white/10
-                               transition-all duration-300">
-                  ?
-                </span>
                 View FAQ
+                <span className="ml-2">→</span>
               </Link>
             </div>
           </div>
@@ -264,7 +285,7 @@ export function BoardingPage() {
           <h2 className="text-3xl font-bold mb-8">Ready to Book Your Dog's Stay?</h2>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href={ROUTES.CUSTOMER_PORTAL}
+              href={CUSTOMER_PORTAL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 inline-flex items-center justify-center"
@@ -273,7 +294,8 @@ export function BoardingPage() {
               <span className="ml-2">→</span>
             </a>
             <Link 
-              to="/boarding/faq"
+              to="/daycare#faq"
+              onClick={handleFaqClick}
               className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300 inline-flex items-center justify-center"
             >
               View FAQ
