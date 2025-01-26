@@ -1,6 +1,19 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export function AboutPage() {
+  useEffect(() => {
+    // Check if there's a hash in the URL
+    if (window.location.hash === '#founder-video') {
+      // Get the element
+      const element = document.getElementById('founder-video');
+      if (element) {
+        // Scroll to the element with smooth behavior
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }, []); // Run once when component mounts
+
   const partnerships = [
     {
       name: "Pride Paws",
@@ -61,6 +74,20 @@ export function AboutPage() {
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-8 text-blue-900">Our Mission</h2>
+            
+            {/* Video Container */}
+            <div id="founder-video" className="aspect-video rounded-xl overflow-hidden bg-gray-100 mb-8">
+              <iframe
+                src="https://player.vimeo.com/video/556875728?loop=1&app_id=122963"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                title="Intro to Champion Dog Products"
+                className="w-full h-full"
+              ></iframe>
+            </div>
+
             <p className="text-lg text-gray-700 leading-relaxed">
               Champion Puppy Training was created with one thought in mind: Keeping dogs out of the pound 
               and in loving homes like yours. As our business grew, we understood that our Champion Puppy 

@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+const CUSTOMER_PORTAL_URL = "https://champs-portal-0ccc144e4175.herokuapp.com/login";
+
 export function TrainingPage() {
   const trainingTopics = [
     { id: 1, name: "Nipping", icon: "🦷" },
@@ -101,6 +103,14 @@ export function TrainingPage() {
     );
   };
 
+  const scrollToPrograms = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const programsSection = document.getElementById('programs');
+    if (programsSection) {
+      programsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -131,16 +141,19 @@ export function TrainingPage() {
               Transform your dog's behavior with our proven training methods and expert guidance
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <Link
-                to="/training/book"
+              <a
+                href={CUSTOMER_PORTAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Start Training
-              </Link>
+              </a>
               <Link 
-                to="/training/programs"
+                to="#programs"
+                onClick={scrollToPrograms}
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
                            transition-all duration-300"
               >
@@ -202,7 +215,7 @@ export function TrainingPage() {
       </section>
 
       {/* Training Programs */}
-      <section className="py-16 bg-white">
+      <section id="programs" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16 text-blue-900">Training Programs</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">

@@ -170,7 +170,7 @@ export function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <Link 
-                to="/about"
+                to="/about#founder-video"
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
                            transition-all duration-300"
               >
@@ -367,25 +367,27 @@ export function HomePage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-5xl font-bold mb-8 text-white">
-              Ready to Transform Your Dog's Life?
+              Start Your Dog's Journey to Excellence
             </h2>
             <p className="text-xl text-blue-200 mb-12 leading-relaxed">
-              Join our community of successful pet owners who have experienced the 
-              Champion difference.
+              Experience the joy of a well-trained, confident companion. Our proven methods 
+              and dedicated team are ready to help your dog reach their full potential.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link
-                to="/supply"
+              <a
+                href="https://champs-portal-0ccc144e4175.herokuapp.com/login"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group bg-white text-blue-900 px-10 py-5 rounded-xl 
                          font-semibold relative overflow-hidden
                          transition-all duration-300"
               >
-                <span className="relative z-10">Schedule a Consultation</span>
+                <span className="relative z-10">Begin Your Adventure Today</span>
                 <div className="absolute inset-0 bg-gradient-to-r 
                                 from-[#E63946] to-[#E63946]/80
                                 translate-x-[-100%] group-hover:translate-x-0 
                                 transition-transform duration-500"></div>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
