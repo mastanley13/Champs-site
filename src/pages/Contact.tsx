@@ -79,9 +79,11 @@ export function ContactPage() {
             {/* Location Card */}
             {locations.map((location) => (
               <div key={location.name} className="bg-gray-50 rounded-2xl p-8">
-                <h2 className="text-3xl font-bold mb-2 text-blue-900">{location.name}</h2>
-                <h3 className="text-xl mb-6 text-[#E63946]">{location.subtitle}</h3>
-                <div className="space-y-6">
+                <div className="text-left max-w-fit mx-auto">
+                  <h2 className="text-3xl font-bold mb-1 text-blue-900 tracking-wide">CHAMPION</h2>
+                  <h3 className="text-lg font-light tracking-[0.15em] uppercase text-[#E63946]">DOG PRODUCTS</h3>
+                </div>
+                <div className="space-y-6 mt-6">
                   <div>
                     <h3 className="font-semibold text-lg mb-2 text-blue-900">Address</h3>
                     <p className="text-gray-600">{location.address}</p>
@@ -106,52 +108,28 @@ export function ContactPage() {
             ))}
 
             {/* Contact Form */}
-            <div className="bg-gray-50 rounded-2xl p-8">
+            <div className="bg-gray-50 rounded-2xl p-8 h-[755px]">
               <h2 className="text-3xl font-bold mb-6 text-blue-900">Send us a Message</h2>
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-700 mb-2">First Name</label>
-                    <input type="text" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all" />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 mb-2">Last Name</label>
-                    <input type="text" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all" />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-gray-700 mb-2">Email</label>
-                  <input type="email" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all" />
-                </div>
-                <div>
-                  <label className="block text-gray-700 mb-2">Phone</label>
-                  <input type="tel" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all" />
-                </div>
-                <div>
-                  <label className="block text-gray-700 mb-2">Service Interest</label>
-                  <select className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all">
-                    <option value="">Select a service...</option>
-                    {services.map((service) => (
-                      <option key={service.name} value={service.name.toLowerCase()}>
-                        {service.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-gray-700 mb-2">Message</label>
-                  <textarea 
-                    className="w-full p-3 border rounded-lg h-32 focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all"
-                    placeholder="How can we help you?"
-                  ></textarea>
-                </div>
-                <button 
-                  type="submit" 
-                  className="w-full bg-blue-900 text-white py-4 rounded-lg hover:bg-blue-800 transition-colors font-semibold text-lg"
-                >
-                  Send Message
-                </button>
-              </form>
+              <div className="h-[calc(100%-4rem)]">
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/form/lU8nqAIL5Wmyhfd9ba34"
+                  style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px' }}
+                  id="inline-lU8nqAIL5Wmyhfd9ba34" 
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Contact Us"
+                  data-height="755"
+                  data-layout-iframe-id="inline-lU8nqAIL5Wmyhfd9ba34"
+                  data-form-id="lU8nqAIL5Wmyhfd9ba34"
+                  title="Contact Us"
+                />
+              </div>
+              <script src="https://link.msgsndr.com/js/form_embed.js" async></script>
             </div>
           </div>
         </div>

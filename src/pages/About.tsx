@@ -1,6 +1,21 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export function AboutPage() {
+  // Add scroll handling
+  useEffect(() => {
+    // Check if there's a hash in the URL
+    if (window.location.hash === '#founder-video') {
+      // Wait a bit for the page to render
+      setTimeout(() => {
+        const element = document.getElementById('founder-video');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
+
   const partnerships = [
     {
       name: "Pride Paws",
@@ -86,6 +101,32 @@ export function AboutPage() {
               Our home office is based in the greater Philadelphia area. We train locally, nationally, 
               and supply products nation wide.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Our Founder Section */}
+      <section id="founder-video" className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-8 text-blue-900">Meet Our Founder</h2>
+            <p className="text-lg text-gray-700 leading-relaxed mb-12">
+              Get to know Pat Quinn, the founder of Champion Puppy Training and Champion Dog Products, 
+              and learn about our journey to becoming industry leaders in dog training and care.
+            </p>
+          </div>
+          
+          <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl">
+            <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+              <iframe
+                src="https://player.vimeo.com/video/556875728?h=56f0e2d8c7"
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Meet Our Founder"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>

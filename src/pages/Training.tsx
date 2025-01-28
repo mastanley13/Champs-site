@@ -1,17 +1,30 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+// Import training icons
+const trainingIcons = {
+  house: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fd89b7b7cf28bb2f6446.gif",
+  ball: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fd879f7d803c537d9cdc.gif",
+  search: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fd8c4f0aeba1445fcd49.gif",
+  dog: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fd905878ac26b764e094.gif",
+  bone: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fda9d45f40266637a12e.gif",
+  walking: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fd825878acc53464e08e.gif",
+  nipping: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798ff3fbdb4646e5690881c.gif",
+  recall: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798ff1a77cb98091b05354a.gif",
+  obedience: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798ff18ff38df28bbdf5000.gif"
+};
+
 export function TrainingPage() {
   const trainingTopics = [
-    { id: 1, name: "Nipping", icon: "🦷" },
-    { id: 2, name: "Jumping", icon: "⬆️" },
-    { id: 3, name: "Chewing", icon: "🦴" },
-    { id: 4, name: "Potty Training", icon: "🏠" },
-    { id: 5, name: "Leash Walking", icon: "🦮" },
-    { id: 6, name: "Recall", icon: "📞" },
-    { id: 7, name: "Obedience", icon: "✅" },
-    { id: 8, name: "Training Around Distractions", icon: "🎯" },
-    { id: 9, name: "Behavioral Modification", icon: "🔄" },
+    { id: 1, name: "Nipping", iconUrl: trainingIcons.nipping },
+    { id: 2, name: "Jumping", iconUrl: trainingIcons.dog },
+    { id: 3, name: "Chewing", iconUrl: trainingIcons.bone },
+    { id: 4, name: "Potty Training", iconUrl: trainingIcons.house },
+    { id: 5, name: "Leash Walking", iconUrl: trainingIcons.walking },
+    { id: 6, name: "Recall", iconUrl: trainingIcons.recall },
+    { id: 7, name: "Obedience", iconUrl: trainingIcons.obedience },
+    { id: 8, name: "Training Around Distractions", iconUrl: trainingIcons.ball },
+    { id: 9, name: "Behavioral Modification", iconUrl: trainingIcons.search },
     { id: 10, name: "Your Unique Concerns", icon: "💡" }
   ];
 
@@ -167,7 +180,16 @@ export function TrainingPage() {
                 key={topic.id}
                 className="bg-gray-50 rounded-xl p-6 text-center hover:bg-blue-50 transition-colors duration-300"
               >
-                <span className="text-3xl mb-3 block">{topic.icon}</span>
+                {topic.iconUrl ? (
+                  <img 
+                    src={topic.iconUrl} 
+                    alt={`${topic.name} icon`}
+                    className="w-16 h-16 mx-auto mb-3 object-contain"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span className="text-3xl mb-3 block">{topic.icon}</span>
+                )}
                 <h3 className="font-semibold text-blue-900">{topic.name}</h3>
               </div>
             ))}
@@ -181,21 +203,14 @@ export function TrainingPage() {
           <h2 className="text-4xl font-bold text-center mb-12 text-blue-900">Watch Our Training in Action</h2>
           <div className="max-w-4xl mx-auto">
             <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl">
-              <img 
-                src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/678636af1842f2b92fe4cda1.png"
-                alt="Champion Dog Training Video"
-                className="w-full h-full object-cover"
+              <iframe
+                src="https://player.vimeo.com/video/985145684?h=1500f2b588"
+                className="absolute top-0 left-0 w-full h-full"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Champion Dog Training Video"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button 
-                  className="bg-blue-900/90 hover:bg-blue-900 text-white p-4 rounded-full transform transition-transform hover:scale-110"
-                  aria-label="Play video"
-                >
-                  <svg className="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -316,57 +331,26 @@ export function TrainingPage() {
         </div>
       </section>
 
-      {/* Contact Form */}
+      {/* Get Started Section */}
       <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-2xl">
+        <div className="container mx-auto px-4 max-w-2xl text-center">
           <h2 className="text-4xl font-bold text-center mb-8 text-blue-900">Get Started Today</h2>
-          <p className="text-center text-gray-600 mb-12">
-            Fill out this form to receive program details and special pricing
+          <p className="text-lg text-gray-600 mb-8">
+            Ready to transform your dog's behavior? Click below to access our customer portal where you'll receive personalized program details and pricing tailored to your pet's needs.
           </p>
-          <form className="space-y-6 bg-white rounded-2xl shadow-lg p-8">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-gray-700 mb-2">First Name</label>
-                <input type="text" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all" />
-              </div>
-              <div>
-                <label className="block text-gray-700 mb-2">Last Name</label>
-                <input type="text" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all" />
-              </div>
-              <div>
-                <label className="block text-gray-700 mb-2">Email</label>
-                <input type="email" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all" />
-              </div>
-              <div>
-                <label className="block text-gray-700 mb-2">Phone</label>
-                <input type="tel" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all" />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-gray-700 mb-2">Dog Information</label>
-              <div className="grid md:grid-cols-3 gap-4">
-                <input type="text" placeholder="Name" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all" />
-                <input type="text" placeholder="Age" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all" />
-                <input type="text" placeholder="Breed" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all" />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-gray-700 mb-2">Training Goals/Issues</label>
-              <textarea 
-                className="w-full p-3 border rounded-lg h-32 focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all"
-                placeholder="Tell us about your training goals and any specific concerns..."
-              ></textarea>
-            </div>
-
-            <button 
-              type="submit" 
-              className="w-full bg-blue-900 text-white py-4 rounded-lg hover:bg-blue-800 transition-colors font-semibold text-lg"
-            >
-              Get Program Details & Pricing
-            </button>
-          </form>
+          <a
+            href="https://msgsndr.com/widget/booking/mGAU84INytusQO0Fo5P9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-900 text-white px-12 py-4 rounded-lg hover:bg-blue-800 
+                     transition-colors font-semibold text-lg shadow-lg hover:shadow-xl 
+                     transform hover:-translate-y-1"
+          >
+            Get Program Details & Pricing
+          </a>
+          <p className="text-sm text-gray-500 mt-6">
+            Opens in a new tab • Takes less than 2 minutes
+          </p>
         </div>
       </section>
     </div>

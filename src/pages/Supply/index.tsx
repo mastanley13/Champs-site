@@ -6,7 +6,7 @@ export function SupplyPage() {
     {
       title: 'Chewing Items',
       count: 25,
-      path: ROUTES.SHOPIFY_STORE + '/collections/chewing-items',
+      path: 'https://championdogproducts.com/collections/chewing-accessories',
       description: 'Durable chew toys and natural treats',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6790001f5d20c8992a74b33d.webp',
       fallbackImage: '/images/placeholders/chewing.jpg',
@@ -33,7 +33,7 @@ export function SupplyPage() {
     {
       title: 'Collars, Leashes & Harnesses',
       count: 19,
-      path: ROUTES.SHOPIFY_STORE + '/collections/collars-leashes-harnesses',
+      path: 'https://championdogproducts.com/collections/accessories-apparel',
       description: 'Professional-grade walking and training equipment',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/679000158020bf076c45d623.webp',
       fallbackImage: '/images/placeholders/collars.jpg',
@@ -42,7 +42,7 @@ export function SupplyPage() {
     {
       title: 'Puzzles, Bowls & Accessories',
       count: 8,
-      path: ROUTES.SHOPIFY_STORE + '/collections/puzzles-bowls-accessories',
+      path: 'https://championdogproducts.com/collections/accessories',
       description: 'Interactive toys and feeding solutions',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67900013f8a81ce3d6ea7833.webp',
       fallbackImage: '/images/placeholders/puzzles.jpg',
@@ -51,7 +51,7 @@ export function SupplyPage() {
     {
       title: 'Training Toys',
       count: 34,
-      path: ROUTES.SHOPIFY_STORE + '/collections/toys',
+      path: 'https://championdogproducts.com/collections/toys-coming-soon',
       description: 'Engaging toys for positive reinforcement',
       imageUrl: 'https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67900011985d820341c918d4.webp',
       fallbackImage: '/images/placeholders/toys.jpg',
@@ -112,27 +112,16 @@ export function SupplyPage() {
               Quality products designed for training success and your dog's enrichment
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <Link
-                to="/supply/new"
+              <a
+                href="https://championdogproducts.com/collections"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                Shop New Arrivals
-              </Link>
-              <Link 
-                to="/supply/best-sellers"
-                className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
-                           transition-all duration-300"
-              >
-                <span className="w-12 h-12 rounded-full border-2 border-white 
-                               flex items-center justify-center mr-4
-                               group-hover:border-[#8E9BDB] group-hover:bg-white/10
-                               transition-all duration-300">
-                  ⭐
-                </span>
-                Best Sellers
-              </Link>
+                Shop All Collections
+              </a>
             </div>
           </div>
         </div>
@@ -217,20 +206,39 @@ export function SupplyPage() {
 
       {/* Rewards Program */}
       <section className="py-16 bg-blue-900 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8">Join Our Rewards Program</h2>
-          <p className="text-xl mb-12 max-w-3xl mx-auto">
-            Earn points on every purchase and get exclusive access to member-only deals and early product releases.
-          </p>
-          <Link 
-            to="/rewards/join"
-            className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 inline-flex items-center justify-center"
-          >
-            Join Now - It's Free
-            <span className="ml-2">→</span>
-          </Link>
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-8 text-center">Join Our Rewards Program</h2>
+          <div className="max-w-3xl mx-auto overflow-hidden">
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/mDxVirv07nGtfSf7XyIF"
+              style={{ 
+                width: '100%',
+                height: '688px',
+                border: 'none',
+                borderRadius: '4px',
+                overflow: 'hidden'
+              }}
+              scrolling="no"
+              id="inline-mDxVirv07nGtfSf7XyIF" 
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Rewards Program Form"
+              data-height="688"
+              data-layout-iframe-id="inline-mDxVirv07nGtfSf7XyIF"
+              data-form-id="mDxVirv07nGtfSf7XyIF"
+              title="Rewards Program Form"
+            />
+          </div>
         </div>
       </section>
+
+      {/* Add the script tag */}
+      <script src="https://link.msgsndr.com/js/form_embed.js" async />
     </div>
   );
 }

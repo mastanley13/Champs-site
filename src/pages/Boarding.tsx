@@ -1,7 +1,22 @@
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../config/routes';
+import { useNavigate } from 'react-router-dom';
 
 export function BoardingPage() {
+  const navigate = useNavigate();
+
+  const handleFaqClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/daycare');
+    // Wait for navigation to complete before scrolling
+    setTimeout(() => {
+      const faqSection = document.getElementById('faq');
+      if (faqSection) {
+        faqSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
+
   const boardingFeatures = [
     {
       icon: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/678fb227d0f2ba3b5f43e2fa.png",
@@ -87,7 +102,8 @@ export function BoardingPage() {
                 Book Your Stay
               </a>
               <Link 
-                to="/boarding/faq"
+                to="/daycare#faq"
+                onClick={handleFaqClick}
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
                            transition-all duration-300"
               >
@@ -273,7 +289,8 @@ export function BoardingPage() {
               <span className="ml-2">→</span>
             </a>
             <Link 
-              to="/boarding/faq"
+              to="/daycare#faq"
+              onClick={handleFaqClick}
               className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300 inline-flex items-center justify-center"
             >
               View FAQ

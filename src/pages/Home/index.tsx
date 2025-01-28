@@ -170,9 +170,19 @@ export function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <Link 
-                to="/about"
+                to="/about#founder-video"
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
                            transition-all duration-300"
+                onClick={(e) => {
+                  // If we're already on the about page, handle the scroll manually
+                  if (window.location.pathname === '/about') {
+                    e.preventDefault();
+                    const element = document.getElementById('founder-video');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }
+                }}
               >
                 <span className="w-12 h-12 rounded-full border-2 border-white 
                                flex items-center justify-center mr-4
@@ -374,18 +384,7 @@ export function HomePage() {
               Champion difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link
-                to="/supply"
-                className="group bg-white text-blue-900 px-10 py-5 rounded-xl 
-                         font-semibold relative overflow-hidden
-                         transition-all duration-300"
-              >
-                <span className="relative z-10">Schedule a Consultation</span>
-                <div className="absolute inset-0 bg-gradient-to-r 
-                                from-[#E63946] to-[#E63946]/80
-                                translate-x-[-100%] group-hover:translate-x-0 
-                                transition-transform duration-500"></div>
-              </Link>
+              {/* Removed consultation button */}
             </div>
           </div>
         </div>
