@@ -202,7 +202,7 @@ export function AboutPage() {
             </Link>
 
             <Link 
-              to="/shop"
+              to="/supply"
               className="group bg-gray-50 p-6 rounded-xl hover:bg-blue-50 transition-colors duration-300"
             >
               <h3 className="font-bold text-xl mb-3 text-blue-900">Products</h3>

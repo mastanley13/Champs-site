@@ -79,7 +79,7 @@ export function ContactPage() {
             {/* Location Card */}
             {locations.map((location) => (
               <div key={location.name} className="bg-gray-50 rounded-2xl p-8">
-                <div className="text-left max-w-fit mx-auto">
+                <div className="text-left">
                   <h2 className="text-3xl font-bold mb-1 text-blue-900 tracking-wide">CHAMPION</h2>
                   <h3 className="text-lg font-light tracking-[0.15em] uppercase text-[#E63946]">DOG PRODUCTS</h3>
                 </div>
@@ -108,12 +108,12 @@ export function ContactPage() {
             ))}
 
             {/* Contact Form */}
-            <div className="bg-gray-50 rounded-2xl p-8 h-[755px]">
+            <div className="bg-gray-50 rounded-2xl p-8">
               <h2 className="text-3xl font-bold mb-6 text-blue-900">Send us a Message</h2>
-              <div className="h-[calc(100%-4rem)]">
+              <div style={{ overflow: 'hidden' }}>
                 <iframe
                   src="https://api.leadconnectorhq.com/widget/form/lU8nqAIL5Wmyhfd9ba34"
-                  style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px' }}
+                  style={{ width: '100%', height: '850px', border: 'none', borderRadius: '3px', overflow: 'hidden', display: 'block' }}
                   id="inline-lU8nqAIL5Wmyhfd9ba34" 
                   data-layout="{'id':'INLINE'}"
                   data-trigger-type="alwaysShow"
@@ -123,10 +123,10 @@ export function ContactPage() {
                   data-deactivation-type="neverDeactivate"
                   data-deactivation-value=""
                   data-form-name="Contact Us"
-                  data-height="755"
                   data-layout-iframe-id="inline-lU8nqAIL5Wmyhfd9ba34"
                   data-form-id="lU8nqAIL5Wmyhfd9ba34"
                   title="Contact Us"
+                  scrolling="no"
                 />
               </div>
               <script src="https://link.msgsndr.com/js/form_embed.js" async></script>

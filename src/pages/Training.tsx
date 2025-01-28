@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 // Import training icons
@@ -144,16 +143,18 @@ export function TrainingPage() {
               Transform your dog's behavior with our proven training methods and expert guidance
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <Link
-                to="/training/book"
+              <a
+                href={import.meta.env.VITE_CUSTOMER_PORTAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Start Training
-              </Link>
-              <Link 
-                to="/training/programs"
+              </a>
+              <a 
+                href="#training-programs"
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
                            transition-all duration-300"
               >
@@ -164,7 +165,7 @@ export function TrainingPage() {
                   🎓
                 </span>
                 View Programs
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -217,7 +218,7 @@ export function TrainingPage() {
       </section>
 
       {/* Training Programs */}
-      <section className="py-16 bg-white">
+      <section id="training-programs" className="py-16 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16 text-blue-900">Training Programs</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -247,13 +248,15 @@ export function TrainingPage() {
                     Guaranteed RESULTS
                   </li>
                 </ul>
-                <Link
-                  to={`/training/${program.title.toLowerCase().replace(/\s+/g, '-')}`}
+                <a
+                  href={import.meta.env.VITE_CUSTOMER_PORTAL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold"
                 >
                   Learn More
                   <span className="ml-2">→</span>
-                </Link>
+                </a>
               </div>
             ))}
           </div>
@@ -332,25 +335,22 @@ export function TrainingPage() {
       </section>
 
       {/* Get Started Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-[#003B6D]">
         <div className="container mx-auto px-4 max-w-2xl text-center">
-          <h2 className="text-4xl font-bold text-center mb-8 text-blue-900">Get Started Today</h2>
-          <p className="text-lg text-gray-600 mb-8">
+          <h2 className="text-4xl font-bold text-center mb-8 text-white">Get Started Today</h2>
+          <p className="text-lg text-white/90 mb-8">
             Ready to transform your dog's behavior? Click below to access our customer portal where you'll receive personalized program details and pricing tailored to your pet's needs.
           </p>
           <a
-            href="https://msgsndr.com/widget/booking/mGAU84INytusQO0Fo5P9"
+            href={import.meta.env.VITE_CUSTOMER_PORTAL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-blue-900 text-white px-12 py-4 rounded-lg hover:bg-blue-800 
+            className="inline-block bg-white text-[#003B6D] px-12 py-4 rounded-lg hover:bg-[#8E9BDB] hover:text-white
                      transition-colors font-semibold text-lg shadow-lg hover:shadow-xl 
                      transform hover:-translate-y-1"
           >
             Get Program Details & Pricing
           </a>
-          <p className="text-sm text-gray-500 mt-6">
-            Opens in a new tab • Takes less than 2 minutes
-          </p>
         </div>
       </section>
     </div>
