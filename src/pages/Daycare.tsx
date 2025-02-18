@@ -221,7 +221,13 @@ export function DaycarePage() {
             <div className="bg-gray-50 p-8 rounded-xl">
               <h3 className="text-xl font-bold mb-4 text-blue-900">Required Vaccinations</h3>
               <div className="grid md:grid-cols-2 gap-4">
-                {['Rabies', 'Bordatella (every 6 months)', 'Canine Influenza', 'DHHP'].map((vaccine) => (
+                {[
+                  'Rabies',
+                  'Bordatella (every 6 months)',
+                  'Canine Influenza',
+                  'Distemper/Parvo',
+                  'Spay/Neuter by 6 months'
+                ].map((vaccine) => (
                   <div key={vaccine} className="bg-white p-4 rounded-lg flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
                     {vaccine}
