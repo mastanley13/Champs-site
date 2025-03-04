@@ -143,7 +143,7 @@ export function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Blue Background */}
-        <div className="absolute inset-0 bg-[#003B6D] w-full md:w-1/2"></div>
+        <div className="absolute inset-0 bg-[#005596] w-full md:w-1/2"></div>
         
         {/* Image Container */}
         <div className="absolute inset-0 ml-auto w-full md:w-1/2">
@@ -153,7 +153,7 @@ export function HomePage() {
             className="h-full w-full object-cover"
           />
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#003B6D] via-[#003B6D]/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#005596] via-[#005596]/30 to-transparent"></div>
         </div>
 
         {/* Content */}
@@ -369,10 +369,8 @@ export function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-[#3B4B96] relative overflow-hidden">
+      <section className="py-32 bg-[#005596] relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('/images/pattern-dark.svg')] opacity-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-[#E63946]/10 via-transparent to-transparent"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -383,9 +381,6 @@ export function HomePage() {
               Join our community of successful pet owners who have experienced the 
               Champion difference.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              {/* Removed consultation button */}
-            </div>
           </div>
         </div>
       </section>

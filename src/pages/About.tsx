@@ -28,22 +28,61 @@ export function AboutPage() {
     }
   ];
 
+  const services = [
+    {
+      title: "Training",
+      description: "Professional dog training services for all ages and breeds",
+      path: "/training",
+      image: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db95418dbe2e290e254.jpeg",
+      cta: "Learn More"
+    },
+    {
+      title: "Grooming",
+      description: "Expert grooming services for all breeds and coat types",
+      path: "/grooming",
+      image: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862dbab6255b64a01e0cc2.jpeg",
+      cta: "Learn More"
+    },
+    {
+      title: "Daycare",
+      description: "Safe and engaging daycare services for your dog",
+      path: "/daycare",
+      image: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862dba5418db404d90e256.jpeg",
+      cta: "Learn More"
+    },
+    {
+      title: "Products",
+      description: "Quality products for training and enrichment",
+      path: "/supply",
+      image: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67862db9b6ea2b5e0922e431.jpeg",
+      cta: "Shop Now"
+    }
+  ];
+
   return (
-    <div className="min-h-screen">
+    <div 
+      className="min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67c73247ac9d4ae3854206d1.png')"
+      }}
+    >
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Blue Background */}
-        <div className="absolute inset-0 bg-[#003B6D] w-full md:w-1/2"></div>
+        <div className="absolute inset-0 bg-[#005596] w-full md:w-1/2"></div>
         
         {/* Image Container */}
         <div className="absolute inset-0 ml-auto w-full md:w-1/2">
           <img
-            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67901f515d20c8187874d07b.webp"
+            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67c73247ac9d4ae3854206d1.png"
             alt="About Champion Dogs"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-[center_25%]"
+            style={{
+              objectPosition: 'center 30%'
+            }}
           />
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#003B6D] via-[#003B6D]/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#005596] via-[#005596]/30 to-transparent"></div>
         </div>
 
         {/* Content */}
@@ -165,53 +204,29 @@ export function AboutPage() {
         <div className="container mx-auto px-4 max-w-6xl">
           <h2 className="text-3xl font-bold mb-12 text-center text-blue-900">Our Services</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Link 
-              to="/training"
-              className="group bg-gray-50 p-6 rounded-xl hover:bg-blue-50 transition-colors duration-300"
-            >
-              <h3 className="font-bold text-xl mb-3 text-blue-900">Training</h3>
-              <p className="text-gray-600 mb-4">Professional dog training services for all ages and breeds</p>
-              <span className="text-blue-600 group-hover:text-blue-800 inline-flex items-center">
-                Learn More
-                <span className="ml-2">→</span>
-              </span>
-            </Link>
-
-            <Link 
-              to="/grooming"
-              className="group bg-gray-50 p-6 rounded-xl hover:bg-blue-50 transition-colors duration-300"
-            >
-              <h3 className="font-bold text-xl mb-3 text-blue-900">Grooming</h3>
-              <p className="text-gray-600 mb-4">Expert grooming services for all breeds and coat types</p>
-              <span className="text-blue-600 group-hover:text-blue-800 inline-flex items-center">
-                Learn More
-                <span className="ml-2">→</span>
-              </span>
-            </Link>
-
-            <Link 
-              to="/daycare"
-              className="group bg-gray-50 p-6 rounded-xl hover:bg-blue-50 transition-colors duration-300"
-            >
-              <h3 className="font-bold text-xl mb-3 text-blue-900">Daycare</h3>
-              <p className="text-gray-600 mb-4">Safe and engaging daycare services for your dog</p>
-              <span className="text-blue-600 group-hover:text-blue-800 inline-flex items-center">
-                Learn More
-                <span className="ml-2">→</span>
-              </span>
-            </Link>
-
-            <Link 
-              to="/supply"
-              className="group bg-gray-50 p-6 rounded-xl hover:bg-blue-50 transition-colors duration-300"
-            >
-              <h3 className="font-bold text-xl mb-3 text-blue-900">Products</h3>
-              <p className="text-gray-600 mb-4">Quality products for training and enrichment</p>
-              <span className="text-blue-600 group-hover:text-blue-800 inline-flex items-center">
-                Shop Now
-                <span className="ml-2">→</span>
-              </span>
-            </Link>
+            {services.map((service) => (
+              <Link 
+                key={service.title}
+                to={service.path}
+                className="group bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 flex flex-col"
+              >
+                <div className="w-full h-48 relative overflow-hidden">
+                  <img 
+                    src={service.image}
+                    alt={`${service.title} Service`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-bold text-xl mb-3 text-blue-900">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  <span className="text-blue-600 group-hover:text-blue-800 inline-flex items-center">
+                    {service.cta}
+                    <span className="ml-2">→</span>
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

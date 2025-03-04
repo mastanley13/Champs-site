@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { } from 'react';
 
 // Import training icons
 const trainingIcons = {
@@ -60,65 +60,12 @@ export function TrainingPage() {
     }
   ];
 
-  // Add state for carousel
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = [
-    {
-      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/677bcb616419fd2fc598a1b1.png",
-      alt: "Champion Puppy Training Programs Overview"
-    },
-    {
-      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/677bcb618f9556f36399044e.png",
-      alt: "One-on-One Puppy Training"
-    },
-    {
-      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/677bcb61fa02bd49e0fbf9f1.png",
-      alt: "Champ's Dog House Services: Daycare, Boarding, Grooming, and Mobile Grooming"
-    },
-    {
-      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/677bcb61b0a11f1f05c7a643.png",
-      alt: "Terms and Conditions"
-    },
-    {
-      src: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/677bcb618f955610a699044d.png", 
-      alt: "Back to School Special - Buy One Get One Half Off All Bones"
-    }
-  ];
-
-  // Auto-rotate images
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex: number) => 
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  // Handle manual navigation
-  const goToImage = (index: number) => {
-    setCurrentImageIndex(index);
-  };
-
-  const goToPrevious = () => {
-    setCurrentImageIndex((prevIndex: number) => 
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
-  const goToNext = () => {
-    setCurrentImageIndex((prevIndex: number) => 
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Blue Background */}
-        <div className="absolute inset-0 bg-[#003B6D] w-full md:w-1/2"></div>
+        <div className="absolute inset-0 bg-[#005596] w-full md:w-1/2"></div>
         
         {/* Image Container */}
         <div className="absolute inset-0 ml-auto w-full md:w-1/2">
@@ -128,7 +75,7 @@ export function TrainingPage() {
             className="h-full w-full object-cover"
           />
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#003B6D] via-[#003B6D]/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#005596] via-[#005596]/30 to-transparent"></div>
         </div>
 
         {/* Content */}
@@ -140,14 +87,14 @@ export function TrainingPage() {
               <span className="text-[#8E9BDB] block mt-2">Dog Training</span>
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 max-w-2xl leading-relaxed">
-              Transform your dog's behavior with our proven training methods and expert guidance
+              Transform your dog into a well-behaved companion with our expert training programs
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <a
                 href={import.meta.env.VITE_CUSTOMER_PORTAL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
+                className="inline-block bg-white text-[#005596] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
@@ -156,16 +103,47 @@ export function TrainingPage() {
               <a 
                 href="#training-programs"
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
-                           transition-all duration-300"
+                         transition-all duration-300"
               >
                 <span className="w-12 h-12 rounded-full border-2 border-white 
-                               flex items-center justify-center mr-4
-                               group-hover:border-[#8E9BDB] group-hover:bg-white/10
-                               transition-all duration-300">
+                             flex items-center justify-center mr-4
+                             group-hover:border-[#8E9BDB] group-hover:bg-white/10
+                             transition-all duration-300">
                   🎓
                 </span>
                 View Programs
               </a>
+              <a 
+                href="tel:877-55-CHAMP"
+                className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
+                         transition-all duration-300"
+              >
+                <span className="w-12 h-12 rounded-full border-2 border-white 
+                             flex items-center justify-center mr-4
+                             group-hover:border-[#8E9BDB] group-hover:bg-white/10
+                             transition-all duration-300">
+                  📞
+                </span>
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founder Video Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl">
+              <iframe
+                src="https://player.vimeo.com/video/1047585620"
+                className="absolute top-0 left-0 w-full h-full"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Founder Video"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -194,25 +172,6 @@ export function TrainingPage() {
                 <h3 className="font-semibold text-blue-900">{topic.name}</h3>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Video Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-blue-900">Watch Our Training in Action</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl">
-              <iframe
-                src="https://player.vimeo.com/video/985145684?h=1500f2b588"
-                className="absolute top-0 left-0 w-full h-full"
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                title="Champion Dog Training Video"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -263,60 +222,8 @@ export function TrainingPage() {
         </div>
       </section>
 
-      {/* Image Carousel Section */}
-      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="relative">
-              {/* Main Image */}
-              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-xl">
-                <img
-                  src={images[currentImageIndex].src}
-                  alt={images[currentImageIndex].alt}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Navigation Arrows */}
-              <button
-                onClick={goToPrevious}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-blue-900 p-2 rounded-full shadow-lg transform transition-transform hover:scale-110"
-                aria-label="Previous image"
-              >
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                onClick={goToNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-blue-900 p-2 rounded-full shadow-lg transform transition-transform hover:scale-110"
-                aria-label="Next image"
-              >
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-
-              {/* Dots Navigation */}
-              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                {images.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToImage(index)}
-                    className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                      index === currentImageIndex ? 'bg-blue-900' : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                    aria-label={`Go to image ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-16 bg-white">
+      {/* About Section - Moved here */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h2 className="text-4xl font-bold mb-8 text-blue-900">Why Choose Us?</h2>
           <p className="text-lg text-gray-600 mb-8">
@@ -334,23 +241,47 @@ export function TrainingPage() {
         </div>
       </section>
 
-      {/* Get Started Section */}
-      <section className="py-16 bg-[#003B6D]">
-        <div className="container mx-auto px-4 max-w-2xl text-center">
-          <h2 className="text-4xl font-bold text-center mb-8 text-white">Get Started Today</h2>
-          <p className="text-lg text-white/90 mb-8">
-            Ready to transform your dog's behavior? Click below to access our customer portal where you'll receive personalized program details and pricing tailored to your pet's needs.
-          </p>
-          <a
-            href={import.meta.env.VITE_CUSTOMER_PORTAL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-white text-[#003B6D] px-12 py-4 rounded-lg hover:bg-[#8E9BDB] hover:text-white
-                     transition-colors font-semibold text-lg shadow-lg hover:shadow-xl 
-                     transform hover:-translate-y-1"
-          >
-            Get Program Details & Pricing
-          </a>
+      {/* Video Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-blue-900">Watch Our Training in Action</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl">
+              <iframe
+                src="https://player.vimeo.com/video/985145684?h=1500f2b588"
+                className="absolute top-0 left-0 w-full h-full"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Champion Dog Training Video"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-32 bg-[#005596] relative overflow-hidden">
+        <div className="absolute inset-0">
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-5xl font-bold mb-8 text-white">
+              Get Started Today
+            </h2>
+            <p className="text-xl text-blue-200 mb-12 leading-relaxed">
+              Ready to transform your dog's behavior? Click below to access our customer
+              portal where you'll receive personalized program details and pricing tailored to
+              your pet's needs.
+            </p>
+            <a
+              href={import.meta.env.VITE_CUSTOMER_PORTAL_URL}
+              className="inline-block bg-white text-[#005596] px-12 py-4 rounded-lg hover:bg-[#8E9BDB] hover:text-white
+                       transition-colors font-semibold text-lg shadow-lg hover:shadow-xl"
+            >
+              Get Program Details & Pricing
+            </a>
+          </div>
         </div>
       </section>
     </div>

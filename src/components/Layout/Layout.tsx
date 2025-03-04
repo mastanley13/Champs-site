@@ -22,6 +22,32 @@ export const Layout = ({ children }: LayoutProps) => {
 
   const isHomePage = location.pathname === '/';
   
+  // Function to determine which phone number to show based on current path
+  const getPhoneNumber = () => {
+    const path = location.pathname;
+    
+    if (path === '/training') {
+      return '877-55-CHAMP';
+    } else {
+      // Default phone for daycare, boarding, grooming, supply
+      return '888-856-0012';
+    }
+  };
+
+  // Function to determine which email to show based on current path
+  const getContactEmail = () => {
+    const path = location.pathname;
+    
+    if (path === '/training') {
+      return 'info@championpuppytraining.com';
+    } else if (path === '/supply') {
+      return 'info@championdogproducts.com';
+    } else {
+      // Default email for daycare, boarding, grooming
+      return 'info@champsdoghouse.com';
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
@@ -35,7 +61,13 @@ export const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
 
-      <footer className="bg-gradient-to-b from-gray-900 to-blue-900 text-white relative overflow-hidden">
+      {/* Red accent line */}
+      <div className="h-1 w-full bg-gradient-to-r from-[#005596] via-[#E63946] to-[#005596]"></div>
+
+      <footer className="
+        bg-gradient-to-b from-[#005596] to-[#1B2B4B] 
+        text-white relative overflow-hidden"
+      >
         <div className="absolute inset-0 bg-[url('/images/footer-pattern.svg')] opacity-5"></div>
         <div className="container mx-auto px-4 py-16 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -112,14 +144,14 @@ export const Layout = ({ children }: LayoutProps) => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  888-856-0012
+                  {getPhoneNumber()}
                 </li>
                 <li className="flex items-center">
                   <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
                           d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  info@champsdoghouse.com
+                  {getContactEmail()}
                 </li>
                 <li className="flex items-center">
                   <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

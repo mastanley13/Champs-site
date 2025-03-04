@@ -87,7 +87,7 @@ export function SupplyPage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Blue Background */}
-        <div className="absolute inset-0 bg-[#003B6D] w-full md:w-1/2"></div>
+        <div className="absolute inset-0 bg-[#005596] w-full md:w-1/2"></div>
         
         {/* Image Container */}
         <div className="absolute inset-0 ml-auto w-full md:w-1/2">
@@ -97,7 +97,7 @@ export function SupplyPage() {
             className="h-full w-full object-cover"
           />
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#003B6D] via-[#003B6D]/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#005596] via-[#005596]/30 to-transparent"></div>
         </div>
 
         {/* Content */}
@@ -113,10 +113,10 @@ export function SupplyPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <a
-                href="https://championdogproducts.com/collections"
+                href="https://championdogproducts.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
+                className="inline-block bg-white text-[#005596] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
@@ -205,7 +205,7 @@ export function SupplyPage() {
       </section>
 
       {/* Rewards Program */}
-      <section className="py-16 bg-blue-900 text-white">
+      <section className="py-16 bg-[#005596] text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-8 text-center">Join Our Rewards Program</h2>
           <div className="max-w-3xl mx-auto overflow-hidden">

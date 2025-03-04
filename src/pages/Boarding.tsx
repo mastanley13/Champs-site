@@ -65,7 +65,7 @@ export function BoardingPage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Blue Background */}
-        <div className="absolute inset-0 bg-[#003B6D] w-full md:w-1/2"></div>
+        <div className="absolute inset-0 bg-[#005596] w-full md:w-1/2"></div>
         
         {/* Image Container */}
         <div className="absolute inset-0 ml-auto w-full md:w-1/2">
@@ -75,7 +75,7 @@ export function BoardingPage() {
             className="h-full w-full object-cover"
           />
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#003B6D] via-[#003B6D]/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#005596] via-[#005596]/30 to-transparent"></div>
         </div>
 
         {/* Content */}
@@ -95,7 +95,7 @@ export function BoardingPage() {
                 href={ROUTES.CUSTOMER_PORTAL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-white text-[#003B6D] px-8 py-4 rounded-full 
+                className="inline-block bg-white text-[#005596] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
@@ -123,7 +123,7 @@ export function BoardingPage() {
       {/* Features Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16 text-[#003B6D]">
+          <h2 className="text-4xl font-bold text-center mb-16 text-[#005596]">
             The Boarding Experience
           </h2>
           <div className="grid md:grid-cols-4 gap-12 max-w-7xl mx-auto">
@@ -140,7 +140,7 @@ export function BoardingPage() {
                     <span className="text-4xl flex items-center justify-center h-full">{feature.icon}</span>
                   )}
                 </div>
-                <h3 className="font-bold text-xl mb-3 text-[#003B6D]">{feature.title}</h3>
+                <h3 className="font-bold text-xl mb-3 text-[#005596]">{feature.title}</h3>
                 <p className="text-gray-600 text-center leading-relaxed">{feature.description}</p>
               </div>
             ))}
@@ -275,30 +275,25 @@ export function BoardingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-900 text-white py-16">
+      <section className="py-24 bg-[#005596] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Ready to Book Your Dog's Stay?</h2>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href={ROUTES.CUSTOMER_PORTAL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 inline-flex items-center justify-center"
-            >
-              Book Now
-              <span className="ml-2">→</span>
-            </a>
-            <Link 
-              to="/daycare#faq"
-              onClick={handleFaqClick}
-              className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300 inline-flex items-center justify-center"
-            >
-              View FAQ
-              <span className="ml-2">→</span>
-            </Link>
-          </div>
-          <p className="mt-6 text-gray-300">
-            Questions? Text us at 888-856-0012
+          <h2 className="text-4xl font-bold mb-8">Ready to Book Your Dog's Stay?</h2>
+          <p className="text-xl mb-12 max-w-2xl mx-auto">
+            Give your furry friend the home away from home they deserve. Book now to secure their spot.
+          </p>
+          <a
+            href={ROUTES.CUSTOMER_PORTAL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center bg-white text-[#005596] px-8 py-4 rounded-full 
+                     font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
+                     shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            Book Now
+            <span className="ml-2">→</span>
+          </a>
+          <p className="mt-8 text-lg">
+            Questions? Call us at <span className="font-semibold">(888) 856-0012</span>
           </p>
         </div>
       </section>

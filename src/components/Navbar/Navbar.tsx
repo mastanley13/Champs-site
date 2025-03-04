@@ -98,7 +98,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="bg-[#003B6D] text-white relative">
+    <nav className="bg-[#005596] text-white relative">
       {isMobileMenuOpen && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
@@ -153,8 +153,8 @@ export function Navbar() {
                       <Link
                         key={item.path}
                         to={item.path}
-                        className={`block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-[#003B6D] ${
-                          isActivePath(item.path) ? 'bg-blue-50 text-[#003B6D]' : ''
+                        className={`block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-[#005596] ${
+                          isActivePath(item.path) ? 'bg-blue-50 text-[#005596]' : ''
                         }`}
                       >
                         {item.label}
@@ -213,7 +213,7 @@ export function Navbar() {
       {/* Mobile Menu */}
       <div
         ref={mobileMenuRef}
-        className={`fixed inset-y-0 right-0 w-64 bg-[#003B6D]/95 backdrop-blur-sm transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-y-0 right-0 w-64 bg-[#005596]/95 backdrop-blur-sm transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         } md:hidden shadow-xl z-50 overflow-y-auto`}
       >
