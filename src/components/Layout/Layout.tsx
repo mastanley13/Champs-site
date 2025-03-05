@@ -20,6 +20,25 @@ export const Layout = ({ children }: LayoutProps) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Add LeadConnector Chat Widget
+  useEffect(() => {
+    // Create the script element
+    const script = document.createElement('script');
+    script.src = 'https://widgets.leadconnectorhq.com/loader.js';
+    script.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+    script.setAttribute('data-widget-id', '67c8b642a2b4102824256fc5');
+    
+    // Append to the document body
+    document.body.appendChild(script);
+    
+    // Clean up function to remove the script when component unmounts
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   const isHomePage = location.pathname === '/';
   
   // Function to determine which phone number to show based on current path
