@@ -1,4 +1,5 @@
-import { } from 'react';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../config/routes';
 
 // Import training icons
 const trainingIcons = {
@@ -91,7 +92,7 @@ export function TrainingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <a
-                href={import.meta.env.VITE_CUSTOMER_PORTAL_URL}
+                href={ROUTES.CUSTOMER_PORTAL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-[#005596] px-8 py-4 rounded-full 
@@ -260,6 +261,42 @@ export function TrainingPage() {
         </div>
       </section>
 
+      {/* Form Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-3xl font-bold mb-12 text-center text-blue-900">Get Your Training Program Details</h2>
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div style={{ height: '1538px' }}>
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/CWqtcgWJpLL4NB0OOleg"
+                style={{ 
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                  borderRadius: '3px'
+                }}
+                id="inline-CWqtcgWJpLL4NB0OOleg" 
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Board&Train"
+                data-height="1538"
+                data-layout-iframe-id="inline-CWqtcgWJpLL4NB0OOleg"
+                data-form-id="CWqtcgWJpLL4NB0OOleg"
+                title="Board&Train"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Add the script tag */}
+      <script src="https://link.msgsndr.com/js/form_embed.js" async />
+
       {/* CTA Section */}
       <section className="py-32 bg-[#005596] relative overflow-hidden">
         <div className="absolute inset-0">
@@ -275,7 +312,9 @@ export function TrainingPage() {
               your pet's needs.
             </p>
             <a
-              href={import.meta.env.VITE_CUSTOMER_PORTAL_URL}
+              href={ROUTES.CUSTOMER_PORTAL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block bg-white text-[#005596] px-12 py-4 rounded-lg hover:bg-[#8E9BDB] hover:text-white
                        transition-colors font-semibold text-lg shadow-lg hover:shadow-xl"
             >

@@ -31,7 +31,23 @@ export function Footer() {
             <ul className="space-y-2">
               <li><Link to="/about" className="hover:text-blue-200 transition-colors">About Us</Link></li>
               <li><Link to="/contact" className="hover:text-blue-200 transition-colors">Contact</Link></li>
-              <li><Link to="/daycare#faq" className="hover:text-blue-200 transition-colors">FAQ</Link></li>
+              <li>
+                <Link 
+                  to="/daycare#faq"
+                  onClick={(e) => {
+                    // If we're already on the daycare page, handle the scroll manually
+                    if (window.location.pathname === '/daycare') {
+                      e.preventDefault();
+                      const element = document.getElementById('faq');
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }
+                  }}
+                >
+                  FAQ
+                </Link>
+              </li>
             </ul>
           </div>
 

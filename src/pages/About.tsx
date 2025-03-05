@@ -74,7 +74,7 @@ export function AboutPage() {
         {/* Image Container */}
         <div className="absolute inset-0 ml-auto w-full md:w-1/2">
           <img
-            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67c73247ac9d4ae3854206d1.png"
+            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67c8ab94feac7d7f92a49c88.jpeg"
             alt="About Champion Dogs"
             className="h-full w-full object-cover object-[center_25%]"
             style={{

@@ -24,4 +24,5 @@ export const ROUTES = {
   // External Routes
   CUSTOMER_PORTAL: import.meta.env.VITE_CUSTOMER_PORTAL_URL || '/customer-portal',
   SHOPIFY_STORE: import.meta.env.VITE_SHOPIFY_STORE_URL || 'https://championdogproducts.com',
+  BOARD_AND_TRAIN: '/board-and-train',
 } as const; 

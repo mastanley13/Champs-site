@@ -148,8 +148,8 @@ export function HomePage() {
         {/* Image Container */}
         <div className="absolute inset-0 ml-auto w-full md:w-1/2">
           <img
-            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67901f515d20c8187874d07b.webp"
-            alt="Champion Dog Products Background"
+            src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67c73247ac9d4ae3854206d1.png"
+            alt="Champion Dogs Hero"
             className="h-full w-full object-cover"
           />
           {/* Gradient Overlay */}

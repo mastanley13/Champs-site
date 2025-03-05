@@ -14,6 +14,7 @@ const navigationItems = [
   { label: 'BOARDING', path: ROUTES.BOARDING },
   { label: 'GROOMING', path: ROUTES.GROOMING },
   { label: 'TRAINING', path: ROUTES.TRAINING },
+  { label: 'BOARD & TRAIN', path: ROUTES.BOARD_AND_TRAIN },
   { label: 'SUPPLY', path: ROUTES.SUPPLY.ROOT },
 ];
 

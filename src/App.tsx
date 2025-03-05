@@ -10,6 +10,7 @@ import { ContactPage } from './pages/Contact';
 import { SupplyPage } from './pages/Supply/index';
 import { ExternalRedirect } from './components/ExternalRedirect';
 import { ScrollToTop } from './components/ScrollToTop';
+import { BoardAndTrainPage } from './pages/BoardAndTrain';
 
 // Constants for external URLs
 const EXTERNAL_URLS = {
@@ -65,6 +66,9 @@ export default function App() {
           path="/boarding/book" 
           element={<Navigate to={`${EXTERNAL_URLS.CUSTOMER_PORTAL}/boarding`} replace />} 
         />
+
+        {/* New Board and Train Route */}
+        <Route path="/board-and-train" element={<BoardAndTrainPage />} />
 
         {/* Fallback Routes */}
         <Route path="/supply/*" element={<Navigate to="/supply" replace />} />
