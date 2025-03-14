@@ -3,15 +3,19 @@ import { ROUTES } from '../config/routes';
 
 // Import training icons
 const trainingIcons = {
-  house: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fd89b7b7cf28bb2f6446.gif",
-  ball: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fd879f7d803c537d9cdc.gif",
+  house: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67d4568d9672ec2106369108.gif",
+  ball: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67d4544f0f3aea437e676449.gif",
   search: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fd8c4f0aeba1445fcd49.gif",
   dog: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fd905878ac26b764e094.gif",
   bone: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fda9d45f40266637a12e.gif",
   walking: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fd825878acc53464e08e.gif",
   nipping: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798ff3fbdb4646e5690881c.gif",
   recall: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798ff1a77cb98091b05354a.gif",
-  obedience: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798ff18ff38df28bbdf5000.gif"
+  obedience: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798ff18ff38df28bbdf5000.gif",
+  behavioralModification: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67d455508b28011504bf47aa.gif",
+  uniqueConcerns: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67d455d41b97aca7a5fcf473.gif",
+  schedule: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67d457060f3aea45f36767e3.gif",
+  crate: "https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/67d457c78b2801c648bf4ccc.png"
 };
 
 export function TrainingPage() {
@@ -20,12 +24,14 @@ export function TrainingPage() {
     { id: 2, name: "Jumping", iconUrl: trainingIcons.dog },
     { id: 3, name: "Chewing", iconUrl: trainingIcons.bone },
     { id: 4, name: "Potty Training", iconUrl: trainingIcons.house },
-    { id: 5, name: "Leash Walking", iconUrl: trainingIcons.walking },
-    { id: 6, name: "Recall", iconUrl: trainingIcons.recall },
-    { id: 7, name: "Obedience", iconUrl: trainingIcons.obedience },
-    { id: 8, name: "Training Around Distractions", iconUrl: trainingIcons.ball },
-    { id: 9, name: "Behavioral Modification", iconUrl: trainingIcons.search },
-    { id: 10, name: "Your Unique Concerns", icon: "💡" }
+    { id: 5, name: "Daily Schedule", iconUrl: trainingIcons.schedule },
+    { id: 6, name: "Crate Training", iconUrl: trainingIcons.crate },
+    { id: 7, name: "Leash Walking", iconUrl: trainingIcons.walking },
+    { id: 8, name: "Recall", iconUrl: trainingIcons.recall },
+    { id: 9, name: "Obedience", iconUrl: trainingIcons.obedience },
+    { id: 10, name: "Training Around Distractions", iconUrl: trainingIcons.ball },
+    { id: 11, name: "Behavioral Modification", iconUrl: trainingIcons.behavioralModification },
+    { id: 12, name: "Your Unique Concerns", iconUrl: trainingIcons.uniqueConcerns }
   ];
 
   const programs = [
@@ -138,10 +144,10 @@ export function TrainingPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl">
               <iframe
-                src="https://player.vimeo.com/video/1047585620"
+                src="https://player.vimeo.com/video/1047585620?autoplay=0"
                 className="absolute top-0 left-0 w-full h-full"
                 frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
+                allow="fullscreen; picture-in-picture"
                 allowFullScreen
                 title="Founder Video"
               ></iframe>
@@ -154,7 +160,7 @@ export function TrainingPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16 text-blue-900">What We Cover</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {trainingTopics.map((topic) => (
               <div 
                 key={topic.id}
@@ -249,10 +255,10 @@ export function TrainingPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl">
               <iframe
-                src="https://player.vimeo.com/video/985145684?h=1500f2b588"
+                src="https://player.vimeo.com/video/985145684?h=1500f2b588&autoplay=0"
                 className="absolute top-0 left-0 w-full h-full"
                 frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
+                allow="fullscreen; picture-in-picture"
                 allowFullScreen
                 title="Champion Dog Training Video"
               ></iframe>
