@@ -62,7 +62,7 @@ export function ContactPage() {
             <h1 className="hero-heading text-6xl md:text-7xl lg:text-8xl mb-6 text-white leading-tight">
               Contact Us
               <br />
-              <span className="text-[#8E9BDB] block mt-2">Get in Touch</span>
+              <span className="text-[#E63946] block mt-2">Get in Touch</span>
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 max-w-2xl leading-relaxed">
               Have questions? We're here to help! Reach out to our team for assistance.
