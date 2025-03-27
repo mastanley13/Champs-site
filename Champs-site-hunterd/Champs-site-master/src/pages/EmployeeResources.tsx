@@ -27,7 +27,7 @@ export function EmployeeResourcesPage() {
         <div className="container mx-auto px-4 relative">
           <div className="flex flex-col items-center">
             {/* Icon Container */}
-            <div className="bg-white rounded-full p-4 mb-8 shadow-lg w-32 h-32 flex items-center justify-center overflow-hidden">
+            <div className="bg-white rounded-full p-4 mb-8 shadow-lg w-32 h-32 flex items-center justify-center overflow-hidden border-4 border-[#d32f2f] border-opacity-50">
               <img 
                 src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6798fd8c4f0aeba1445fcd49.gif"
                 alt="Employee Resources"
@@ -54,7 +54,7 @@ export function EmployeeResourcesPage() {
               <div className="flex flex-row lg:flex-col justify-center gap-4 lg:w-1/4">
                 {/* Main Navigation */}
                 <div 
-                  className={`relative z-10 ${activeNavSection === 'main' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'main' ? 'border-[#00416e]' : 'border-transparent'}`}
+                  className={`relative z-10 ${activeNavSection === 'main' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'main' ? 'border-[#d32f2f]' : 'border-transparent'}`}
                   onClick={() => toggleNavSection('main')}
                 >
                   <h3 className={`text-xl font-bold ${activeNavSection === 'main' ? 'text-white' : 'text-[#005596]'}`}>Main Navigation</h3>
@@ -62,7 +62,7 @@ export function EmployeeResourcesPage() {
                 
                 {/* Customer Portal */}
                 <div 
-                  className={`relative z-10 ${activeNavSection === 'portal' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'portal' ? 'border-[#00416e]' : 'border-transparent'}`}
+                  className={`relative z-10 ${activeNavSection === 'portal' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'portal' ? 'border-[#d32f2f]' : 'border-transparent'}`}
                   onClick={() => toggleNavSection('portal')}
                 >
                   <h3 className={`text-xl font-bold ${activeNavSection === 'portal' ? 'text-white' : 'text-[#005596]'}`}>Customer Portal</h3>
@@ -70,7 +70,7 @@ export function EmployeeResourcesPage() {
                 
                 {/* External Systems */}
                 <div 
-                  className={`relative z-10 ${activeNavSection === 'external' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'external' ? 'border-[#00416e]' : 'border-transparent'}`}
+                  className={`relative z-10 ${activeNavSection === 'external' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'external' ? 'border-[#d32f2f]' : 'border-transparent'}`}
                   onClick={() => toggleNavSection('external')}
                 >
                   <h3 className={`text-xl font-bold ${activeNavSection === 'external' ? 'text-white' : 'text-[#005596]'}`}>External Systems</h3>
@@ -256,7 +256,7 @@ export function EmployeeResourcesPage() {
                 <span className="text-gray-700">Process Step</span>
               </div>
               <div className="flex items-center bg-gray-50 p-3 rounded-lg">
-                <div className="w-6 h-6 bg-[#e5f0f9] rounded-lg transform rotate-45 mr-3 flex-shrink-0 shadow"></div>
+                <div className="w-6 h-6 bg-[#e5f0f9] rounded-lg transform rotate-45 mr-3 flex-shrink-0 shadow border border-[#d32f2f]"></div>
                 <span className="text-gray-700">Decision Point</span>
               </div>
               <div className="flex items-center bg-gray-50 p-3 rounded-lg">
@@ -264,7 +264,7 @@ export function EmployeeResourcesPage() {
                 <span className="text-gray-700">Process Flow</span>
               </div>
               <div className="flex items-center bg-gray-50 p-3 rounded-lg">
-                <div className="w-8 h-8 bg-[#005596] rounded-lg mr-3 flex-shrink-0 shadow"></div>
+                <div className="w-8 h-8 bg-[#005596] rounded-lg mr-3 flex-shrink-0 shadow border-2 border-[#d32f2f]"></div>
                 <span className="text-gray-700">Active Selection</span>
               </div>
               <div className="flex items-center bg-gray-50 p-3 rounded-lg">
@@ -272,10 +272,10 @@ export function EmployeeResourcesPage() {
                 <span className="text-gray-700">Related Element</span>
               </div>
               <div className="flex items-center bg-gray-50 p-3 rounded-lg">
-                <div className="h-8 w-1 bg-[#005596] mr-3 flex-shrink-0 shadow relative">
-                  <div className="absolute top-0 left-0 w-full bg-[#0077cc] animate-pulse h-full opacity-30"></div>
+                <div className="h-8 w-1 bg-[#d32f2f] mr-3 flex-shrink-0 shadow relative">
+                  <div className="absolute top-0 left-0 w-full bg-[#ff6b6b] animate-pulse h-full opacity-30"></div>
                 </div>
-                <span className="text-gray-700">Active Flow</span>
+                <span className="text-gray-700">Active Flow (Alternate)</span>
               </div>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg text-sm text-center">
@@ -290,7 +290,7 @@ export function EmployeeResourcesPage() {
             <div className="flex flex-wrap justify-center gap-6 mb-12">
               {/* Boarding Button */}
               <div 
-                className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#005596] text-white' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-64 text-center cursor-pointer transform hover:-translate-y-1 border-2 ${activeSection === 'boarding' ? 'border-[#00416e]' : 'border-transparent'}`}
+                className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#005596] text-white' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-64 text-center cursor-pointer transform hover:-translate-y-1 border-2 ${activeSection === 'boarding' ? 'border-[#d32f2f]' : 'border-transparent'}`}
                 onClick={() => toggleSection('boarding')}
               >
                 <h3 className={`text-xl font-bold ${activeSection === 'boarding' ? 'text-white' : 'text-[#005596]'}`}>Boarding Button</h3>
@@ -298,7 +298,7 @@ export function EmployeeResourcesPage() {
               
               {/* Training Button */}
               <div 
-                className={`relative z-10 ${activeSection === 'training' ? 'bg-[#005596] text-white' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-64 text-center cursor-pointer transform hover:-translate-y-1 border-2 ${activeSection === 'training' ? 'border-[#00416e]' : 'border-transparent'}`}
+                className={`relative z-10 ${activeSection === 'training' ? 'bg-[#005596] text-white' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-64 text-center cursor-pointer transform hover:-translate-y-1 border-2 ${activeSection === 'training' ? 'border-[#d32f2f]' : 'border-transparent'}`}
                 onClick={() => toggleSection('training')}
               >
                 <h3 className={`text-xl font-bold ${activeSection === 'training' ? 'text-white' : 'text-[#005596]'}`}>Training Button</h3>
@@ -306,7 +306,7 @@ export function EmployeeResourcesPage() {
               
               {/* Grooming Button */}
               <div 
-                className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#005596] text-white' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-64 text-center cursor-pointer transform hover:-translate-y-1 border-2 ${activeSection === 'grooming' ? 'border-[#00416e]' : 'border-transparent'}`}
+                className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#005596] text-white' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-64 text-center cursor-pointer transform hover:-translate-y-1 border-2 ${activeSection === 'grooming' ? 'border-[#d32f2f]' : 'border-transparent'}`}
                 onClick={() => toggleSection('grooming')}
               >
                 <h3 className={`text-xl font-bold ${activeSection === 'grooming' ? 'text-white' : 'text-[#005596]'}`}>Grooming Button</h3>
@@ -346,7 +346,7 @@ export function EmployeeResourcesPage() {
             {/* Diamond Decision Nodes */}
             <div className="flex flex-wrap justify-center gap-20 mb-12">
               <div className={`flex flex-col items-center ${activeSection !== 'boarding' && activeSection !== null ? 'opacity-50' : 'opacity-100'} transition-opacity duration-300`}>
-                <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} w-40 h-40 rounded-lg shadow-lg flex items-center justify-center transform rotate-45 hover:shadow-xl transition-all duration-300 border-2 ${activeSection === 'boarding' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} w-40 h-40 rounded-lg shadow-lg flex items-center justify-center transform rotate-45 hover:shadow-xl transition-all duration-300 border-2 ${activeSection === 'boarding' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                   <div className="transform -rotate-45 text-center px-2">
                     <h4 className="font-bold text-[#005596]">Previously Boarded?</h4>
                   </div>
@@ -358,7 +358,7 @@ export function EmployeeResourcesPage() {
               </div>
               
               <div className={`flex flex-col items-center ${activeSection !== 'training' && activeSection !== null ? 'opacity-50' : 'opacity-100'} transition-opacity duration-300`}>
-                <div className={`relative z-10 ${activeSection === 'training' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} w-40 h-40 rounded-lg shadow-lg flex items-center justify-center transform rotate-45 hover:shadow-xl transition-all duration-300 border-2 ${activeSection === 'training' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                <div className={`relative z-10 ${activeSection === 'training' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} w-40 h-40 rounded-lg shadow-lg flex items-center justify-center transform rotate-45 hover:shadow-xl transition-all duration-300 border-2 ${activeSection === 'training' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                   <div className="transform -rotate-45 text-center px-2">
                     <h4 className="font-bold text-[#005596]">Previous Training?</h4>
                   </div>
@@ -370,7 +370,7 @@ export function EmployeeResourcesPage() {
               </div>
               
               <div className={`flex flex-col items-center ${activeSection !== 'grooming' && activeSection !== null ? 'opacity-50' : 'opacity-100'} transition-opacity duration-300`}>
-                <div className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} w-40 h-40 rounded-lg shadow-lg flex items-center justify-center transform rotate-45 hover:shadow-xl transition-all duration-300 border-2 ${activeSection === 'grooming' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                <div className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} w-40 h-40 rounded-lg shadow-lg flex items-center justify-center transform rotate-45 hover:shadow-xl transition-all duration-300 border-2 ${activeSection === 'grooming' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                   <div className="transform -rotate-45 text-center px-2">
                     <h4 className="font-bold text-[#005596]">Pop-Up: Pet Name & Schedule Grooming Option</h4>
                   </div>
@@ -387,27 +387,27 @@ export function EmployeeResourcesPage() {
               {/* Boarding Paths */}
               <div className={`grid grid-cols-2 gap-10 ${activeSection !== 'boarding' && activeSection !== null ? 'opacity-50' : 'opacity-100'} transition-opacity duration-300`}>
                 <div className="flex flex-col items-center">
-                  <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'boarding' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                  <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'boarding' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="font-bold text-[#005596] mb-1">No - Display Boarding Process Overview</h4>
                   </div>
                   {/* Connector Lines */}
-                  <div className="h-8 w-1 bg-[#005596] my-2 relative">
-                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'boarding' ? 'animate-pulse' : ''} bg-[#0077cc] h-full opacity-30`}></div>
+                  <div className="h-8 w-1 bg-[#d32f2f] my-2 relative">
+                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'boarding' ? 'animate-pulse' : ''} bg-[#ff6b6b] h-full opacity-30`}></div>
                   </div>
-                  <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'boarding' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                  <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'boarding' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="text-sm font-bold text-[#005596]">Acknowledgement Completion</h4>
                   </div>
                 </div>
                 
                 <div className="flex flex-col items-center">
-                  <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'boarding' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                  <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'boarding' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="font-bold text-[#005596] mb-1">Yes - Suggested Categories</h4>
                   </div>
                   {/* Connector Lines */}
-                  <div className="h-8 w-1 bg-[#005596] my-2 relative">
-                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'boarding' ? 'animate-pulse' : ''} bg-[#0077cc] h-full opacity-30`}></div>
+                  <div className="h-8 w-1 bg-[#d32f2f] my-2 relative">
+                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'boarding' ? 'animate-pulse' : ''} bg-[#ff6b6b] h-full opacity-30`}></div>
                   </div>
-                  <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'boarding' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                  <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'boarding' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="text-sm font-bold text-[#005596]">Announcement Area - Remaining Options</h4>
                   </div>
                 </div>
@@ -416,27 +416,27 @@ export function EmployeeResourcesPage() {
               {/* Training Paths */}
               <div className={`grid grid-cols-2 gap-10 ${activeSection !== 'training' && activeSection !== null ? 'opacity-50' : 'opacity-100'} transition-opacity duration-300`}>
                 <div className="flex flex-col items-center">
-                  <div className={`relative z-10 ${activeSection === 'training' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'training' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                  <div className={`relative z-10 ${activeSection === 'training' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'training' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="font-bold text-[#005596] mb-1">No - Access Training Portal</h4>
                   </div>
                   {/* Connector Lines */}
-                  <div className="h-8 w-1 bg-[#005596] my-2 relative">
-                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'training' ? 'animate-pulse' : ''} bg-[#0077cc] h-full opacity-30`}></div>
+                  <div className="h-8 w-1 bg-[#d32f2f] my-2 relative">
+                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'training' ? 'animate-pulse' : ''} bg-[#ff6b6b] h-full opacity-30`}></div>
                   </div>
-                  <div className={`relative z-10 ${activeSection === 'training' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'training' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                  <div className={`relative z-10 ${activeSection === 'training' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'training' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="text-sm font-bold text-[#005596]">Onboarding - Show Next Session</h4>
                   </div>
                 </div>
                 
                 <div className="flex flex-col items-center">
-                  <div className={`relative z-10 ${activeSection === 'training' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'training' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                  <div className={`relative z-10 ${activeSection === 'training' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'training' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="font-bold text-[#005596] mb-1">Yes - Suggested Training Picks</h4>
                   </div>
                   {/* Connector Lines */}
-                  <div className="h-8 w-1 bg-[#005596] my-2 relative">
-                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'training' ? 'animate-pulse' : ''} bg-[#0077cc] h-full opacity-30`}></div>
+                  <div className="h-8 w-1 bg-[#d32f2f] my-2 relative">
+                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'training' ? 'animate-pulse' : ''} bg-[#ff6b6b] h-full opacity-30`}></div>
                   </div>
-                  <div className={`relative z-10 ${activeSection === 'training' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'training' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                  <div className={`relative z-10 ${activeSection === 'training' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'training' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="text-sm font-bold text-[#005596]">Course Links - Access Training Materials</h4>
                   </div>
                 </div>
@@ -445,27 +445,27 @@ export function EmployeeResourcesPage() {
               {/* Grooming Paths */}
               <div className={`grid grid-cols-2 gap-10 ${activeSection !== 'grooming' && activeSection !== null ? 'opacity-50' : 'opacity-100'} transition-opacity duration-300`}>
                 <div className="flex flex-col items-center">
-                  <div className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'grooming' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                  <div className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'grooming' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="font-bold text-[#005596] mb-1">No - Redirect to Scheduling</h4>
                   </div>
                   {/* Connector Lines */}
-                  <div className="h-8 w-1 bg-[#005596] my-2 relative">
-                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'grooming' ? 'animate-pulse' : ''} bg-[#0077cc] h-full opacity-30`}></div>
+                  <div className="h-8 w-1 bg-[#d32f2f] my-2 relative">
+                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'grooming' ? 'animate-pulse' : ''} bg-[#ff6b6b] h-full opacity-30`}></div>
                   </div>
-                  <div className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'grooming' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                  <div className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'grooming' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="text-sm font-bold text-[#005596]">Register New Pet</h4>
                   </div>
                 </div>
                 
                 <div className="flex flex-col items-center">
-                  <div className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'grooming' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                  <div className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'grooming' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="font-bold text-[#005596] mb-1">Redirect to Calendar Booking Page</h4>
                   </div>
                   {/* Connector Lines */}
-                  <div className="h-8 w-1 bg-[#005596] my-2 relative">
-                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'grooming' ? 'animate-pulse' : ''} bg-[#0077cc] h-full opacity-30`}></div>
+                  <div className="h-8 w-1 bg-[#d32f2f] my-2 relative">
+                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'grooming' ? 'animate-pulse' : ''} bg-[#ff6b6b] h-full opacity-30`}></div>
                   </div>
-                  <div className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'grooming' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                  <div className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'grooming' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="text-sm font-bold text-[#005596]">Service Selection - Choose Grooming Service</h4>
                   </div>
                 </div>
@@ -569,8 +569,8 @@ export function EmployeeResourcesPage() {
             {/* Connector Line with Dots and Animation */}
             <div className="w-full flex justify-center mb-12">
               <div className="h-16 w-1 bg-[#005596] relative">
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#005596] rounded-full"></div>
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#005596] rounded-full"></div>
+                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full"></div>
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full"></div>
                 <div className="absolute top-0 left-0 h-full w-full bg-[#0077cc] opacity-30 animate-pulse"></div>
               </div>
             </div>
@@ -638,8 +638,8 @@ export function EmployeeResourcesPage() {
             {/* Connector Line with Dots and Animation */}
             <div className="w-full flex justify-center mb-12">
               <div className="h-16 w-1 bg-[#005596] relative">
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#005596] rounded-full"></div>
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#005596] rounded-full"></div>
+                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full"></div>
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full"></div>
                 <div className="absolute top-0 left-0 h-full w-full bg-[#0077cc] opacity-30 animate-pulse"></div>
               </div>
             </div>
@@ -698,8 +698,8 @@ export function EmployeeResourcesPage() {
             {/* Connector Line with Dots and Animation */}
             <div className="w-full flex justify-center mb-12">
               <div className="h-16 w-1 bg-[#005596] relative">
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#005596] rounded-full"></div>
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#005596] rounded-full"></div>
+                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full"></div>
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full"></div>
                 <div className="absolute top-0 left-0 h-full w-full bg-[#0077cc] opacity-30 animate-pulse"></div>
               </div>
             </div>
@@ -707,8 +707,8 @@ export function EmployeeResourcesPage() {
             {/* Confirmation - Larger Section */}
             <div className="flex justify-center">
               <div className="bg-white border-2 border-[#005596] rounded-xl shadow-lg p-8 w-full max-w-3xl text-center relative">
-                <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-[#005596] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl shadow-md">4</div>
-                <div className="w-24 h-24 bg-[#005596] rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
+                <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-[#d32f2f] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl shadow-md">4</div>
+                <div className="w-24 h-24 bg-[#005596] rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg border-4 border-[#d32f2f] border-opacity-50">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -784,7 +784,7 @@ export function EmployeeResourcesPage() {
           <p className="mb-6">Contact our support team for assistance with any step of the process</p>
           <a
             href="mailto:support@champsdoghouse.com"
-            className="inline-block bg-white text-[#005596] px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+            className="inline-block bg-white text-[#d32f2f] hover:text-[#005596] px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors border-2 border-[#d32f2f]"
           >
             Contact Support
           </a>
