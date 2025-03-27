@@ -51,34 +51,55 @@ export function EmployeeResourcesPage() {
             {/* Redesigned Navigation Layout - Side by Side with Content */}
             <div className="flex flex-col lg:flex-row justify-center gap-6 mb-12">
               {/* Navigation Buttons - Vertical Stack on Left */}
-              <div className="flex flex-row lg:flex-col justify-center gap-4 lg:w-1/4">
+              <div className="flex flex-row lg:flex-col justify-center gap-4 lg:gap-7 lg:w-1/4">
                 {/* Main Navigation */}
                 <div 
-                  className={`relative z-10 ${activeNavSection === 'main' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'main' ? 'border-[#d32f2f]' : 'border-transparent'}`}
+                  className={`relative z-10 ${activeNavSection === 'main' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'main' ? 'border-[#d32f2f]' : 'border-transparent'}`}
                   onClick={() => toggleNavSection('main')}
                 >
                   <h3 className={`text-xl font-bold ${activeNavSection === 'main' ? 'text-white' : 'text-[#005596]'}`}>Main Navigation</h3>
+                  {activeNavSection === 'main' && (
+                    <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#d32f2f] rounded-full border-2 border-white flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  )}
                 </div>
                 
                 {/* Customer Portal */}
                 <div 
-                  className={`relative z-10 ${activeNavSection === 'portal' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'portal' ? 'border-[#d32f2f]' : 'border-transparent'}`}
+                  className={`relative z-10 ${activeNavSection === 'portal' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'portal' ? 'border-[#d32f2f]' : 'border-transparent'} my-2 lg:my-0`}
                   onClick={() => toggleNavSection('portal')}
                 >
                   <h3 className={`text-xl font-bold ${activeNavSection === 'portal' ? 'text-white' : 'text-[#005596]'}`}>Customer Portal</h3>
+                  {activeNavSection === 'portal' && (
+                    <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#d32f2f] rounded-full border-2 border-white flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  )}
                 </div>
                 
                 {/* External Systems */}
                 <div 
-                  className={`relative z-10 ${activeNavSection === 'external' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'external' ? 'border-[#d32f2f]' : 'border-transparent'}`}
+                  className={`relative z-10 ${activeNavSection === 'external' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'external' ? 'border-[#d32f2f]' : 'border-transparent'}`}
                   onClick={() => toggleNavSection('external')}
                 >
                   <h3 className={`text-xl font-bold ${activeNavSection === 'external' ? 'text-white' : 'text-[#005596]'}`}>External Systems</h3>
+                  {activeNavSection === 'external' && (
+                    <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#d32f2f] rounded-full border-2 border-white flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  )}
                 </div>
               </div>
 
               {/* Content Area - Right Side Panel */}
-              <div className="lg:w-3/4 relative">
+              <div className="lg:w-3/4 relative mt-4 lg:mt-0">
                 {/* Decorative Connector Line - Vertical for desktop */}
                 <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-1 bg-[#005596]">
                   <div className={`absolute top-0 left-0 w-full h-full ${activeNavSection ? 'animate-pulse' : ''} bg-[#0077cc] opacity-30`}></div>
@@ -139,15 +160,15 @@ export function EmployeeResourcesPage() {
                             : 'opacity-30 z-10 scale-90 translate-y-4'
                       }`}
                     >
-                      <div className={`h-full overflow-y-auto bg-white ${activeNavSection === 'main' ? 'bg-[#b8d8f2]' : ''} rounded-xl shadow-lg p-6 transition-all duration-300 border-2 ${activeNavSection === 'main' ? 'border-[#00416e]' : 'border-transparent'}`}>
-                        <nav className="space-y-3">
+                      <div className={`h-full overflow-y-auto bg-white ${activeNavSection === 'main' ? 'bg-[#b8d8f2]' : ''} rounded-xl shadow-lg p-6 lg:p-8 transition-all duration-300 border-2 ${activeNavSection === 'main' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                        <nav className="space-y-5">
                           {['Home', 'Daycare', 'Boarding', 'Grooming', 'Training', 'Supply', 'Contact', 'About Us'].map((item) => (
                             <Link 
                               key={item} 
                               to={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`} 
-                              className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors"
+                              className="flex items-center p-3 rounded-lg hover:bg-[#e5f0f9] transition-colors"
                             >
-                              <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
+                              <span className="w-3 h-3 bg-[#005596] rounded-full mr-4 flex-shrink-0"></span>
                               <span className="font-medium text-[#005596] truncate">{item}</span>
                             </Link>
                           ))}
@@ -165,25 +186,25 @@ export function EmployeeResourcesPage() {
                             : 'opacity-30 z-10 scale-90 translate-y-4'
                       }`}
                     >
-                      <div className={`h-full overflow-y-auto bg-white ${activeNavSection === 'portal' ? 'bg-[#b8d8f2]' : ''} rounded-xl shadow-lg p-6 transition-all duration-300 border-2 ${activeNavSection === 'portal' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                      <div className={`h-full overflow-y-auto bg-white ${activeNavSection === 'portal' ? 'bg-[#b8d8f2]' : ''} rounded-xl shadow-lg p-6 lg:p-8 transition-all duration-300 border-2 ${activeNavSection === 'portal' ? 'border-[#00416e]' : 'border-transparent'}`}>
                         <div className="h-full flex flex-col">
-                          <div className="mb-4 flex-1">
-                            <h4 className="font-bold text-[#005596] mb-3 border-b pb-2">Access Points</h4>
-                            <ul className="space-y-2">
+                          <div className="mb-6 flex-1">
+                            <h4 className="font-bold text-[#005596] mb-4 border-b pb-2">Access Points</h4>
+                            <ul className="space-y-4">
                               {['Login Page', 'Register Page', 'Portal Page'].map((item) => (
-                                <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors">
-                                  <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
+                                <li key={item} className="flex items-center p-3 rounded-lg hover:bg-[#e5f0f9] transition-colors">
+                                  <span className="w-3 h-3 bg-[#005596] rounded-full mr-4 flex-shrink-0"></span>
                                   <span className="font-medium text-[#005596] text-sm">{item}</span>
                                 </li>
                               ))}
                             </ul>
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-[#005596] mb-3 border-b pb-2">Features</h4>
-                            <ul className="space-y-2">
+                            <h4 className="font-bold text-[#005596] mb-4 border-b pb-2">Features</h4>
+                            <ul className="space-y-4">
                               {['Welcome Banner', 'Pet Cards - Actions', 'Vaccination Information'].map((item) => (
-                                <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors">
-                                  <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
+                                <li key={item} className="flex items-center p-3 rounded-lg hover:bg-[#e5f0f9] transition-colors">
+                                  <span className="w-3 h-3 bg-[#005596] rounded-full mr-4 flex-shrink-0"></span>
                                   <span className="font-medium text-[#005596] text-sm">{item}</span>
                                 </li>
                               ))}
@@ -203,23 +224,23 @@ export function EmployeeResourcesPage() {
                             : 'opacity-30 z-10 scale-90 translate-y-4'
                       }`}
                     >
-                      <div className={`h-full overflow-y-auto bg-white ${activeNavSection === 'external' ? 'bg-[#b8d8f2]' : ''} rounded-xl shadow-lg p-6 transition-all duration-300 border-2 ${activeNavSection === 'external' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                      <div className={`h-full overflow-y-auto bg-white ${activeNavSection === 'external' ? 'bg-[#b8d8f2]' : ''} rounded-xl shadow-lg p-6 lg:p-8 transition-all duration-300 border-2 ${activeNavSection === 'external' ? 'border-[#00416e]' : 'border-transparent'}`}>
                         <div className="h-full flex flex-col justify-center">
-                          <h4 className="font-bold text-[#005596] mb-3 border-b pb-2">Integrations</h4>
-                          <ul className="space-y-2">
+                          <h4 className="font-bold text-[#005596] mb-4 border-b pb-2">Integrations</h4>
+                          <ul className="space-y-4">
                             {['External Shopify Store', 'Form Submission System'].map((item) => (
-                              <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors">
-                                <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
+                              <li key={item} className="flex items-center p-3 rounded-lg hover:bg-[#e5f0f9] transition-colors">
+                                <span className="w-3 h-3 bg-[#005596] rounded-full mr-4 flex-shrink-0"></span>
                                 <span className="font-medium text-[#005596] text-sm whitespace-normal break-words">{item}</span>
                               </li>
                             ))}
                           </ul>
                           
-                          <h4 className="font-bold text-[#005596] mb-3 mt-5 border-b pb-2">Additional Resources</h4>
-                          <ul className="space-y-2">
+                          <h4 className="font-bold text-[#005596] mb-4 mt-6 border-b pb-2">Additional Resources</h4>
+                          <ul className="space-y-4">
                             {['Welcome Banner', 'Pet Cards - Actions'].map((item) => (
-                              <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors">
-                                <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
+                              <li key={item} className="flex items-center p-3 rounded-lg hover:bg-[#e5f0f9] transition-colors">
+                                <span className="w-3 h-3 bg-[#005596] rounded-full mr-4 flex-shrink-0"></span>
                                 <span className="font-medium text-[#005596] text-sm whitespace-normal break-words">{item}</span>
                               </li>
                             ))}
@@ -315,7 +336,16 @@ export function EmployeeResourcesPage() {
 
             {/* Connector Lines */}
             <div className="w-full flex justify-center mb-4">
-              <div className="h-10 w-1 bg-[#005596]"></div>
+              <div className="relative h-16 w-6 flex justify-center">
+                <div className="absolute inset-0 flex justify-center items-center">
+                  <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                </div>
+                <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                  <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                </div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#005596] rounded-full border-2 border-white shadow-md z-10"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full border-2 border-white shadow-md z-10"></div>
+              </div>
             </div>
             
             {/* API Services Row */}
@@ -337,9 +367,19 @@ export function EmployeeResourcesPage() {
             </div>
 
             {/* Connector Lines with Animation */}
-            <div className="w-full flex justify-center mb-4">
-              <div className="h-10 w-1 bg-[#005596] relative">
-                <div className={`absolute top-0 left-0 w-full ${activeSection ? 'animate-pulse' : ''} bg-[#0077cc] h-full opacity-30`}></div>
+            <div className="w-full flex justify-center mb-6">
+              <div className="relative h-20 w-6 flex justify-center">
+                <div className="absolute inset-0 flex justify-center items-center">
+                  <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                </div>
+                <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                  <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                </div>
+                <div className={`absolute inset-0 flex justify-center items-center ${activeSection ? 'opacity-60' : 'opacity-0'} transition-opacity duration-700`}>
+                  <div className="h-full w-5 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                </div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#005596] rounded-full border-2 border-white shadow-md z-10"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full border-2 border-white shadow-md z-10"></div>
               </div>
             </div>
 
@@ -352,8 +392,18 @@ export function EmployeeResourcesPage() {
                   </div>
                 </div>
                 {/* Connector Lines */}
-                <div className="h-10 w-1 bg-[#005596] mt-6 relative">
-                  <div className={`absolute top-0 left-0 w-full ${activeSection === 'boarding' ? 'animate-pulse' : ''} bg-[#0077cc] h-full opacity-30`}></div>
+                <div className="relative h-16 w-6 flex justify-center mt-6">
+                  <div className="absolute inset-0 flex justify-center items-center">
+                    <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                  </div>
+                  <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                    <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                  </div>
+                  <div className={`absolute inset-0 flex justify-center items-center ${activeSection === 'boarding' ? 'opacity-60' : 'opacity-0'} transition-opacity duration-700`}>
+                    <div className="h-full w-5 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                  </div>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#005596] rounded-full border border-white shadow-sm z-10"></div>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#d32f2f] rounded-full border border-white shadow-sm z-10"></div>
                 </div>
               </div>
               
@@ -364,8 +414,18 @@ export function EmployeeResourcesPage() {
                   </div>
                 </div>
                 {/* Connector Lines */}
-                <div className="h-10 w-1 bg-[#005596] mt-6 relative">
-                  <div className={`absolute top-0 left-0 w-full ${activeSection === 'training' ? 'animate-pulse' : ''} bg-[#0077cc] h-full opacity-30`}></div>
+                <div className="relative h-16 w-6 flex justify-center mt-6">
+                  <div className="absolute inset-0 flex justify-center items-center">
+                    <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                  </div>
+                  <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                    <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                  </div>
+                  <div className={`absolute inset-0 flex justify-center items-center ${activeSection === 'training' ? 'opacity-60' : 'opacity-0'} transition-opacity duration-700`}>
+                    <div className="h-full w-5 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                  </div>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#005596] rounded-full border border-white shadow-sm z-10"></div>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#d32f2f] rounded-full border border-white shadow-sm z-10"></div>
                 </div>
               </div>
               
@@ -376,8 +436,18 @@ export function EmployeeResourcesPage() {
                   </div>
                 </div>
                 {/* Connector Lines */}
-                <div className="h-10 w-1 bg-[#005596] mt-6 relative">
-                  <div className={`absolute top-0 left-0 w-full ${activeSection === 'grooming' ? 'animate-pulse' : ''} bg-[#0077cc] h-full opacity-30`}></div>
+                <div className="relative h-16 w-6 flex justify-center mt-6">
+                  <div className="absolute inset-0 flex justify-center items-center">
+                    <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                  </div>
+                  <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                    <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                  </div>
+                  <div className={`absolute inset-0 flex justify-center items-center ${activeSection === 'grooming' ? 'opacity-60' : 'opacity-0'} transition-opacity duration-700`}>
+                    <div className="h-full w-5 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                  </div>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#005596] rounded-full border border-white shadow-sm z-10"></div>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#d32f2f] rounded-full border border-white shadow-sm z-10"></div>
                 </div>
               </div>
             </div>
@@ -391,8 +461,16 @@ export function EmployeeResourcesPage() {
                     <h4 className="font-bold text-[#005596] mb-1">No - Display Boarding Process Overview</h4>
                   </div>
                   {/* Connector Lines */}
-                  <div className="h-8 w-1 bg-[#d32f2f] my-2 relative">
-                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'boarding' ? 'animate-pulse' : ''} bg-[#ff6b6b] h-full opacity-30`}></div>
+                  <div className="relative h-12 w-6 flex justify-center my-2">
+                    <div className="absolute inset-0 flex justify-center items-center">
+                      <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                    </div>
+                    <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                      <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                    </div>
+                    <div className={`absolute inset-0 flex justify-center items-center ${activeSection === 'boarding' ? 'opacity-60' : 'opacity-0'} transition-opacity duration-700`}>
+                      <div className="h-full w-4 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                    </div>
                   </div>
                   <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'boarding' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="text-sm font-bold text-[#005596]">Acknowledgement Completion</h4>
@@ -404,8 +482,16 @@ export function EmployeeResourcesPage() {
                     <h4 className="font-bold text-[#005596] mb-1">Yes - Suggested Categories</h4>
                   </div>
                   {/* Connector Lines */}
-                  <div className="h-8 w-1 bg-[#d32f2f] my-2 relative">
-                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'boarding' ? 'animate-pulse' : ''} bg-[#ff6b6b] h-full opacity-30`}></div>
+                  <div className="relative h-12 w-6 flex justify-center my-2">
+                    <div className="absolute inset-0 flex justify-center items-center">
+                      <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                    </div>
+                    <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                      <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                    </div>
+                    <div className={`absolute inset-0 flex justify-center items-center ${activeSection === 'boarding' ? 'opacity-60' : 'opacity-0'} transition-opacity duration-700`}>
+                      <div className="h-full w-4 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                    </div>
                   </div>
                   <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'boarding' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="text-sm font-bold text-[#005596]">Announcement Area - Remaining Options</h4>
@@ -420,8 +506,16 @@ export function EmployeeResourcesPage() {
                     <h4 className="font-bold text-[#005596] mb-1">No - Access Training Portal</h4>
                   </div>
                   {/* Connector Lines */}
-                  <div className="h-8 w-1 bg-[#d32f2f] my-2 relative">
-                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'training' ? 'animate-pulse' : ''} bg-[#ff6b6b] h-full opacity-30`}></div>
+                  <div className="relative h-12 w-6 flex justify-center my-2">
+                    <div className="absolute inset-0 flex justify-center items-center">
+                      <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                    </div>
+                    <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                      <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                    </div>
+                    <div className={`absolute inset-0 flex justify-center items-center ${activeSection === 'training' ? 'opacity-60' : 'opacity-0'} transition-opacity duration-700`}>
+                      <div className="h-full w-4 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                    </div>
                   </div>
                   <div className={`relative z-10 ${activeSection === 'training' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'training' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="text-sm font-bold text-[#005596]">Onboarding - Show Next Session</h4>
@@ -433,8 +527,16 @@ export function EmployeeResourcesPage() {
                     <h4 className="font-bold text-[#005596] mb-1">Yes - Suggested Training Picks</h4>
                   </div>
                   {/* Connector Lines */}
-                  <div className="h-8 w-1 bg-[#d32f2f] my-2 relative">
-                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'training' ? 'animate-pulse' : ''} bg-[#ff6b6b] h-full opacity-30`}></div>
+                  <div className="relative h-12 w-6 flex justify-center my-2">
+                    <div className="absolute inset-0 flex justify-center items-center">
+                      <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                    </div>
+                    <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                      <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                    </div>
+                    <div className={`absolute inset-0 flex justify-center items-center ${activeSection === 'training' ? 'opacity-60' : 'opacity-0'} transition-opacity duration-700`}>
+                      <div className="h-full w-4 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                    </div>
                   </div>
                   <div className={`relative z-10 ${activeSection === 'training' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'training' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="text-sm font-bold text-[#005596]">Course Links - Access Training Materials</h4>
@@ -449,8 +551,16 @@ export function EmployeeResourcesPage() {
                     <h4 className="font-bold text-[#005596] mb-1">No - Redirect to Scheduling</h4>
                   </div>
                   {/* Connector Lines */}
-                  <div className="h-8 w-1 bg-[#d32f2f] my-2 relative">
-                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'grooming' ? 'animate-pulse' : ''} bg-[#ff6b6b] h-full opacity-30`}></div>
+                  <div className="relative h-12 w-6 flex justify-center my-2">
+                    <div className="absolute inset-0 flex justify-center items-center">
+                      <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                    </div>
+                    <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                      <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                    </div>
+                    <div className={`absolute inset-0 flex justify-center items-center ${activeSection === 'grooming' ? 'opacity-60' : 'opacity-0'} transition-opacity duration-700`}>
+                      <div className="h-full w-4 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                    </div>
                   </div>
                   <div className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'grooming' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="text-sm font-bold text-[#005596]">Register New Pet</h4>
@@ -462,8 +572,16 @@ export function EmployeeResourcesPage() {
                     <h4 className="font-bold text-[#005596] mb-1">Redirect to Calendar Booking Page</h4>
                   </div>
                   {/* Connector Lines */}
-                  <div className="h-8 w-1 bg-[#d32f2f] my-2 relative">
-                    <div className={`absolute top-0 left-0 w-full ${activeSection === 'grooming' ? 'animate-pulse' : ''} bg-[#ff6b6b] h-full opacity-30`}></div>
+                  <div className="relative h-12 w-6 flex justify-center my-2">
+                    <div className="absolute inset-0 flex justify-center items-center">
+                      <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                    </div>
+                    <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                      <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                    </div>
+                    <div className={`absolute inset-0 flex justify-center items-center ${activeSection === 'grooming' ? 'opacity-60' : 'opacity-0'} transition-opacity duration-700`}>
+                      <div className="h-full w-4 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                    </div>
                   </div>
                   <div className={`relative z-10 ${activeSection === 'grooming' ? 'bg-[#b8d8f2]' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 w-52 text-center border ${activeSection === 'grooming' ? 'border-[#d32f2f]' : 'border-transparent'}`}>
                     <h4 className="text-sm font-bold text-[#005596]">Service Selection - Choose Grooming Service</h4>
@@ -491,9 +609,19 @@ export function EmployeeResourcesPage() {
             </div>
 
             {/* Experience Flow Connectors */}
-            <div className="w-full flex justify-center mb-4">
-              <div className="h-10 w-1 bg-[#005596] relative">
-                <div className={`absolute top-0 left-0 w-full ${activeSection ? 'animate-pulse' : ''} bg-[#0077cc] h-full opacity-30`}></div>
+            <div className="w-full flex justify-center mb-8">
+              <div className="relative h-16 w-6 flex justify-center">
+                <div className="absolute inset-0 flex justify-center items-center">
+                  <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                </div>
+                <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                  <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                </div>
+                <div className={`absolute inset-0 flex justify-center items-center ${activeSection ? 'opacity-60' : 'opacity-0'} transition-opacity duration-700`}>
+                  <div className="h-full w-5 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                </div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#005596] rounded-full border-2 border-white shadow-md z-10"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full border-2 border-white shadow-md z-10"></div>
               </div>
             </div>
 
@@ -568,10 +696,21 @@ export function EmployeeResourcesPage() {
             
             {/* Connector Line with Dots and Animation */}
             <div className="w-full flex justify-center mb-12">
-              <div className="h-16 w-1 bg-[#005596] relative">
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full"></div>
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full"></div>
-                <div className="absolute top-0 left-0 h-full w-full bg-[#0077cc] opacity-30 animate-pulse"></div>
+              <div className="relative h-24 w-8 flex justify-center">
+                <div className="absolute inset-0 flex justify-center items-center">
+                  <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                </div>
+                <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                  <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                </div>
+                <div className="absolute inset-0 flex justify-center items-center opacity-30">
+                  <div className="h-full w-5 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                </div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-5 bg-[#005596] rounded-full border-2 border-white shadow-md z-10"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-5 bg-[#d32f2f] rounded-full border-2 border-white shadow-md z-10"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-md z-10 flex items-center justify-center">
+                  <div className="w-4 h-4 bg-gradient-to-br from-[#005596] to-[#d32f2f] rounded-full animate-pulse"></div>
+                </div>
               </div>
             </div>
             
@@ -637,10 +776,21 @@ export function EmployeeResourcesPage() {
             
             {/* Connector Line with Dots and Animation */}
             <div className="w-full flex justify-center mb-12">
-              <div className="h-16 w-1 bg-[#005596] relative">
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full"></div>
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full"></div>
-                <div className="absolute top-0 left-0 h-full w-full bg-[#0077cc] opacity-30 animate-pulse"></div>
+              <div className="relative h-24 w-8 flex justify-center">
+                <div className="absolute inset-0 flex justify-center items-center">
+                  <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                </div>
+                <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                  <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                </div>
+                <div className="absolute inset-0 flex justify-center items-center opacity-30">
+                  <div className="h-full w-5 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                </div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-5 bg-[#005596] rounded-full border-2 border-white shadow-md z-10"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-5 bg-[#d32f2f] rounded-full border-2 border-white shadow-md z-10"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-md z-10 flex items-center justify-center">
+                  <div className="w-4 h-4 bg-gradient-to-br from-[#005596] to-[#d32f2f] rounded-full animate-pulse"></div>
+                </div>
               </div>
             </div>
             
@@ -697,10 +847,21 @@ export function EmployeeResourcesPage() {
             
             {/* Connector Line with Dots and Animation */}
             <div className="w-full flex justify-center mb-12">
-              <div className="h-16 w-1 bg-[#005596] relative">
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full"></div>
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full"></div>
-                <div className="absolute top-0 left-0 h-full w-full bg-[#0077cc] opacity-30 animate-pulse"></div>
+              <div className="relative h-24 w-8 flex justify-center">
+                <div className="absolute inset-0 flex justify-center items-center">
+                  <div className="h-full w-1 bg-gradient-to-b from-[#005596] to-[#d32f2f]"></div>
+                </div>
+                <div className="absolute inset-0 flex justify-center items-center opacity-70">
+                  <div className="h-full w-3 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-sm"></div>
+                </div>
+                <div className="absolute inset-0 flex justify-center items-center opacity-30">
+                  <div className="h-full w-5 bg-gradient-to-b from-[#0077cc] to-[#ff6b6b] blur-md animate-pulse"></div>
+                </div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-5 bg-[#005596] rounded-full border-2 border-white shadow-md z-10"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-5 bg-[#d32f2f] rounded-full border-2 border-white shadow-md z-10"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-md z-10 flex items-center justify-center">
+                  <div className="w-4 h-4 bg-gradient-to-br from-[#005596] to-[#d32f2f] rounded-full animate-pulse"></div>
+                </div>
               </div>
             </div>
             
@@ -778,16 +939,23 @@ export function EmployeeResourcesPage() {
       </section>
 
       {/* Support Section */}
-      <section className="bg-[#005596] text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-4">Need Help?</h2>
-          <p className="mb-6">Contact our support team for assistance with any step of the process</p>
-          <a
-            href="mailto:support@champsdoghouse.com"
-            className="inline-block bg-white text-[#d32f2f] hover:text-[#005596] px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors border-2 border-[#d32f2f]"
-          >
-            Contact Support
-          </a>
+      <section className="bg-gradient-to-r from-[#004a87] to-[#005596] text-white py-12 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="max-w-lg mx-auto bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-lg">
+            <h2 className="text-2xl font-bold mb-4">Need Help?</h2>
+            <p className="mb-6">Contact our support team for assistance with any step of the process</p>
+            <a
+              href="mailto:support@champsdoghouse.com"
+              className="inline-block bg-white text-[#d32f2f] hover:text-[#005596] px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors border-2 border-[#d32f2f] hover:shadow-lg transform hover:-translate-y-1 duration-300"
+            >
+              Contact Support
+            </a>
+          </div>
         </div>
       </section>
     </div>
