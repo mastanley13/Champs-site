@@ -1,35 +1,80 @@
-# Champs Pet Services Website
+# Champ's Dog House Website
 
-A modern React website for Champs Pet Services, built with React, TypeScript, Vite, and Tailwind CSS.
+This repository contains the code for the Champ's Dog House website, a React application built with Vite, TypeScript, and Tailwind CSS.
 
-## 🚀 Quick Start
+## Development Setup
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- npm (v6 or higher)
 
-### Installation
+- Node.js (version 20.x or later)
+- npm (version 10.x or later)
 
-1. Clone the repository
+### Starting the Development Server
+
+#### Windows
+
+Run the PowerShell script:
+
+```powershell
+.\start-dev.ps1
+```
+
+#### macOS/Linux
+
+Make the script executable and run it:
+
 ```bash
-git clone https://github.com/mastanley13/Champs-site.git
-cd Champs-site
+chmod +x start-dev.sh
+./start-dev.sh
 ```
 
-2. Install dependencies
-```bash
-npm install
+#### Manual Method
+
+If you prefer to run the commands manually:
+
+1. Install dependencies:
+   ```
+   npm install
+   ```
+
+2. Start the development server:
+   ```
+   npm run dev
+   ```
+
+3. Open your browser and navigate to:
+   ```
+   http://localhost:5173
+   ```
+
+## Project Structure
+
+- `src/` - Source code
+  - `pages/` - Page components
+  - `components/` - Reusable components
+  - `assets/` - Static assets
+
+## Build for Production
+
+```
+npm run build
 ```
 
-3. Start the development server
-```bash
-npm run dev
+## Running Production Build Locally
+
+```
+npm run preview
 ```
 
-4. Open your browser and visit:
-```
-http://localhost:5173
-```
+## Deployment
+
+The production build is automatically deployed when changes are pushed to the main branch.
+
+## Contributing
+
+1. Create a new branch for your feature
+2. Make your changes
+3. Open a pull request to merge your branch into the main branch
 
 ## 🛠️ Built With
 - React 18
@@ -136,13 +181,6 @@ src/
 - The site uses Tailwind CSS for styling. Custom styles can be added in `src/index.css`
 - Navigation is handled through React Router DOM
 - State management is available through React Query for API calls
-
-## 🤝 Contributing
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details
