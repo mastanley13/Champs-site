@@ -3,22 +3,14 @@ import { useState } from 'react';
 
 export function EmployeeResourcesPage() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
-  const [activeNavSection, setActiveNavSection] = useState<string | null>(null);
+  const [activeNavSection, setActiveNavSection] = useState<string | null>('main');
   
   const toggleSection = (section: string) => {
-    if (activeSection === section) {
-      setActiveSection(null);
-    } else {
-      setActiveSection(section);
-    }
+    setActiveSection(prev => prev === section ? null : section);
   };
   
   const toggleNavSection = (section: string) => {
-    if (activeNavSection === section) {
-      setActiveNavSection(null);
-    } else {
-      setActiveNavSection(section);
-    }
+    setActiveNavSection(prev => prev === section ? null : section);
   };
   
   return (
@@ -96,13 +88,54 @@ export function EmployeeResourcesPage() {
                 <div className="pl-0 lg:pl-10 relative">
                   {/* Dynamic Card Container - All cards visible but only active one prominent */}
                   <div className="relative min-h-[350px]">
+                    {/* Default Content - Shown when no section is selected */}
+                    <div 
+                      className={`absolute inset-0 transition-all duration-500 ${
+                        activeNavSection === null 
+                          ? 'opacity-100 z-30 transform-none' 
+                          : 'opacity-0 z-10 scale-95 pointer-events-none'
+                      }`}
+                    >
+                      <div className={`h-full overflow-y-auto bg-white rounded-xl shadow-lg p-6 transition-all duration-300 border-2 border-dashed border-[#005596] border-opacity-50`}>
+                        <div className="h-full flex flex-col justify-center items-center text-center">
+                          <div className="w-20 h-20 bg-[#e5f0f9] rounded-full flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#005596]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                          </div>
+                          <h3 className="text-xl font-bold text-[#005596] mb-3">Navigation Resources</h3>
+                          <p className="text-gray-600 mb-4 max-w-md">Select one of the navigation options on the left to view detailed information about that section.</p>
+                          <div className="grid grid-cols-3 gap-4 w-full max-w-sm">
+                            <div 
+                              className="bg-[#e5f0f9] p-3 rounded-lg text-center cursor-pointer hover:bg-[#005596] hover:text-white transition-all duration-300"
+                              onClick={() => toggleNavSection('main')}
+                            >
+                              <p className="text-sm font-medium">Main Navigation</p>
+                            </div>
+                            <div 
+                              className="bg-[#e5f0f9] p-3 rounded-lg text-center cursor-pointer hover:bg-[#005596] hover:text-white transition-all duration-300"
+                              onClick={() => toggleNavSection('portal')}
+                            >
+                              <p className="text-sm font-medium">Customer Portal</p>
+                            </div>
+                            <div 
+                              className="bg-[#e5f0f9] p-3 rounded-lg text-center cursor-pointer hover:bg-[#005596] hover:text-white transition-all duration-300"
+                              onClick={() => toggleNavSection('external')}
+                            >
+                              <p className="text-sm font-medium">External Systems</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     {/* Main Navigation Content */}
                     <div 
                       className={`absolute inset-0 transition-all duration-500 ${
                         activeNavSection === 'main' 
                           ? 'opacity-100 z-30 transform-none' 
                           : activeNavSection === null 
-                            ? 'opacity-80 z-20 scale-95' 
+                            ? 'opacity-0 z-10 scale-95 pointer-events-none' 
                             : 'opacity-30 z-10 scale-90 translate-y-4'
                       }`}
                     >
@@ -112,7 +145,7 @@ export function EmployeeResourcesPage() {
                             <Link 
                               key={item} 
                               to={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`} 
-                              className="flex items-center p-2 rounded-lg hover:bg-[#f5ebfa] transition-colors"
+                              className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors"
                             >
                               <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
                               <span className="font-medium text-[#005596] truncate">{item}</span>
@@ -128,7 +161,7 @@ export function EmployeeResourcesPage() {
                         activeNavSection === 'portal' 
                           ? 'opacity-100 z-30 transform-none' 
                           : activeNavSection === null 
-                            ? 'opacity-80 z-20 scale-95' 
+                            ? 'opacity-0 z-10 scale-95 pointer-events-none' 
                             : 'opacity-30 z-10 scale-90 translate-y-4'
                       }`}
                     >
@@ -138,7 +171,7 @@ export function EmployeeResourcesPage() {
                             <h4 className="font-bold text-[#005596] mb-3 border-b pb-2">Access Points</h4>
                             <ul className="space-y-2">
                               {['Login Page', 'Register Page', 'Portal Page'].map((item) => (
-                                <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#f5ebfa] transition-colors">
+                                <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors">
                                   <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
                                   <span className="font-medium text-[#005596] text-sm">{item}</span>
                                 </li>
@@ -149,7 +182,7 @@ export function EmployeeResourcesPage() {
                             <h4 className="font-bold text-[#005596] mb-3 border-b pb-2">Features</h4>
                             <ul className="space-y-2">
                               {['Welcome Banner', 'Pet Cards - Actions', 'Vaccination Information'].map((item) => (
-                                <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#f5ebfa] transition-colors">
+                                <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors">
                                   <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
                                   <span className="font-medium text-[#005596] text-sm">{item}</span>
                                 </li>
@@ -166,7 +199,7 @@ export function EmployeeResourcesPage() {
                         activeNavSection === 'external' 
                           ? 'opacity-100 z-30 transform-none' 
                           : activeNavSection === null 
-                            ? 'opacity-80 z-20 scale-95' 
+                            ? 'opacity-0 z-10 scale-95 pointer-events-none' 
                             : 'opacity-30 z-10 scale-90 translate-y-4'
                       }`}
                     >
@@ -175,7 +208,17 @@ export function EmployeeResourcesPage() {
                           <h4 className="font-bold text-[#005596] mb-3 border-b pb-2">Integrations</h4>
                           <ul className="space-y-2">
                             {['External Shopify Store', 'Form Submission System'].map((item) => (
-                              <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#f5ebfa] transition-colors">
+                              <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors">
+                                <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
+                                <span className="font-medium text-[#005596] text-sm whitespace-normal break-words">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          
+                          <h4 className="font-bold text-[#005596] mb-3 mt-5 border-b pb-2">Additional Resources</h4>
+                          <ul className="space-y-2">
+                            {['Welcome Banner', 'Pet Cards - Actions'].map((item) => (
+                              <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors">
                                 <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
                                 <span className="font-medium text-[#005596] text-sm whitespace-normal break-words">{item}</span>
                               </li>
