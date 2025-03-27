@@ -51,55 +51,34 @@ export function EmployeeResourcesPage() {
             {/* Redesigned Navigation Layout - Side by Side with Content */}
             <div className="flex flex-col lg:flex-row justify-center gap-6 mb-12">
               {/* Navigation Buttons - Vertical Stack on Left */}
-              <div className="flex flex-row lg:flex-col justify-center gap-4 lg:gap-7 lg:w-1/4">
+              <div className="flex flex-row lg:flex-col justify-center gap-4 lg:w-1/4">
                 {/* Main Navigation */}
                 <div 
-                  className={`relative z-10 ${activeNavSection === 'main' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'main' ? 'border-[#d32f2f]' : 'border-transparent'}`}
+                  className={`relative z-10 ${activeNavSection === 'main' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'main' ? 'border-[#d32f2f]' : 'border-transparent'}`}
                   onClick={() => toggleNavSection('main')}
                 >
                   <h3 className={`text-xl font-bold ${activeNavSection === 'main' ? 'text-white' : 'text-[#005596]'}`}>Main Navigation</h3>
-                  {activeNavSection === 'main' && (
-                    <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#d32f2f] rounded-full border-2 border-white flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  )}
                 </div>
                 
                 {/* Customer Portal */}
                 <div 
-                  className={`relative z-10 ${activeNavSection === 'portal' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'portal' ? 'border-[#d32f2f]' : 'border-transparent'} my-2 lg:my-0`}
+                  className={`relative z-10 ${activeNavSection === 'portal' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'portal' ? 'border-[#d32f2f]' : 'border-transparent'}`}
                   onClick={() => toggleNavSection('portal')}
                 >
                   <h3 className={`text-xl font-bold ${activeNavSection === 'portal' ? 'text-white' : 'text-[#005596]'}`}>Customer Portal</h3>
-                  {activeNavSection === 'portal' && (
-                    <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#d32f2f] rounded-full border-2 border-white flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  )}
                 </div>
                 
                 {/* External Systems */}
                 <div 
-                  className={`relative z-10 ${activeNavSection === 'external' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'external' ? 'border-[#d32f2f]' : 'border-transparent'}`}
+                  className={`relative z-10 ${activeNavSection === 'external' ? 'bg-[#005596] text-white translate-x-4 lg:translate-x-6 translate-y-0' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-full text-center cursor-pointer transform hover:translate-x-2 lg:hover:translate-x-4 border-2 ${activeNavSection === 'external' ? 'border-[#d32f2f]' : 'border-transparent'}`}
                   onClick={() => toggleNavSection('external')}
                 >
                   <h3 className={`text-xl font-bold ${activeNavSection === 'external' ? 'text-white' : 'text-[#005596]'}`}>External Systems</h3>
-                  {activeNavSection === 'external' && (
-                    <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#d32f2f] rounded-full border-2 border-white flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  )}
                 </div>
               </div>
 
               {/* Content Area - Right Side Panel */}
-              <div className="lg:w-3/4 relative mt-4 lg:mt-0">
+              <div className="lg:w-3/4 relative">
                 {/* Decorative Connector Line - Vertical for desktop */}
                 <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-1 bg-[#005596]">
                   <div className={`absolute top-0 left-0 w-full h-full ${activeNavSection ? 'animate-pulse' : ''} bg-[#0077cc] opacity-30`}></div>
@@ -160,22 +139,15 @@ export function EmployeeResourcesPage() {
                             : 'opacity-30 z-10 scale-90 translate-y-4'
                       }`}
                     >
-                      <div className={`h-full overflow-y-auto bg-white ${activeNavSection === 'main' ? 'bg-[#b8d8f2]' : ''} rounded-xl shadow-lg p-6 lg:p-8 transition-all duration-300 border-2 ${activeNavSection === 'main' ? 'border-[#00416e]' : 'border-transparent'} relative`}>
-                        {activeNavSection === 'main' && (
-                          <div className="absolute inset-0 opacity-10">
-                            <div className="absolute inset-0" style={{
-                              backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23005596' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")`,
-                            }}></div>
-                          </div>
-                        )}
-                        <nav className="space-y-5 relative z-10">
+                      <div className={`h-full overflow-y-auto bg-white ${activeNavSection === 'main' ? 'bg-[#b8d8f2]' : ''} rounded-xl shadow-lg p-6 transition-all duration-300 border-2 ${activeNavSection === 'main' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                        <nav className="space-y-3">
                           {['Home', 'Daycare', 'Boarding', 'Grooming', 'Training', 'Supply', 'Contact', 'About Us'].map((item) => (
                             <Link 
                               key={item} 
                               to={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`} 
-                              className="flex items-center p-3 rounded-lg hover:bg-[#e5f0f9] transition-all duration-300 hover:translate-x-1 hover:shadow-md"
+                              className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors"
                             >
-                              <span className="w-3 h-3 bg-[#005596] rounded-full mr-4 flex-shrink-0"></span>
+                              <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
                               <span className="font-medium text-[#005596] truncate">{item}</span>
                             </Link>
                           ))}
@@ -193,32 +165,25 @@ export function EmployeeResourcesPage() {
                             : 'opacity-30 z-10 scale-90 translate-y-4'
                       }`}
                     >
-                      <div className={`h-full overflow-y-auto bg-white ${activeNavSection === 'portal' ? 'bg-[#b8d8f2]' : ''} rounded-xl shadow-lg p-6 lg:p-8 transition-all duration-300 border-2 ${activeNavSection === 'portal' ? 'border-[#00416e]' : 'border-transparent'} relative`}>
-                        {activeNavSection === 'portal' && (
-                          <div className="absolute inset-0 opacity-10">
-                            <div className="absolute inset-0" style={{
-                              backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23005596' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")`,
-                            }}></div>
-                          </div>
-                        )}
-                        <div className="h-full flex flex-col relative z-10">
-                          <div className="mb-6 flex-1">
-                            <h4 className="font-bold text-[#005596] mb-4 border-b pb-2">Access Points</h4>
-                            <ul className="space-y-4">
+                      <div className={`h-full overflow-y-auto bg-white ${activeNavSection === 'portal' ? 'bg-[#b8d8f2]' : ''} rounded-xl shadow-lg p-6 transition-all duration-300 border-2 ${activeNavSection === 'portal' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                        <div className="h-full flex flex-col">
+                          <div className="mb-4 flex-1">
+                            <h4 className="font-bold text-[#005596] mb-3 border-b pb-2">Access Points</h4>
+                            <ul className="space-y-2">
                               {['Login Page', 'Register Page', 'Portal Page'].map((item) => (
-                                <li key={item} className="flex items-center p-3 rounded-lg hover:bg-[#e5f0f9] transition-all duration-300 hover:translate-x-1 hover:shadow-md">
-                                  <span className="w-3 h-3 bg-[#005596] rounded-full mr-4 flex-shrink-0"></span>
+                                <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors">
+                                  <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
                                   <span className="font-medium text-[#005596] text-sm">{item}</span>
                                 </li>
                               ))}
                             </ul>
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-[#005596] mb-4 border-b pb-2">Features</h4>
-                            <ul className="space-y-4">
+                            <h4 className="font-bold text-[#005596] mb-3 border-b pb-2">Features</h4>
+                            <ul className="space-y-2">
                               {['Welcome Banner', 'Pet Cards - Actions', 'Vaccination Information'].map((item) => (
-                                <li key={item} className="flex items-center p-3 rounded-lg hover:bg-[#e5f0f9] transition-all duration-300 hover:translate-x-1 hover:shadow-md">
-                                  <span className="w-3 h-3 bg-[#005596] rounded-full mr-4 flex-shrink-0"></span>
+                                <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors">
+                                  <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
                                   <span className="font-medium text-[#005596] text-sm">{item}</span>
                                 </li>
                               ))}
@@ -238,30 +203,23 @@ export function EmployeeResourcesPage() {
                             : 'opacity-30 z-10 scale-90 translate-y-4'
                       }`}
                     >
-                      <div className={`h-full overflow-y-auto bg-white ${activeNavSection === 'external' ? 'bg-[#b8d8f2]' : ''} rounded-xl shadow-lg p-6 lg:p-8 transition-all duration-300 border-2 ${activeNavSection === 'external' ? 'border-[#00416e]' : 'border-transparent'} relative`}>
-                        {activeNavSection === 'external' && (
-                          <div className="absolute inset-0 opacity-10">
-                            <div className="absolute inset-0" style={{
-                              backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23005596' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")`,
-                            }}></div>
-                          </div>
-                        )}
-                        <div className="h-full flex flex-col justify-center relative z-10">
-                          <h4 className="font-bold text-[#005596] mb-4 border-b pb-2">Integrations</h4>
-                          <ul className="space-y-4">
+                      <div className={`h-full overflow-y-auto bg-white ${activeNavSection === 'external' ? 'bg-[#b8d8f2]' : ''} rounded-xl shadow-lg p-6 transition-all duration-300 border-2 ${activeNavSection === 'external' ? 'border-[#00416e]' : 'border-transparent'}`}>
+                        <div className="h-full flex flex-col justify-center">
+                          <h4 className="font-bold text-[#005596] mb-3 border-b pb-2">Integrations</h4>
+                          <ul className="space-y-2">
                             {['External Shopify Store', 'Form Submission System'].map((item) => (
-                              <li key={item} className="flex items-center p-3 rounded-lg hover:bg-[#e5f0f9] transition-all duration-300 hover:translate-x-1 hover:shadow-md">
-                                <span className="w-3 h-3 bg-[#005596] rounded-full mr-4 flex-shrink-0"></span>
+                              <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors">
+                                <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
                                 <span className="font-medium text-[#005596] text-sm whitespace-normal break-words">{item}</span>
                               </li>
                             ))}
                           </ul>
                           
-                          <h4 className="font-bold text-[#005596] mb-4 mt-6 border-b pb-2">Additional Resources</h4>
-                          <ul className="space-y-4">
+                          <h4 className="font-bold text-[#005596] mb-3 mt-5 border-b pb-2">Additional Resources</h4>
+                          <ul className="space-y-2">
                             {['Welcome Banner', 'Pet Cards - Actions'].map((item) => (
-                              <li key={item} className="flex items-center p-3 rounded-lg hover:bg-[#e5f0f9] transition-all duration-300 hover:translate-x-1 hover:shadow-md">
-                                <span className="w-3 h-3 bg-[#005596] rounded-full mr-4 flex-shrink-0"></span>
+                              <li key={item} className="flex items-center p-2 rounded-lg hover:bg-[#e5f0f9] transition-colors">
+                                <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 flex-shrink-0"></span>
                                 <span className="font-medium text-[#005596] text-sm whitespace-normal break-words">{item}</span>
                               </li>
                             ))}
@@ -368,7 +326,7 @@ export function EmployeeResourcesPage() {
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#d32f2f] rounded-full border-2 border-white shadow-md z-10"></div>
               </div>
             </div>
-            
+
             {/* API Services Row */}
             <div className="flex flex-wrap justify-center gap-6 mb-12">
               <div className={`relative z-10 ${activeSection === 'boarding' ? 'bg-[#b8d8f2] scale-105' : 'bg-[#e5f0f9]'} rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 w-64 text-center border ${activeSection === 'boarding' ? 'border-[#00416e]' : 'border-transparent'}`}>
@@ -714,7 +672,7 @@ export function EmployeeResourcesPage() {
                 </div>
               </div>
             </div>
-            
+
             {/* Connector Line with Dots and Animation */}
             <div className="w-full flex justify-center mb-12">
               <div className="relative h-24 w-8 flex justify-center">
@@ -762,8 +720,8 @@ export function EmployeeResourcesPage() {
                           <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 mt-2"></span>
                           <span>Communication preferences</span>
                         </li>
-                      </ul>
-                    </div>
+                    </ul>
+                  </div>
                     <div className="bg-white bg-opacity-50 p-4 rounded-lg shadow-sm">
                       <h4 className="font-bold text-[#005596] mb-3 border-b border-[#005596] pb-2">Pet Information</h4>
                       <ul className="space-y-2">
@@ -783,7 +741,7 @@ export function EmployeeResourcesPage() {
                           <span className="w-2 h-2 bg-[#005596] rounded-full mr-3 mt-2"></span>
                           <span>Diet requirements and allergies</span>
                         </li>
-                      </ul>
+                    </ul>
                     </div>
                   </div>
                 </div>
@@ -794,7 +752,7 @@ export function EmployeeResourcesPage() {
                 </div>
               </div>
             </div>
-            
+
             {/* Connector Line with Dots and Animation */}
             <div className="w-full flex justify-center mb-12">
               <div className="relative h-24 w-8 flex justify-center">
@@ -968,14 +926,14 @@ export function EmployeeResourcesPage() {
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-lg mx-auto bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-lg">
-            <h2 className="text-2xl font-bold mb-4">Need Help?</h2>
-            <p className="mb-6">Contact our support team for assistance with any step of the process</p>
-            <a
-              href="mailto:support@champsdoghouse.com"
+          <h2 className="text-2xl font-bold mb-4">Need Help?</h2>
+          <p className="mb-6">Contact our support team for assistance with any step of the process</p>
+          <a
+            href="mailto:support@champsdoghouse.com"
               className="inline-block bg-white text-[#d32f2f] hover:text-[#005596] px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors border-2 border-[#d32f2f] hover:shadow-lg transform hover:-translate-y-1 duration-300"
-            >
-              Contact Support
-            </a>
+          >
+            Contact Support
+          </a>
           </div>
         </div>
       </section>
