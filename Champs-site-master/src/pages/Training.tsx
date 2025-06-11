@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../config/routes';
-import { PortalModal } from '../components/PortalModal';
 
 // Import training icons
 const trainingIcons = {
@@ -21,8 +19,6 @@ const trainingIcons = {
 };
 
 export function TrainingPage() {
-  const [isPortalModalOpen, setIsPortalModalOpen] = useState(false);
-  
   const trainingTopics = [
     { id: 1, name: "Nipping", iconUrl: trainingIcons.nipping },
     { id: 2, name: "Jumping", iconUrl: trainingIcons.dog },
@@ -92,23 +88,25 @@ export function TrainingPage() {
         {/* Content */}
         <div className="relative z-10 container mx-auto px-6 md:px-12">
           <div className="max-w-4xl md:ml-[-100px]">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-white leading-tight">
-              Professional
+            <h1 className="hero-heading text-6xl md:text-7xl lg:text-8xl mb-6 text-white leading-tight">
+              CHAMPION
               <br />
-              <span className="text-[#8E9BDB] block mt-2">Dog Training</span>
+              <span className="inline">
+                <span className="text-[#E63946]">PUPPY</span> TRAINING
+              </span>
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 max-w-2xl leading-relaxed">
-              Transform your dog into a well-behaved companion with our expert training programs
+              Achieve lasting results with our professional trainers and technology-driven puppy training—designed for busy people who want real progress, fast.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <button
-                onClick={() => setIsPortalModalOpen(true)}
-                className="inline-block bg-white text-[#005596] px-8 py-4 rounded-full 
-                         font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
-                         shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              <a
+                href={ROUTES.CUSTOMER_PORTAL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#E63946] text-white text-lg font-bold rounded-lg hover:bg-[#E63946]/90 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Start Training
-              </button>
+              </a>
               <a 
                 href="#training-programs"
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
@@ -123,7 +121,9 @@ export function TrainingPage() {
                 View Programs
               </a>
               <a 
-                href="tel:877-55-CHAMP"
+                href="https://api.leadconnectorhq.com/widget/form/lU8nqAIL5Wmyhfd9ba34"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
                          transition-all duration-300"
               >
@@ -131,7 +131,7 @@ export function TrainingPage() {
                              flex items-center justify-center mr-4
                              group-hover:border-[#8E9BDB] group-hover:bg-white/10
                              transition-all duration-300">
-                  📞
+                  📝
                 </span>
                 Contact Us
               </a>
@@ -195,144 +195,66 @@ export function TrainingPage() {
                 key={program.title}
                 className={`bg-white rounded-2xl shadow-lg p-8 ${
                   program.popular ? 'border-2 border-blue-300 relative' : ''
-                }`}
-              >
+                }`}>
                 {program.popular && (
                   <div className="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
                     Most Popular
                   </div>
                 )}
-                <h3 className="text-2xl font-bold mb-2 text-blue-900">{program.title}</h3>
-                <p className="text-blue-600 mb-6">{program.highlight}</p>
-                <ul className="space-y-3 mb-8">
-                  {program.features.map((feature) => (
-                    <li key={feature} className="flex items-start">
-                      <span className="text-green-500 mr-2">✓</span>
-                      <span className="text-gray-600">{feature}</span>
-                    </li>
+                <h3 className="font-semibold text-blue-900">{program.title}</h3>
+                <p className="text-base text-gray-600">{program.highlight}</p>
+                <ul className="list-disc pl-6 mt-4">
+                  {program.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
                   ))}
-                  <li className="flex items-start font-bold text-blue-900">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Guaranteed RESULTS
-                  </li>
                 </ul>
-                <button
-                  onClick={() => setIsPortalModalOpen(true)}
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold"
-                >
-                  Learn More
-                  <span className="ml-2">→</span>
-                </button>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About Section - Moved here */}
+      {/* Why Choose Us Section */}
       <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h2 className="text-4xl font-bold mb-8 text-blue-900">Why Choose Us?</h2>
-          <p className="text-lg text-gray-600 mb-8">
-            I've been training puppies in busy homes like yours for over 20 years. Our extensive, 
-            customer service oriented program has been helping families stop unwanted behaviors while 
-            channeling their puppy's natural drives in a useful manner creating rapid results that last a lifetime.
-          </p>
-          <div className="bg-blue-50 rounded-2xl p-8 mt-12">
-            <h3 className="text-2xl font-bold mb-4 text-blue-900">Ongoing Support</h3>
-            <p className="text-gray-600">
-              Our experienced trainers are available through our live text feature to help with any 
-              questions you may have during your training journey.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Video Section */}
-      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-blue-900">Watch Our Training in Action</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl">
-              <iframe
-                src="https://player.vimeo.com/video/985145684?h=1500f2b588&autoplay=0"
-                className="absolute top-0 left-0 w-full h-full"
-                frameBorder="0"
-                allow="fullscreen; picture-in-picture"
-                allowFullScreen
-                title="Champion Dog Training Video"
-              ></iframe>
+          <div className="max-w-5xl mx-auto space-y-8">
+            {/* Why Choose Us Card */}
+            <div className="bg-white rounded-xl p-8 shadow-md transform hover:scale-[1.02] transition-transform duration-300">
+              <div className="flex flex-col items-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-[#005596]/10 flex items-center justify-center mb-4">
+                  <img 
+                    src={trainingIcons.behavioralModification}
+                    alt="Experience icon"
+                    className="w-10 h-10 object-contain"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-[#005596] text-center">WHY CHOOSE US</h3>
+              </div>
+              <p className="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
+                With over 20 years of experience training puppies in busy homes like yours, our customer-focused program helps families eliminate unwanted behaviors while channeling their puppy's natural instincts in productive ways, resulting in lasting, rapid transformations.
+              </p>
+            </div>
+
+            {/* Ongoing Support Card */}
+            <div className="bg-white rounded-xl p-8 shadow-md transform hover:scale-[1.02] transition-transform duration-300">
+              <div className="flex flex-col items-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-[#E63946]/10 flex items-center justify-center mb-4">
+                  <img 
+                    src={trainingIcons.search}
+                    alt="Support icon"
+                    className="w-10 h-10 object-contain"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-[#005596] text-center">ONGOING SUPPORT</h3>
+              </div>
+              <p className="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
+                Our experienced trainers are just a text away, ready to assist with any questions you have throughout your training journey
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Form Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-12 text-center text-blue-900">Get Your Training Program Details</h2>
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div style={{ height: '1538px' }}>
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/CWqtcgWJpLL4NB0OOleg"
-                style={{ 
-                  width: '100%',
-                  height: '100%',
-                  border: 'none',
-                  borderRadius: '3px'
-                }}
-                id="inline-CWqtcgWJpLL4NB0OOleg" 
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Board&Train"
-                data-height="1538"
-                data-layout-iframe-id="inline-CWqtcgWJpLL4NB0OOleg"
-                data-form-id="CWqtcgWJpLL4NB0OOleg"
-                title="Board&Train"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Add the script tag */}
-      <script src="https://link.msgsndr.com/js/form_embed.js" async />
-
-      {/* CTA Section */}
-      <section className="py-32 bg-[#005596] relative overflow-hidden">
-        <div className="absolute inset-0">
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-5xl font-bold mb-8 text-white">
-              Get Started Today
-            </h2>
-            <p className="text-xl text-blue-200 mb-12 leading-relaxed">
-              Ready to transform your dog's behavior? Click below to access our customer
-              portal where you'll receive personalized program details and pricing tailored to
-              your pet's needs.
-            </p>
-            <button
-              onClick={() => setIsPortalModalOpen(true)}
-              className="inline-block bg-white text-[#005596] px-12 py-4 rounded-lg hover:bg-[#8E9BDB] hover:text-white
-                       transition-colors font-semibold text-lg shadow-lg hover:shadow-xl"
-            >
-              Get Program Details & Pricing
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Portal Modal */}
-      <PortalModal 
-        isOpen={isPortalModalOpen} 
-        onClose={() => setIsPortalModalOpen(false)} 
-      />
     </div>
   );
-} 
+}

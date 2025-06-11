@@ -1,0 +1,215 @@
+<style>
+:root {
+  --primary-color: #1a5f7a;
+  --secondary-color: #2989b4;
+  --accent-color: #37a6d6;
+  --background-light: #f8f9fa;
+  --text-dark: #2c3e50;
+  --text-light: #ffffff;
+}
+
+.top-bar {
+  background: var(--primary-color);
+  color: var(--text-light);
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-bar {
+  background: var(--text-light);
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.hero {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hero-image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  color: var(--text-light);
+}
+
+.subtitle {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: var(--text-light);
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: var(--text-light);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+</style>
+
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="container">
+    <p class="tagline">Love them like family. Care for them like family.™</p>
+    <div class="top-right">
+      <div class="contact-info">
+        <a href="tel:+1234567890" class="phone-link">
+          <i class="fas fa-phone"></i> (123) 456-7890
+        </a>
+        <a href="mailto:info@champspetservices.com" class="email-link">
+          <i class="fas fa-envelope"></i> info@champspetservices.com
+        </a>
+      </div>
+      <a href="#find-location" class="location-link">
+        <i class="fas fa-map-marker-alt"></i> Find a Location
+      </a>
+      <a href="#newsletter" class="join-link">Join Email List</a>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation Bar -->
+<nav class="nav-bar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="logo">
+      <a href="/">
+        <img src="https://storage.googleapis.com/msgsndr/mGAU84INytusQO0Fo5P9/media/6777d3d710dd0d200c8edff1.png" alt="Champ's Pet Services Logo" width="180" height="60">
+      </a>
+    </div>
+    <ul class="nav-menu">
+      <li class="dropdown">
+        <a href="#services">Our Services</a>
+        <div class="dropdown-content">
+          <a href="#daycare">Daycare</a>
+          <a href="#boarding">Boarding</a>
+          <a href="#grooming">Grooming</a>
+          <a href="#training">Training</a>
+        </div>
+      </li>
+      <li><a href="#supply">Pet Supplies</a></li>
+      <li><a href="#about">Why Choose Champ's?</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="search-btn"><i class="fas fa-search"></i></button>
+      <button class="location-btn"><i class="fas fa-map-marker-alt"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="subtitle">THE CHAMP'S DIFFERENCE</span>
+      <h1>Professional Pet Care<br>Inspired by Love</h1>
+      <a href="#services" class="cta-button">Explore Services</a>
+    </div>
+  </div>
+</section>
+  
+  <!-- Services Grid -->
+  <section class="services">
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-paw"></i>
+        <h2>Daycare</h2>
+        <p>Safe and fun daily care for your furry friend</p>
+        <a href="#daycare" class="service-link">Learn More</a>
+      </div>
+      
+      <div class="service-card">
+        <i class="fas fa-home"></i>
+        <h2>Boarding</h2>
+        <p>Comfortable overnight stays for pets</p>
+        <a href="#boarding" class="service-link">Learn More</a>
+      </div>
+      
+      <div class="service-card">
+        <i class="fas fa-cut"></i>
+        <h2>Grooming</h2>
+        <p>Professional grooming services</p>
+        <a href="#grooming" class="service-link">Learn More</a>
+      </div>
+      
+      <div class="service-card">
+        <i class="fas fa-certificate"></i>
+        <h2>Training</h2>
+        <p>Expert pet training programs</p>
+        <a href="#training" class="service-link">Learn More</a>
+      </div>
+      
+      <div class="service-card">
+        <i class="fas fa-shopping-bag"></i>
+        <h2>Supply</h2>
+        <p>Quality pet supplies and accessories</p>
+        <a href="#supply" class="service-link">Learn More</a>
+      </div>
+    </div>
+  </section>
+  
+  <div class="top-bar">
+    <div class="contact-info">
+      <a href="tel:+1234567890" class="phone-link">
+        <i class="fas fa-phone"></i> (123) 456-7890
+      </a>
+      <a href="mailto:info@champspetservices.com" class="email-link">
+        <i class="fas fa-envelope"></i> info@champspetservices.com
+      </a>
+    </div>
+  </div> 
