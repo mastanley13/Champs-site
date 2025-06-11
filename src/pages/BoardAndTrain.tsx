@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../config/routes';
+import { PortalModal } from '../components/PortalModal';
 
 export function BoardAndTrainPage() {
+  const [isPortalModalOpen, setIsPortalModalOpen] = useState(false);
+  
   const features = [
     {
       title: "1:1 Attention",
@@ -84,16 +88,14 @@ export function BoardAndTrainPage() {
               Get faster results with our immersive training program where your puppy learns in a controlled environment
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <a
-                href={ROUTES.CUSTOMER_PORTAL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setIsPortalModalOpen(true)}
                 className="inline-block bg-white text-[#005596] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Get Pricing
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -240,16 +242,14 @@ export function BoardAndTrainPage() {
             Get started with our Board & Train program and see the difference professional training can make.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a
-              href={ROUTES.CUSTOMER_PORTAL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setIsPortalModalOpen(true)}
               className="inline-flex items-center bg-white text-[#005596] px-8 py-4 rounded-full 
                        font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                        shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Get Program Details & Pricing
-            </a>
+            </button>
             <a 
               href="tel:877-55-CHAMP"
               className="inline-flex items-center text-white border-2 border-white px-8 py-4 rounded-full
@@ -260,6 +260,12 @@ export function BoardAndTrainPage() {
           </div>
         </div>
       </section>
+
+      {/* Portal Modal */}
+      <PortalModal 
+        isOpen={isPortalModalOpen} 
+        onClose={() => setIsPortalModalOpen(false)} 
+      />
     </div>
   );
 } 

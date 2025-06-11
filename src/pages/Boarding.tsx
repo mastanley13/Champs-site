@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../config/routes';
 import { useNavigate } from 'react-router-dom';
+import { PortalModal } from '../components/PortalModal';
 
 export function BoardingPage() {
+  const [isPortalModalOpen, setIsPortalModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleFaqClick = (e: React.MouseEvent) => {
@@ -91,16 +94,14 @@ export function BoardingPage() {
               and receive the care they deserve
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <a
-                href={ROUTES.CUSTOMER_PORTAL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setIsPortalModalOpen(true)}
                 className="inline-block bg-white text-[#005596] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Book Your Stay
-              </a>
+              </button>
               <Link 
                 to="/daycare#faq"
                 onClick={handleFaqClick}
@@ -281,22 +282,26 @@ export function BoardingPage() {
           <p className="text-xl mb-12 max-w-2xl mx-auto">
             Give your furry friend the home away from home they deserve. Book now to secure their spot.
           </p>
-          <a
-            href={ROUTES.CUSTOMER_PORTAL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => setIsPortalModalOpen(true)}
             className="inline-flex items-center bg-white text-[#005596] px-8 py-4 rounded-full 
                      font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                      shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             Book Now
             <span className="ml-2">→</span>
-          </a>
+          </button>
           <p className="mt-8 text-lg">
             Questions? Call us at <span className="font-semibold">(888) 856-0012</span>
           </p>
         </div>
       </section>
+
+      {/* Portal Modal */}
+      <PortalModal 
+        isOpen={isPortalModalOpen} 
+        onClose={() => setIsPortalModalOpen(false)} 
+      />
     </div>
   );
 } 

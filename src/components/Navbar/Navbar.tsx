@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../config/routes';
 import logo from '../../assets/CDP_White-01.png';
+import { PortalModal } from '../PortalModal';
 
 interface DropdownItem {
   label: string;
@@ -27,6 +28,7 @@ export function Navbar() {
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
+  const [isPortalModalOpen, setIsPortalModalOpen] = useState(false);
   const location = useLocation();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -168,23 +170,23 @@ export function Navbar() {
 
             {/* Customer Login Button */}
             <div className="ml-8">
-              <a
-                href="https://champs-portal-0ccc144e4175.herokuapp.com/login"
+              <button
+                onClick={() => setIsPortalModalOpen(true)}
                 className="bg-[#E63946] text-white px-6 py-2 rounded-full hover:bg-red-600 transition-colors font-semibold whitespace-nowrap"
               >
                 Customer Login
-              </a>
+              </button>
             </div>
           </div>
 
           {/* Mobile Menu Button and Login */}
           <div className="lg:hidden flex items-center space-x-4">
-            <a
-              href="https://champs-portal-0ccc144e4175.herokuapp.com/login"
+            <button
+              onClick={() => setIsPortalModalOpen(true)}
               className="bg-[#E63946] text-white px-4 py-2 rounded-full hover:bg-red-600 transition-colors font-semibold"
             >
               Login
-            </a>
+            </button>
             <button
               ref={mobileButtonRef}
               className="p-2 rounded-lg hover:bg-[#004d8a] transition-colors z-50"
@@ -220,13 +222,15 @@ export function Navbar() {
       >
         <div className="p-6 space-y-6">
           {/* Customer Login at top of mobile menu */}
-          <Link
-            to={ROUTES.CUSTOMER_PORTAL}
+          <button
+            onClick={() => {
+              setIsPortalModalOpen(true);
+              setIsMobileMenuOpen(false);
+            }}
             className="block w-full bg-[#E63946] text-white px-4 py-2 rounded-full text-center hover:bg-red-600 transition-colors font-semibold"
-            onClick={() => setIsMobileMenuOpen(false)}
           >
             Customer Login
-          </Link>
+          </button>
 
           {navigationItems.map((item) => (
             <Link
@@ -283,6 +287,12 @@ export function Navbar() {
 
       {/* Gradient Line */}
       <div className="absolute bottom-0 left-[100px] right-[100px] h-[4px] bg-gradient-to-r from-transparent via-[#E63946] to-transparent"></div>
+
+      {/* Portal Modal */}
+      <PortalModal 
+        isOpen={isPortalModalOpen} 
+        onClose={() => setIsPortalModalOpen(false)} 
+      />
     </nav>
   );
 }

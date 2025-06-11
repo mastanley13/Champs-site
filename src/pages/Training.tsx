@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../config/routes';
+import { PortalModal } from '../components/PortalModal';
 
 // Import training icons
 const trainingIcons = {
@@ -15,6 +17,8 @@ const trainingIcons = {
 };
 
 export function TrainingPage() {
+  const [isPortalModalOpen, setIsPortalModalOpen] = useState(false);
+  
   const trainingTopics = [
     { id: 1, name: "Nipping", iconUrl: trainingIcons.nipping },
     { id: 2, name: "Jumping", iconUrl: trainingIcons.dog },
@@ -91,16 +95,14 @@ export function TrainingPage() {
               Transform your dog into a well-behaved companion with our expert training programs
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <a
-                href={ROUTES.CUSTOMER_PORTAL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setIsPortalModalOpen(true)}
                 className="inline-block bg-white text-[#005596] px-8 py-4 rounded-full 
                          font-semibold hover:bg-[#8E9BDB] hover:text-white transition-all duration-300
                          shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Start Training
-              </a>
+              </button>
               <a 
                 href="#training-programs"
                 className="group inline-flex items-center text-white hover:text-[#8E9BDB] 
@@ -208,15 +210,13 @@ export function TrainingPage() {
                     Guaranteed RESULTS
                   </li>
                 </ul>
-                <a
-                  href={import.meta.env.VITE_CUSTOMER_PORTAL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => setIsPortalModalOpen(true)}
                   className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold"
                 >
                   Learn More
                   <span className="ml-2">→</span>
-                </a>
+                </button>
               </div>
             ))}
           </div>
@@ -311,18 +311,22 @@ export function TrainingPage() {
               portal where you'll receive personalized program details and pricing tailored to
               your pet's needs.
             </p>
-            <a
-              href={ROUTES.CUSTOMER_PORTAL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setIsPortalModalOpen(true)}
               className="inline-block bg-white text-[#005596] px-12 py-4 rounded-lg hover:bg-[#8E9BDB] hover:text-white
                        transition-colors font-semibold text-lg shadow-lg hover:shadow-xl"
             >
               Get Program Details & Pricing
-            </a>
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Portal Modal */}
+      <PortalModal 
+        isOpen={isPortalModalOpen} 
+        onClose={() => setIsPortalModalOpen(false)} 
+      />
     </div>
   );
 } 
