@@ -5,8 +5,8 @@ A modern React website for Champs Pet Services, built with React, TypeScript, Vi
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- npm (v6 or higher)
+- Node.js 20.x (matches the Vercel deployment runtime)
+- npm 10.x
 
 ### Installation
 
@@ -123,6 +123,30 @@ src/
 - `npm run build` - Build for production
 - `npm run lint` - Run ESLint
 - `npm run preview` - Preview production build locally
+
+## ☁️ Deploying to Vercel
+
+The project ships with Vercel configuration so you can deploy the static Vite build without any manual setup. To deploy:
+
+1. [Install the Vercel CLI](https://vercel.com/docs/cli) and authenticate:
+   ```bash
+   npm install -g vercel
+   vercel login
+   ```
+2. From the project root, run the deploy command. The first run will prompt for the scope and project name—accept the defaults unless you need something different.
+   ```bash
+   vercel
+   ```
+3. For production deploys, use:
+   ```bash
+   vercel --prod
+   ```
+
+### How the deployment works
+- `vercel.json` pins the build command (`npm run build`), output directory (`dist`), and Node.js framework detection (`vite`).
+- A SPA-friendly rewrite rule routes traffic through `index.html`, ensuring React Router handles client-side navigation.
+- `.vercelignore` keeps development-only artifacts (like `node_modules` and editor settings) out of the deployment bundle, reducing upload time and avoiding stale files.
+- The `package.json` `engines` field ensures the build runs on Node.js 20 and npm 10 locally and in the Vercel environment.
 
 ## 🌐 Features
 - Modern, responsive design
